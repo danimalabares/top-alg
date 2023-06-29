@@ -82,7 +82,8 @@
 	\part{Homología}
 	\chapter{Álgebra Homológica}
 	\section{Conceptos básicos}
-	En este capítulo $R$ denotará un anillo asociativo con unidad (no necesariamente conmutativo). Normalmente pensaremos que es alguno de los siguientes: $\Z, \Q, \R$.\par
+	En este capítulo $R$ denotará un anillo asociativo con unidad (no necesariamente conmutativo). Normalmente pensaremos que es alguno de los siguientes: $\Z, \Q, \R$.
+	
 	Recordemos que un $R$-módulo es básicamente un espacio vectorial pero los escalares están $R$.
 	\begin{defn}
 		Un \textbf{$R$-complejo de cadenas} es una sucesión de $R$-módulos y homomorfismos
@@ -206,8 +207,7 @@
 			\ker\partial_1\arrow{r}{\phi''}&\ker\partial_2\arrow{r}{\phi''}&\ker\partial_3\arrow{r}{\delta_*}&Z_1/\img\partial_1\arrow{r}{\bar\phi}&Z_2/\img\partial_2\arrow{r}{\bar\psi}&Z_3/\img\partial_3
 		\end{tikzcd}\]
 		es exacta, donde $\phi''$ y $\psi''$ son las restricciones de $\phi'$ y $\psi'$, y $\bar\phi$ y $\bar\psi$ son homomorfismos inducidos por $\phi$ y $\psi$. ¿Dónde está la serpiente?
-		
-		%Este diagrama fue tomado de https://tex.stackexchange.com/questions/3892/how-do-you-draw-the-snake-arrow-for-the-connecting-homomorphism-in-the-snake-l
+	
 		
 		\[\begin{tikzpicture}
 			\matrix[matrix of math nodes,column sep={60pt,between origins},row
@@ -246,12 +246,13 @@
 			{\(\partial_*\)} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
 			($(02.west)+(-.5,0)$) |- (ca);
 		\end{tikzpicture}\]
-		donde $\coker\partial_i=Z_i/\partial_i$.
+		donde $\coker\partial_i=Z_i/\partial_i$. (En la versión \href{https://tex.stackexchange.com/questions/3892/how-do-you-draw-the-snake-arrow-for-the-connecting-homomorphism-in-the-snake-l}{\textbf{original}} de este diagrama sí están las flechas).
 	\end{lema}
 	\begin{obs}
 		Intuitivamente, el $\coker$ nos da información de qué tan lejos está un homomorfismo de ser suprayectivo.
 	\end{obs}
-	\chapter{El teorema fundamental del álgebra homológica}
+\chapter{El teorema fundamental del álgebra homológica}
+\section{Teorema fundamental del álgebra homológica}
 	Primero introduciremos algo de notación
 	\begin{defn}
 		Diremos que una sucesión de complejos de cadena
@@ -264,7 +265,7 @@
 		\end{tikzcd}\]
 		es exacta para todo $p\in\Z$
 	\end{defn}
-	\begin{teo}[Fundamental del álgebra homológica]
+	\begin{teo}[fundamental del álgebra homológica]
 		Si 
 		\[\begin{tikzcd}
 			&\cdots\arrow{r}&A_\bullet\arrow{r}{\phi}&B_\bullet\arrow{r}{\psi}&C_\bullet\arrow{r}&\cdots
@@ -286,5 +287,21 @@
 		& & 0 & 0 & 0 & \\
 	\end{tikzcd}
 	\]
+
+\section{Natrualidad del homomorfismo de conexión}
+\begin{teo}[Naturalidad del homomorfismo de conexión]
+	\[\begin{tikzcd}
+		&0\arrow{r}&A_\bullet\arrow{r}{i}\arrow{d}{f}&B_\bullet\arrow{r}{j}\arrow{d}{g}&C_\bullet\arrow{r}\arrow{d}{h}&0\\
+		&0\arrow{r}&A'_\bullet\arrow{r}&B'_\bullet\arrow{r}&C'_\bullet\arrow{r}&0
+	\end{tikzcd}\]
+	donde las filas son exactas.\par
+	Entonces, el siguiente diagrama conmuta
+		\[\begin{tikzcd}
+		&\cdots\arrow{r}&H_p(A)\arrow{r}\arrow{d}{\bar f}&H_p(B)\arrow{r}\arrow{d}{\bar g}&H_p(C)\arrow{r}{\delta_*}\arrow{d}{\bar h}&H_{p-1}(A)\arrow{r}\arrow{d}{\bar f}&H_{p-1}(B)\arrow{r}\arrow{d}{\bar g}&H_{p-1}(C)\arrow{r}\arrow{d}{\bar h}&\cdots\\
+		&\cdots\arrow{r}&H_p(A')\arrow{r}&H_p(B')\arrow{r}&H_p(C')\arrow{r}&H_{p-1}(A')\arrow{r}&H_{p-1}(B')\arrow{r}&H_{p-1}(C')\arrow{r}&\cdots
+		\end{tikzcd}\]
+		(Para acomodar este diagrama \href{https://tex.stackexchange.com/questions/663056/wide-tikz-cd-diagram-not-centered-shifted-to-the-right}{\textbf{aquí hay soluciones}})
+\end{teo}
+
 	
 \end{document}

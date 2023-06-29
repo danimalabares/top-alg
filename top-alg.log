@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  28 JUN 2023 22:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  29 JUN 2023 09:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -873,18 +873,18 @@ Cap\'{\i }tulo 1.
 [6
 
 ]
-<Homología/H1.png, id=90, 189.1065pt x 193.6836pt>
+<Homología/H1.png, id=100, 189.1065pt x 193.6836pt>
 File: Homología/H1.png Graphic file (type png)
 <use Homología/H1.png>
-Package pdftex.def Info: Homología/H1.png  used on input line 130.
+Package pdftex.def Info: Homología/H1.png  used on input line 131.
 (pdftex.def)             Requested size: 154.66681pt x 158.41963pt.
-LaTeX Info: Redefining \. on input line 152.
-LaTeX Info: Redefining \% on input line 152.
+LaTeX Info: Redefining \. on input line 153.
+LaTeX Info: Redefining \% on input line 153.
  [7 <./Homología/H1.png>]
-LaTeX Info: Redefining \. on input line 192.
-LaTeX Info: Redefining \% on input line 192.
+LaTeX Info: Redefining \. on input line 193.
+LaTeX Info: Redefining \% on input line 193.
  [8]
-Overfull \hbox (1.14769pt too wide) detected at line 207
+Overfull \hbox (1.14769pt too wide) detected at line 208
 []
  []
 
@@ -893,24 +893,31 @@ LaTeX Info: Redefining \% on input line 254.
 [9]
 Cap\'{\i }tulo 2.
 
-Overfull \hbox (54.65804pt too wide) detected at line 276
+Overfull \hbox (54.65804pt too wide) detected at line 277
 []
  []
 
 [10
 
-] [11] (./top-alg.aux
+]
+Overfull \hbox (122.41505pt too wide) detected at line 302
+[]
+ []
+
+LaTeX Info: Redefining \. on input line 307.
+LaTeX Info: Redefining \% on input line 307.
+[11] (./top-alg.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `top-alg.out' has not changed.
-(rerunfilecheck)             Checksum: 21BA677F975D29D2E3E044D3E030EB86;1420.
+(rerunfilecheck)             Checksum: E6DAB32DE7A920A52AAC126FB84F48D2;1971.
  ) 
 Here is how much of TeX's memory you used:
- 27135 strings out of 476025
- 523638 string characters out of 5790018
- 1890388 words of memory out of 5000000
- 47121 multiletter control sequences out of 15000+600000
+ 27393 strings out of 476025
+ 530345 string characters out of 5790018
+ 1903388 words of memory out of 5000000
+ 47377 multiletter control sequences out of 15000+600000
  531494 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,89p,519b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -927,10 +934,10 @@ ive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
 texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/t
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on top-alg.pdf (11 pages, 267342 bytes).
+Output written on top-alg.pdf (11 pages, 271759 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 142 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
