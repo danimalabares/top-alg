@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  29 JUN 2023 09:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  29 JUN 2023 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -712,6 +712,74 @@ code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \arrowsize=\dimen284
 ))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.callouts.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.callouts.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box67
+\pgfnodeparttwobox=\box68
+\pgfnodepartthreebox=\box69
+\pgfnodepartfourbox=\box70
+\pgfnodeparttwentybox=\box71
+\pgfnodepartnineteenbox=\box72
+\pgfnodeparteighteenbox=\box73
+\pgfnodepartseventeenbox=\box74
+\pgfnodepartsixteenbox=\box75
+\pgfnodepartfifteenbox=\box76
+\pgfnodepartfourteenbox=\box77
+\pgfnodepartthirteenbox=\box78
+\pgfnodeparttwelvebox=\box79
+\pgfnodepartelevenbox=\box80
+\pgfnodeparttenbox=\box81
+\pgfnodepartninebox=\box82
+\pgfnodeparteightbox=\box83
+\pgfnodepartsevenbox=\box84
+\pgfnodepartsixbox=\box85
+\pgfnodepartfivebox=\box86
+)))
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tocbibind/tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has chapter divisions on input line 50.
@@ -720,18 +788,18 @@ Package tocbibind Info: The document has chapter divisions on input line 50.
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 42.
+Package hyperref Info: Option `colorlinks' set `false' on input line 44.
 \c@defs=\count318
 \c@coro=\count319
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 7
-4.
+6.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count320
-\l__pdf_internal_box=\box67
+\l__pdf_internal_box=\box87
 )
 (./top-alg.aux
 LaTeX Info: Redefining \. on input line 22.
@@ -739,27 +807,27 @@ LaTeX Info: Redefining \% on input line 22.
 )
 \openout1 = `top-alg.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
-Package hyperref Info: Link coloring OFF on input line 74.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Info: Redefining \. on input line 76.
+LaTeX Info: Redefining \% on input line 76.
+Package hyperref Info: Link coloring OFF on input line 76.
  (./top-alg.out) (./top-alg.out)
 \@outlinefile=\write4
 \openout4 = `top-alg.out'.
@@ -769,7 +837,7 @@ Package hyperref Info: Link coloring OFF on input line 74.
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count321
 \scratchdimen=\dimen285
-\scratchbox=\box68
+\scratchbox=\box88
 \nofMPsegments=\count322
 \nofMParguments=\count323
 \everyMPshowfont=\toks46
@@ -832,18 +900,18 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 76
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 78
 .
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/wasysym/uwasy.fd
@@ -873,54 +941,139 @@ Cap\'{\i }tulo 1.
 [6
 
 ]
-<Homología/H1.png, id=100, 189.1065pt x 193.6836pt>
+<Homología/H1.png, id=110, 189.1065pt x 193.6836pt>
 File: Homología/H1.png Graphic file (type png)
 <use Homología/H1.png>
-Package pdftex.def Info: Homología/H1.png  used on input line 131.
+Package pdftex.def Info: Homología/H1.png  used on input line 133.
 (pdftex.def)             Requested size: 154.66681pt x 158.41963pt.
-LaTeX Info: Redefining \. on input line 153.
-LaTeX Info: Redefining \% on input line 153.
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
  [7 <./Homología/H1.png>]
-LaTeX Info: Redefining \. on input line 193.
-LaTeX Info: Redefining \% on input line 193.
+LaTeX Info: Redefining \. on input line 195.
+LaTeX Info: Redefining \% on input line 195.
  [8]
-Overfull \hbox (1.14769pt too wide) detected at line 208
+Overfull \hbox (1.14769pt too wide) detected at line 210
 []
  []
 
-LaTeX Info: Redefining \. on input line 254.
-LaTeX Info: Redefining \% on input line 254.
+LaTeX Info: Redefining \. on input line 260.
+LaTeX Info: Redefining \% on input line 260.
 [9]
+Overfull \hbox (54.65804pt too wide) detected at line 279
+[]
+ []
+
+LaTeX Info: Redefining \. on input line 298.
+LaTeX Info: Redefining \% on input line 298.
+[10]
+Overfull \hbox (122.41505pt too wide) detected at line 304
+[]
+ []
+
+LaTeX Info: Redefining \. on input line 319.
+LaTeX Info: Redefining \% on input line 319.
+[11]
 Cap\'{\i }tulo 2.
+<Homología/H2.1.1.png, id=142, 1230.5975pt x 367.3725pt>
+File: Homología/H2.1.1.png Graphic file (type png)
+<use Homología/H2.1.1.png>
+Package pdftex.def Info: Homología/H2.1.1.png  used on input line 324.
+(pdftex.def)             Requested size: 270.66988pt x 80.79976pt.
+<Homología/H2.1.2.png, id=143, 1041.8925pt x 283.0575pt>
+File: Homología/H2.1.2.png Graphic file (type png)
+<use Homología/H2.1.2.png>
+Package pdftex.def Info: Homología/H2.1.2.png  used on input line 332.
+(pdftex.def)             Requested size: 270.66988pt x 73.53273pt.
+[12
 
-Overfull \hbox (54.65804pt too wide) detected at line 277
-[]
- []
+ <./Homología/H2.1.1.png> <./Homología/H2.1.2.png>]
+! Argument of \language@active@arg> has an extra }.
+<inserted text> 
+                \par 
+l.348 	\draw [->]
+                  (vi) -- (vj);
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
 
-[10
+Runaway argument?
+! Paragraph ended before \language@active@arg> was complete.
+<to be read again> 
+                   \par 
+l.348 	\draw [->]
+                  (vi) -- (vj);
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
 
-]
-Overfull \hbox (122.41505pt too wide) detected at line 302
-[]
- []
+Runaway argument?
+-
+! Paragraph ended before \pgfkeys@addpath was complete.
+<to be read again> 
+                   \par 
+l.348 	\draw [->]
+                  (vi) -- (vj);
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
 
-LaTeX Info: Redefining \. on input line 307.
-LaTeX Info: Redefining \% on input line 307.
-[11] (./top-alg.aux
+! Missing \endcsname inserted.
+<to be read again> 
+                   \scan_stop: 
+l.348 	\draw [->]
+                  (vi) -- (vj);
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \scan_stop: 
+l.348 	\draw [->]
+                  (vi) -- (vj);
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \scan_stop: 
+l.348 	\draw [->]
+                  (vi) -- (vj);
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+Runaway argument?
+-
+! Paragraph ended before \pgfkeys@splitter was complete.
+<to be read again> 
+                   \par 
+l.348 	\draw [->]
+                  (vi) -- (vj);
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+Missing character: There is no / in font nullfont!
+Missing character: There is no / in font nullfont!
+LaTeX Info: Redefining \. on input line 351.
+LaTeX Info: Redefining \% on input line 351.
+[13] (./top-alg.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `top-alg.out' has not changed.
-(rerunfilecheck)             Checksum: E6DAB32DE7A920A52AAC126FB84F48D2;1971.
+(rerunfilecheck)             Checksum: 4645F87E090404BE4ED265D56A7A4231;2068.
  ) 
 Here is how much of TeX's memory you used:
- 27393 strings out of 476025
- 530345 string characters out of 5790018
- 1903388 words of memory out of 5000000
- 47377 multiletter control sequences out of 15000+600000
+ 29393 strings out of 476025
+ 588411 string characters out of 5790018
+ 1905388 words of memory out of 5000000
+ 49326 multiletter control sequences out of 15000+600000
  531494 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,15n,89p,519b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,89p,519b,1047s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><
 /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
@@ -934,10 +1087,10 @@ ive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
 texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/t
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on top-alg.pdf (11 pages, 271759 bytes).
+Output written on top-alg.pdf (13 pages, 647309 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 132 words of extra memory for PDF output out of 10000 (max. 10000000)
 

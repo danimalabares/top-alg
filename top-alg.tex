@@ -30,19 +30,21 @@
 \usetikzlibrary{%
 	matrix,%
 	calc,%
-	arrows%
+	arrows,%
+	shapes
 }
-
+\tikzstyle{line}=[draw]
 %\usepackage[style=nature]{biblatex}
 \usepackage[nottoc,numbib]{tocbibind}%This is to include the References in the ToC. For some reason it is not working so I add it manually at the end of the document.
 %\addbibresource{bib.bib}
-\hypersetup{
+
+\hypersetup{%Remove red rectangles on hyperlinks
 	colorlinks=false,
 	hidelinks
 }
 
 \theoremstyle{definition}
-\newenvironment{Proof}[1][Proof]
+\newenvironment{Proof}[1][Proof]%Proof within proof
 {\proof[#1]\leftskip=1cm\rightskip=1cm}{\endproof}
 
 \newtheorem*{defn}{Definición}
@@ -251,7 +253,7 @@
 	\begin{obs}
 		Intuitivamente, el $\coker$ nos da información de qué tan lejos está un homomorfismo de ser suprayectivo.
 	\end{obs}
-\chapter{El teorema fundamental del álgebra homológica}
+%\chapter{El teorema fundamental del álgebra homológica}
 \section{Teorema fundamental del álgebra homológica}
 	Primero introduciremos algo de notación
 	\begin{defn}
@@ -302,6 +304,48 @@
 		\end{tikzcd}\]
 		(Para acomodar este diagrama \href{https://tex.stackexchange.com/questions/663056/wide-tikz-cd-diagram-not-centered-shifted-to-the-right}{\textbf{aquí hay soluciones}})
 \end{teo}
+Parece que ésta es una propiedad relacionada con la estructura de funtor de la homología.
+\section{Lema de los cinco}
+\begin{lema}[de los cinco]
+	Consideremos el diagrama conmutativo con filas exactas
+	\[\begin{tikzcd}
+		M_5\arrow{r}{f_5}\arrow{d}{h_5}&M_4\arrow{r}{f_4}\arrow{d}{h_4}&M_3\arrow{r}{f_3}\arrow{d}{h_3}&M_2\arrow{r}{f_2}\arrow{d}{h_2}&M_1\arrow{d}{h_1}\\
+		N_5\arrow{r}{g_5}&N_4\arrow{r}{g_4}&N_3\arrow{r}{g_3}&N_2\arrow{r}{g_2}&N_1
+	\end{tikzcd}\]
+	Si $h_5,h_4,h_2$ y $h_1$ son isomorfismos, entonces $h_3$ también.
+\end{lema}
+¿En dónde se usará esto?
 
+\chapter{Homología singular}
+\section{Simplejos}
+	Comenzaremos definiendo varios conceptos nuevos. Fijemos un entero $n\geq0$. Un \textbf{$n$-simplejo} es el convexo más pequeño en $\R^m$ ($m>n$) que contiene $n+1$ puntos $v_0,...,v_n$ que no viven en un hiperplano de dimensión menor que $n$.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{Homología/H2.1.1}
+	\end{figure}
+	Lo denotaremos por $[v_0,...,v_n]$ y diremos que 	 $v_0,...,v_n$ son sus \textbf{vértices}.
 	
+	De hecho, $$[v_0,...,v_n]=\{t_0v_0+\cdots+t_nv_n|t_i\geq0,t_0+\cdots+t_n=1\}$$
+	El \textbf{$n$-simplejo estándar} es $\Delta^n:=[e_1,...,e_n]$ donde $e_1,\cdots,e_n$ es la base canónica de $\R^{n+1}$.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{Homología/H2.1.2}
+	\end{figure}
+	Y observemos que $\Delta^n=\{(t_0,...,t_n)\in\R^{n+1}|t_0+\cdots+t_n=1\}$
+Para nosotros el orden de los vértices en $[v_0,...,v_n]$ es importante y siempre hay que tenerlo en mente.
+
+Dado un $n$-simplejo siempre tenemos la función:
+\begin{align*}
+	(v_0,...,v_n):\Delta^n&\to[v_0,...,v_n]\\
+	(t_0,\cdots+t_n)&\mapsto t_0v_0+\cdots+t_nv_n
+\end{align*}
+Y diremos que $(t_0,\cdots+t_n$ son las \textbf{coordenadas baricéntricas} del punto $t_0v_0+\cdots+t_nv_n\in[v_0,...,v_n]$.
+
+Una cara de $[v_0,...,v_n]$ es el subsimplejo de generado por cualquier subconjunto no vacío de ${v_0,...,v_n}$. Cualquier cara de dimensión 1 $[v_i,v_j]$ vamos a considerarla orientada así
+\begin{tikzpicture}
+	\node (vi) at (0,0) {$v_i$};
+	\node (vj) at (2,0) {$v_j$};
+	\draw [->] (vi) -- (vj);
+\end{tikzpicture}
+
 \end{document}
