@@ -1,4 +1,3 @@
-\babel@toc {spanish}{}\relax 
 \contentsline {part}{I\hspace {1em}Grupo fundamental}{3}{part.1}%
 \contentsline {part}{II\hspace {1em}Espacios cubrientes}{4}{part.2}%
 \contentsline {part}{III\hspace {1em}Homología}{5}{part.3}%
@@ -12,3 +11,4 @@
 \contentsline {section}{\numberline {1.7}Lema de los cinco}{11}{section.1.7}%
 \contentsline {chapter}{\numberline {2}Homología singular}{12}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Simplejos}{12}{section.2.1}%
+\contentsline {section}{\numberline {2.2}El complejo de cadenas singulares}{13}{section.2.2}%

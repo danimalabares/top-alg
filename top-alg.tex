@@ -1,4 +1,5 @@
-\documentclass{book}
+\documentclass[spanish]{book}
+\usepackage{titlesec}
 
 %Quitar páginas en blanco
 \let\cleardoublepage\clearpage
@@ -7,20 +8,23 @@
 \patchcmd{\@endpart}{\vfil\newpage}{\par}{}{}
 \makeatother
 
-\usepackage[spanish]{babel}
-% Redefinir el título del índice
-\addto\captionsspanish{
-	\renewcommand{\contentsname}{Índice}
-}
+%\usepackage[spanish]{babel} ¡Esto estaba interfiriendo con las flechitas de los \tikspicture
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\partname}{Parte}
+% Modify chapter format
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{}{0pt}{\Huge\thechapter.~}
+
 
 \usepackage[bookmarks,bookmarksopen,bookmarksdepth=3]{hyperref}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage[left=4cm, right=4cm]{geometry}
 \usepackage{enumitem}
 \usepackage{palatino}
 \usepackage{parskip}
+\usepackage{array}%This is used in a table
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage[nointegrals]{wasysym}%I was getting some problem "\iint already defined"
@@ -31,7 +35,8 @@
 	matrix,%
 	calc,%
 	arrows,%
-	shapes
+	shapes,
+	decorations.markings
 }
 \tikzstyle{line}=[draw]
 %\usepackage[style=nature]{biblatex}
@@ -67,8 +72,6 @@
 \newcommand{\K}{\mathbb{K}}
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\img}{img}
-
-\renewcommand{\chaptername}{Parte}
 
 \title{Notas de Topología Algebraica}
 \author{Prof. Luis Jorge Sánchez Saldaña\\ \\ Notas por Dani}
@@ -223,7 +226,7 @@
 				%
 				&|[name=ca]| \coker \partial_1 &|[name=cb]| \coker \partial_2 &|[name=cc]| \coker \partial_3 \\
 			};
-			\draw     (ka) edge (A)
+			\draw [->]    (ka) edge (A)
 			(kb) edge (B)
 			(kc) edge (C)
 			(A) edge node[auto] {\(\phi'\)} (B)
@@ -239,7 +242,7 @@
 			(B') edge (cb)
 			(C') edge (cc)
 			;
-			\draw[gray,dashed] (ka) edge node[auto] {\(\phi''\)}(kb)
+			\draw[->,gray,dashed] (ka) edge node[auto] {\(\phi''\)}(kb)
 			(kb) edge node[auto] {\(\psi''\)}(kc)
 			(ca) edge node[auto] {\(\bar\phi\)} (cb)
 			(cb) edge node[auto] {\(\bar\psi\)} (cc)
@@ -248,7 +251,7 @@
 			{\(\partial_*\)} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
 			($(02.west)+(-.5,0)$) |- (ca);
 		\end{tikzpicture}\]
-		donde $\coker\partial_i=Z_i/\partial_i$. (En la versión \href{https://tex.stackexchange.com/questions/3892/how-do-you-draw-the-snake-arrow-for-the-connecting-homomorphism-in-the-snake-l}{\textbf{original}} de este diagrama sí están las flechas).
+		donde $\coker\partial_i=Z_i/\partial_i$. (Este diagrama fue tomado de  \href{https://tex.stackexchange.com/questions/3892/how-do-you-draw-the-snake-arrow-for-the-connecting-homomorphism-in-the-snake-l}{\textbf{internet}}).
 	\end{lema}
 	\begin{obs}
 		Intuitivamente, el $\coker$ nos da información de qué tan lejos está un homomorfismo de ser suprayectivo.
@@ -319,14 +322,68 @@ Parece que ésta es una propiedad relacionada con la estructura de funtor de la 
 \chapter{Homología singular}
 \section{Simplejos}
 	Comenzaremos definiendo varios conceptos nuevos. Fijemos un entero $n\geq0$. Un \textbf{$n$-simplejo} es el convexo más pequeño en $\R^m$ ($m>n$) que contiene $n+1$ puntos $v_0,...,v_n$ que no viven en un hiperplano de dimensión menor que $n$.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.7\linewidth]{Homología/H2.1.1}
-	\end{figure}
+	
+\begin{center}
+\begin{tabular}{@{\hspace{1cm}} c @{\hspace{1cm}} c @{\hspace{1cm}} c @{\hspace{1cm}} c}
+	\begin{tikzpicture}
+		\coordinate[label=below:$v_0$] (v0) at (0,0);
+		
+		\draw[fill=black] (v0) circle (2pt);
+	\end{tikzpicture}
+	&\begin{tikzpicture}
+		%Vertices
+		\coordinate[label=below:$v_0$] (v0) at (0,0);
+		\coordinate[label=below:$v_1$] (v1) at (2,0);
+		
+		% Vertices circles
+		\foreach \vertex in {v0,v1}
+		\draw[fill=black] (\vertex) circle (2pt);
+		
+		% Edge
+		\draw (v0) -- (v1);
+	\end{tikzpicture}
+	&\begin{tikzpicture}
+		% Vertices
+		\coordinate[label=below:$v_0$] (v0) at (0,0);
+		\coordinate[label=below:$v_1$] (v1) at (2,0);
+		\coordinate[label=above:$v_2$] (v2) at (1,{sqrt(3)});
+		
+		% Vertices circles
+		\foreach \vertex in {v0,v1,v2}
+		\draw[fill=black] (\vertex) circle (2pt);
+		
+		% Edges
+		\draw (v0) -- (v1);
+		\draw (v1) -- (v2);
+		\draw (v0) -- (v2);
+	\end{tikzpicture}
+	&\begin{tikzpicture}[line join=bevel, scale=2]
+		\coordinate[label=below:$v_0$] (v0) at (0,0);
+		\coordinate[label=below:$v_1$] (v1) at (1,0);
+		\coordinate[label=above:$v_2$] (v2) at (0.5,{sqrt(3)/2});
+		\coordinate[label=below:$v_3$] (v3) at (0.5,{sqrt(3)/6});
+		
+		\draw (v1) -- (v2);
+		\draw (v2) -- (v3);
+		\draw (v0) -- (v1);
+		\draw(v0) -- (v2);
+		\draw (v0) -- (v3);
+		\draw (v1) -- (v3);
+		\draw (v2) -- (v3);
+		
+		% Vertices circles
+		\foreach \vertex in {v0,v1,v2,v3}
+		\draw[fill=black] (\vertex) circle (1pt);
+	\end{tikzpicture}\\
+	0-simplejo&1-simplejo&2-simplejo&3-simplejo
+\end{tabular}
+\end{center}
+	
 	Lo denotaremos por $[v_0,...,v_n]$ y diremos que 	 $v_0,...,v_n$ son sus \textbf{vértices}.
 	
 	De hecho, $$[v_0,...,v_n]=\{t_0v_0+\cdots+t_nv_n|t_i\geq0,t_0+\cdots+t_n=1\}$$
 	El \textbf{$n$-simplejo estándar} es $\Delta^n:=[e_1,...,e_n]$ donde $e_1,\cdots,e_n$ es la base canónica de $\R^{n+1}$.
+	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{Homología/H2.1.2}
@@ -341,11 +398,67 @@ Dado un $n$-simplejo siempre tenemos la función:
 \end{align*}
 Y diremos que $(t_0,\cdots+t_n$ son las \textbf{coordenadas baricéntricas} del punto $t_0v_0+\cdots+t_nv_n\in[v_0,...,v_n]$.
 
-Una cara de $[v_0,...,v_n]$ es el subsimplejo de generado por cualquier subconjunto no vacío de ${v_0,...,v_n}$. Cualquier cara de dimensión 1 $[v_i,v_j]$ vamos a considerarla orientada así
-\begin{tikzpicture}
-	\node (vi) at (0,0) {$v_i$};
-	\node (vj) at (2,0) {$v_j$};
-	\draw [->] (vi) -- (vj);
-\end{tikzpicture}
+Una \textbf{cara} de $[v_0,...,v_n]$ es el subsimplejo de generado por cualquier subconjunto no vacío de ${v_0,...,v_n}$. Cualquier cara 1-dimensional $[v_i,v_j]$ con $i<j$ vamos a considerarla orientada en orden ascendente:
+\vspace*{.7cm}
 
+\begin{center}
+\begin{tikzpicture}
+	%Vertices
+	\coordinate[label=below:$v_i$] (vi) at (0,0);
+	\coordinate[label=below:$v_j$] (vj) at (2,0);
+	
+	% Vertices circles
+	\foreach \vertex in {vi,vj}
+	\draw[fill=black] (\vertex) circle (2pt);
+
+	% Edge
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (vi) -- (vj);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}
+	% Vertices
+	\coordinate[label=below:$v_0$] (v0) at (0,0);
+	\coordinate[label=below:$v_1$] (v1) at (2,0);
+	\coordinate[label=above:$v_2$] (v2) at (1,{sqrt(3)});
+	
+	% Vertices circles
+	\foreach \vertex in {v0,v1,v2}
+	\draw[fill=black] (\vertex) circle (2pt);
+	
+	% Edges
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v1);
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v2);
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v2);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[line join=bevel, scale=2]
+	\coordinate[label=below:$v_0$] (v0) at (0,0);
+	\coordinate[label=below:$v_1$] (v1) at (1,0);
+	\coordinate[label=above:$v_2$] (v2) at (0.5,{sqrt(3)/2});
+	\coordinate[label=below:$v_3$] (v3) at (0.5,{sqrt(3)/6});
+	
+
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v2);
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v2) -- (v3);
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v1);
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v2);
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v3);
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v3);
+	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v2) -- (v3);
+	
+	% Vertices circles
+\foreach \vertex in {v0,v1,v2,v3}
+\draw[fill=black] (\vertex) circle (1pt);
+\end{tikzpicture}
+\end{center}
+
+¿Cómo quedan orientadas las caras de dimensión 2?
+
+\section{El complejo de cadenas singulares}
+Tomos un espacio topológico  $X$  y un anillo asociativo con unidad $R$. Un \textbf{$n$-simplejo singular} es una función $\sigma:\Delta^n\to X$.
+
+El término ``singular" proviene de que no se le imponen condiciones a la función $\sigma$ salvo continuidad. Esto quiere decir que un simplejo singular puede verse bastante diferente de cómo lo imaginamos inicialmente.
+
+Definamos el siguiente conjunto 
+$$C_n(X):=\left\{\sum_{i=1}^mr_i\sigma_i|m\in\Z,r_i\in\R,\sigma_i\text{ es un simplejo singular}\right\}$$
 \end{document}
