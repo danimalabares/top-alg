@@ -9,10 +9,17 @@
 \makeatother
 
 %\usepackage[spanish]{babel} ¡Esto estaba interfiriendo con las flechitas de los \tikspicture
+
 \renewcommand{\contentsname}{Índice}
 \renewcommand{\partname}{Parte}
-% Modify chapter format
-\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{}{0pt}{\Huge\thechapter.~}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\Huge\thechapter.~}
+
+\titleformat{name=\chapter,numberless}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\Huge}
+\renewcommand{\chaptermark}[1]{\markboth{{} \thechapter: #1}{}}
+
 
 
 \usepackage[bookmarks,bookmarksopen,bookmarksdepth=3]{hyperref}
@@ -80,13 +87,13 @@
 	\maketitle
 	\tableofcontents
 	
-	\part{Grupo fundamental}
+\part{Grupo fundamental}
 	
-	\part{Espacios cubrientes}
+\part{Espacios cubrientes}
 	
-	\part{Homología}
-	\chapter{Álgebra Homológica}
-	\section{Conceptos básicos}
+\part{Homología}
+\chapter{Álgebra Homológica}
+\section{Conceptos básicos}
 	En este capítulo $R$ denotará un anillo asociativo con unidad (no necesariamente conmutativo). Normalmente pensaremos que es alguno de los siguientes: $\Z, \Q, \R$.
 	
 	Recordemos que un $R$-módulo es básicamente un espacio vectorial pero los escalares están $R$.
@@ -127,7 +134,7 @@
 	
 	\begin{defn}
 		El \textbf{$p$-ésimo grupo de homogía} de $(C_{\bullet{}},d)$ es
-		$$H_p(C_{\dot{}}):=Z_p/B_p=\ker\partial_p/\text{img }\partial_{p+1}$$
+		\[H_p(C_{\dot{}}):=Z_p/B_p=\ker\partial_p/\text{img }\partial_{p+1}\]
 		Y decimos que dos ciclos $c$ y $c'$ son \textbf{homólogos} si $[c]=[c']\in H_p(C_\bullet)$.
 	\end{defn}
 	Veamos una figura de dos ciclos homólogos:
@@ -162,14 +169,15 @@
 		\end{itemize}
 	\end{obs}
 	\begin{defn}
-		Una sucesión exacta de la forma $$0\to P\to Q\to R\to 0$$ se llama \textbf{sucesión exacta corta}. Las sucesiones exactas infinitas en ambas direcciones se llaman \textbf{sucesiones exactas largas}.
+		Una sucesión exacta de la forma \[0\to P\to Q\to R\to 0\] se llama \textbf{sucesión exacta corta}. Las sucesiones exactas infinitas en ambas direcciones se llaman \textbf{sucesiones exactas largas}.
 	\end{defn}
 	\begin{prop}\leavevmode
 		\begin{enumerate}
 			\item $0\to A\xrightarrow{\alpha}B$ es exacta si y sólo si $\ker{\alpha}=0$, es decir $\alpha $ es inyectiva.
 			\item $A\xrightarrow{\alpha}B\to 0$ es exacta si y sólo si $\text{img }{\alpha}=B$, es decir $\alpha $ es suprayectiva.
 			\item $0\to A\xrightarrow{\alpha}B\to 0$ es exacta si y sólo si $\alpha $ es un isomorfismo por los dos incisos anteriores.
-			\item $0\to A\xrightarrow{\alpha}B\xrightarrow{\beta} C\to0$ es exacta si y sólo si $\alpha$ es inyectiva, $\beta$ es suprayectiva y $\ker\beta=\text{img }\alpha$, de manera que $\beta$ induce un isomorfismo $C\cong B/\text{img }\alpha$.\par
+			\item $0\to A\xrightarrow{\alpha}B\xrightarrow{\beta} C\to0$ es exacta si y sólo si $\alpha$ es inyectiva, $\beta$ es suprayectiva y $\ker\beta=\text{img }\alpha$, de manera que $\beta$ induce un isomorfismo $C\cong B/\text{img }\alpha$.
+			
 			Si pensamos que $\alpha$ es la inclusión de $A$ como subgrupo de $B$, podemos escribir $C\cong B/A$ .
 		\end{enumerate}
 	\end{prop}
@@ -187,9 +195,8 @@
 		\begin{align*}
 			f,g:(C_\bullet,\partial)\to(C'_\bullet,\partial')
 		\end{align*}
-		son \textbf{homotópicos} si existen homomorfismos $H_p:C_p\to C'_{p+1}$ para toda $p\in\Z$ tales que $$f_p-g_p=\partial'_{p+1}H_p+H_{p-1}\partial_p$$ Estas flechas se pueden visualizar aquí:
-		\[
-		\begin{tikzcd}
+		son \textbf{homotópicos} si existen homomorfismos $H_p:C_p\to C'_{p+1}$ para toda $p\in\Z$ tales que \[f_p-g_p=\partial'_{p+1}H_p+H_{p-1}\partial_p\] Estas flechas se pueden visualizar aquí:
+		\[\begin{tikzcd}[column sep=large, row sep=large]
 			\cdots \arrow{r} & C_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d}[left]{f_{p+1}-g_{p+1}} & C_p \arrow{r}[blue]{\partial_p} \arrow{d}[right,red]{f_p-g_p} \arrow{ld}[left,blue]{H_p} & C_{p-1} \arrow{r} \arrow{d}[right]{f_{p-1}-g_{p-1}} \arrow{ld}[right,blue]{H_{p-1}} & \cdots \\
 			\cdots \arrow{r} & C'_{p+1} \arrow{r}[below,blue]{\partial'_{p+1}} & C'_p \arrow{r}[below]{\partial_p'} & C'_{p-1} \arrow{r} & \cdots
 		\end{tikzcd}
@@ -275,7 +282,7 @@
 		\[\begin{tikzcd}
 			&\cdots\arrow{r}&A_\bullet\arrow{r}{\phi}&B_\bullet\arrow{r}{\psi}&C_\bullet\arrow{r}&\cdots
 		\end{tikzcd}\]
-		es una sucesión exacta de complejos de cadena, entonces existen homomorfismos $$\partial_{*p}:H_p(C.)\to H_{p-1}(A.)$$
+		es una sucesión exacta de complejos de cadena, entonces existen homomorfismos \[\partial_{*p}:H_p(C.)\to H_{p-1}(A.)\]
 		tales que la sucesión
 		\[\begin{tikzcd}
 			&\cdots\arrow{r}&H_p(A_\bullet)\arrow{r}{\bar\phi_p}&H_p(B_\bullet)\arrow{r}{\bar\psi_p}&H_p(C_\bullet)\arrow{r}{\delta_{*p}}&H_{p-1}(A_\bullet)\arrow{r}{\bar\phi_{p-1}}&H_{p-1}(B_\bullet)\arrow{r}&\cdots
@@ -294,55 +301,190 @@
 	\]
 
 \section{Natrualidad del homomorfismo de conexión}
-\begin{teo}[Naturalidad del homomorfismo de conexión]
-	\[\begin{tikzcd}
-		&0\arrow{r}&A_\bullet\arrow{r}{i}\arrow{d}{f}&B_\bullet\arrow{r}{j}\arrow{d}{g}&C_\bullet\arrow{r}\arrow{d}{h}&0\\
-		&0\arrow{r}&A'_\bullet\arrow{r}&B'_\bullet\arrow{r}&C'_\bullet\arrow{r}&0
-	\end{tikzcd}\]
-	donde las filas son exactas.\par
-	Entonces, el siguiente diagrama conmuta
+	\begin{teo}[Naturalidad del homomorfismo de conexión]
 		\[\begin{tikzcd}
-		&\cdots\arrow{r}&H_p(A)\arrow{r}\arrow{d}{\bar f}&H_p(B)\arrow{r}\arrow{d}{\bar g}&H_p(C)\arrow{r}{\delta_*}\arrow{d}{\bar h}&H_{p-1}(A)\arrow{r}\arrow{d}{\bar f}&H_{p-1}(B)\arrow{r}\arrow{d}{\bar g}&H_{p-1}(C)\arrow{r}\arrow{d}{\bar h}&\cdots\\
-		&\cdots\arrow{r}&H_p(A')\arrow{r}&H_p(B')\arrow{r}&H_p(C')\arrow{r}&H_{p-1}(A')\arrow{r}&H_{p-1}(B')\arrow{r}&H_{p-1}(C')\arrow{r}&\cdots
+			&0\arrow{r}&A_\bullet\arrow{r}{i}\arrow{d}{f}&B_\bullet\arrow{r}{j}\arrow{d}{g}&C_\bullet\arrow{r}\arrow{d}{h}&0\\
+			&0\arrow{r}&A'_\bullet\arrow{r}&B'_\bullet\arrow{r}&C'_\bullet\arrow{r}&0
 		\end{tikzcd}\]
-		(Para acomodar este diagrama \href{https://tex.stackexchange.com/questions/663056/wide-tikz-cd-diagram-not-centered-shifted-to-the-right}{\textbf{aquí hay soluciones}})
-\end{teo}
-Parece que ésta es una propiedad relacionada con la estructura de funtor de la homología.
+		donde las filas son exactas.\par
+		Entonces, el siguiente diagrama conmuta
+		\[\begin{tikzcd}[column sep=small, row sep=large]
+			& \cdots \arrow{r} & H_p(A) \arrow{r} \arrow{d}{\bar{f}} & H_p(B) \arrow{r} \arrow{d}{\bar{g}} & H_p(C) \arrow{r}{\delta_*} \arrow{d}{\bar{h}} & H_{p-1}(A) \arrow{r} \arrow{d}{\bar{f}} & H_{p-1}(B) \arrow{r} \arrow{d}{\bar{g}} & H_{p-1}(C) \arrow{r} \arrow{d}{\bar{h}} & \cdots \\
+			& \cdots \arrow{r} & H_p(A') \arrow{r} & H_p(B') \arrow{r} & H_p(C') \arrow{r} & H_{p-1}(A') \arrow{r} & H_{p-1}(B') \arrow{r} & H_{p-1}(C') \arrow{r} & \cdots
+		\end{tikzcd}\]
+	\end{teo}
+	Parece que ésta es una propiedad relacionada con la estructura de funtor de la homología.
 \section{Lema de los cinco}
-\begin{lema}[de los cinco]
-	Consideremos el diagrama conmutativo con filas exactas
-	\[\begin{tikzcd}
-		M_5\arrow{r}{f_5}\arrow{d}{h_5}&M_4\arrow{r}{f_4}\arrow{d}{h_4}&M_3\arrow{r}{f_3}\arrow{d}{h_3}&M_2\arrow{r}{f_2}\arrow{d}{h_2}&M_1\arrow{d}{h_1}\\
-		N_5\arrow{r}{g_5}&N_4\arrow{r}{g_4}&N_3\arrow{r}{g_3}&N_2\arrow{r}{g_2}&N_1
-	\end{tikzcd}\]
-	Si $h_5,h_4,h_2$ y $h_1$ son isomorfismos, entonces $h_3$ también.
-\end{lema}
-¿En dónde se usará esto?
+	\begin{lema}[de los cinco]
+		Consideremos el diagrama conmutativo con filas exactas
+		\[\begin{tikzcd}
+			M_5\arrow{r}{f_5}\arrow{d}{h_5}&M_4\arrow{r}{f_4}\arrow{d}{h_4}&M_3\arrow{r}{f_3}\arrow{d}{h_3}&M_2\arrow{r}{f_2}\arrow{d}{h_2}&M_1\arrow{d}{h_1}\\
+			N_5\arrow{r}{g_5}&N_4\arrow{r}{g_4}&N_3\arrow{r}{g_3}&N_2\arrow{r}{g_2}&N_1
+		\end{tikzcd}\]
+		Si $h_5,h_4,h_2$ y $h_1$ son isomorfismos, entonces $h_3$ también.
+	\end{lema}
+	¿En dónde se usará esto?
 
 \chapter{Homología singular}
 \section{Simplejos}
 	Comenzaremos definiendo varios conceptos nuevos. Fijemos un entero $n\geq0$. Un \textbf{$n$-simplejo} es el convexo más pequeño en $\R^m$ ($m>n$) que contiene $n+1$ puntos $v_0,...,v_n$ que no viven en un hiperplano de dimensión menor que $n$.
-	
-\begin{center}
-\begin{tabular}{@{\hspace{1cm}} c @{\hspace{1cm}} c @{\hspace{1cm}} c @{\hspace{1cm}} c}
-	\begin{tikzpicture}
-		\coordinate[label=below:$v_0$] (v0) at (0,0);
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.23\textwidth}
+			\centering
+			\begin{tikzpicture}[>=latex]
+				% TikZ code for the 0-simplex
+				\coordinate[label=below:$v_0$] (v0) at (0,0);
+				\draw[fill=black] (v0) circle (2pt);
+			\end{tikzpicture}
+			\caption*{0-simplejo}
+		\end{subfigure}
+		\begin{subfigure}{0.23\textwidth}
+			\centering
+			\begin{tikzpicture}[>=latex]
+				% TikZ code for the 1-simplex
+				\coordinate[label=below:$v_0$] (v0) at (0,0);
+				\coordinate[label=below:$v_1$] (v1) at (2,0);
+				\foreach \vertex in {v0,v1}
+				\draw[fill=black] (\vertex) circle (2pt);
+				\draw (v0) -- (v1);
+			\end{tikzpicture}
+			\caption*{1-simplejo}
+		\end{subfigure}
+		\begin{subfigure}{0.23\textwidth}
+			\centering
+			\begin{tikzpicture}[>=latex]
+				% TikZ code for the 2-simplex
+				\coordinate[label=below:$v_0$] (v0) at (0,0);
+				\coordinate[label=below:$v_1$] (v1) at (2,0);
+				\coordinate[label=above:$v_2$] (v2) at (1,{sqrt(3)});
+				\foreach \vertex in {v0,v1,v2}
+				\draw[fill=black] (\vertex) circle (2pt);
+				\draw (v0) -- (v1);
+				\draw (v1) -- (v2);
+				\draw (v0) -- (v2);
+			\end{tikzpicture}
+			\caption*{2-simplejo}
+		\end{subfigure}
+		\begin{subfigure}{0.23\textwidth}
+			\centering
+			\begin{tikzpicture}[line join=bevel, scale=2]
+				\coordinate[label=below:$v_0$] (v0) at (0,0);
+				\coordinate[label=below:$v_1$] (v1) at (1,0);
+				\coordinate[label=above:$v_2$] (v2) at (0.5,{sqrt(3)/2});
+				\coordinate[label=below:$v_3$] (v3) at (0.5,{sqrt(3)/6});
+				
+				\draw (v1) -- (v2);
+				\draw (v2) -- (v3);
+				\draw (v0) -- (v1);
+				\draw(v0) -- (v2);
+				\draw (v0) -- (v3);
+				\draw (v1) -- (v3);
+				\draw (v2) -- (v3);
+				
+				% Vertices circles
+				\foreach \vertex in {v0,v1,v2,v3}
+				\draw[fill=black] (\vertex) circle (1pt);
+			\end{tikzpicture}
+			\caption*{3-simplejo}
+		\end{subfigure}
+	\end{figure}
+		Lo denotaremos por $[v_0,…,v_n]$ y diremos que 	 $v_0,…,v_n$ son sus \textbf{vértices}. Y podemos escribirlo así: $[v_0,...,v_n]=\{t_0v_0+…+t_nv_n|t_i\geq0,t_0+…+t_n=1\}$.
 		
-		\draw[fill=black] (v0) circle (2pt);
-	\end{tikzpicture}
-	&\begin{tikzpicture}
+		El \textbf{$n$-simplejo estándar} es $\Delta^n:=[e_1,…,e_n]$ donde $e_1,…,e_n$ es la base canónica de $\R^{n+1}$.
+		
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.3\textwidth}
+			\centering
+			\begin{tikzpicture}[>=latex]
+				% Axis
+				\draw[->] (-1,0) -- (2,0) node[right]{};
+				
+				% Vertices
+				\coordinate (v0) at (0,0);
+				\coordinate (v1) at (1,0);
+				
+				% Edge
+				\draw (v0) -- (v1);
+				
+				% Vertices circles
+				\foreach \vertex in {v0,v1}
+				\draw[fill=black] (\vertex) circle (2pt);
+			\end{tikzpicture}
+			\caption*{1-simplejo estándar}
+		\end{subfigure}
+		\begin{subfigure}{0.3\textwidth}
+			\centering
+			\begin{tikzpicture}[>=latex]
+				% Axes
+				\draw[->] (0,0) -- (2,0) node[right]{$x$};
+				\draw[->] (0,0) -- (0,2) node[above]{$y$};
+				
+				% Vertices
+				\coordinate (v0) at (1,0);
+				\coordinate (v1) at (0,1);
+				
+				% Edges
+				\draw (v0) -- (v1);
+				
+				% Vertices circles
+				\foreach \vertex in {v0,v1}
+				\draw[fill=black] (\vertex) circle (2pt);
+			\end{tikzpicture}
+			\caption*{2-simplejo estándar}
+		\end{subfigure}
+		\begin{subfigure}{0.3\textwidth}
+			\centering
+			\begin{tikzpicture}[>=latex]
+				% Axes
+				\draw[->] (0,0,0) -- (2,0,0) node[right]{$x$};
+				\draw[->] (0,0,0) -- (0,2,0) node[above]{$y$};
+				\draw[->] (0,0,0) -- (0,0,2) node[below left]{$z$};
+				
+				% Vertices
+				\coordinate (v0) at (1,0,0);
+				\coordinate (v1) at (0,1,0);
+				\coordinate (v2) at (0,0,1);
+				
+				% Edges
+				\draw (v0) -- (v1) -- (v2) -- cycle;
+				
+				% Vertices circles
+				\foreach \vertex in {v0,v1,v2}
+				\draw[fill=black] (\vertex) circle (2pt);
+			\end{tikzpicture}
+			\caption*{3-simplejo estándar}
+		\end{subfigure}
+	\end{figure}
+		Y observemos que $\Delta^n=\{(t_0,…,t_n)\in\R^{n+1}|t_0+…+t_n=1\}$
+	Para nosotros el orden de los vértices en $[v_0,…,v_n]$ es importante y siempre hay que tenerlo en mente.
+	
+	Dado un $n$-simplejo siempre tenemos la función:
+	\begin{align*}
+		(v_0,…,v_n):\Delta^n&\to[v_0,…,v_n]\\
+		(t_0+…+t_n)&\mapsto t_0v_0+…+t_nv_n
+	\end{align*}
+	Y diremos que $(t_0,\cdots+t_n$ son las \textbf{coordenadas baricéntricas} del punto $t_0v_0+…+t_nv_n\in[v_0,…,v_n]$.
+	
+	Una \textbf{cara} de $[v_0,…,v_n]$ es el subsimplejo de generado por cualquier subconjunto no vacío de ${v_0,…,v_n}$. Cualquier cara 1-dimensional $[v_i,v_j]$ con $i<j$ vamos a considerarla orientada en orden ascendente:
+	\vspace*{.7cm}
+	
+	\begin{center}
+	\begin{tikzpicture}
 		%Vertices
-		\coordinate[label=below:$v_0$] (v0) at (0,0);
-		\coordinate[label=below:$v_1$] (v1) at (2,0);
+		\coordinate[label=below:$v_i$] (vi) at (0,0);
+		\coordinate[label=below:$v_j$] (vj) at (2,0);
 		
 		% Vertices circles
-		\foreach \vertex in {v0,v1}
+		\foreach \vertex in {vi,vj}
 		\draw[fill=black] (\vertex) circle (2pt);
-		
+	
 		% Edge
-		\draw (v0) -- (v1);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (vi) -- (vj);
 	\end{tikzpicture}
-	&\begin{tikzpicture}
+	\hspace{1cm}
+	\begin{tikzpicture}
 		% Vertices
 		\coordinate[label=below:$v_0$] (v0) at (0,0);
 		\coordinate[label=below:$v_1$] (v1) at (2,0);
@@ -353,112 +495,68 @@ Parece que ésta es una propiedad relacionada con la estructura de funtor de la 
 		\draw[fill=black] (\vertex) circle (2pt);
 		
 		% Edges
-		\draw (v0) -- (v1);
-		\draw (v1) -- (v2);
-		\draw (v0) -- (v2);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v1);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v2);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v2);
 	\end{tikzpicture}
-	&\begin{tikzpicture}[line join=bevel, scale=2]
+	\hspace{1cm}
+	\begin{tikzpicture}[line join=bevel, scale=2]
 		\coordinate[label=below:$v_0$] (v0) at (0,0);
 		\coordinate[label=below:$v_1$] (v1) at (1,0);
 		\coordinate[label=above:$v_2$] (v2) at (0.5,{sqrt(3)/2});
 		\coordinate[label=below:$v_3$] (v3) at (0.5,{sqrt(3)/6});
 		
-		\draw (v1) -- (v2);
-		\draw (v2) -- (v3);
-		\draw (v0) -- (v1);
-		\draw(v0) -- (v2);
-		\draw (v0) -- (v3);
-		\draw (v1) -- (v3);
-		\draw (v2) -- (v3);
+	
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v2);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v2) -- (v3);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v1);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v2);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v3);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v3);
+		\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v2) -- (v3);
 		
 		% Vertices circles
-		\foreach \vertex in {v0,v1,v2,v3}
-		\draw[fill=black] (\vertex) circle (1pt);
-	\end{tikzpicture}\\
-	0-simplejo&1-simplejo&2-simplejo&3-simplejo
-\end{tabular}
-\end{center}
+	\foreach \vertex in {v0,v1,v2,v3}
+	\draw[fill=black] (\vertex) circle (1pt);
+	\end{tikzpicture}
+	\end{center}
 	
-	Lo denotaremos por $[v_0,...,v_n]$ y diremos que 	 $v_0,...,v_n$ son sus \textbf{vértices}.
+	¿Cómo quedan orientadas las caras de dimensión 2?
 	
-	De hecho, $$[v_0,...,v_n]=\{t_0v_0+\cdots+t_nv_n|t_i\geq0,t_0+\cdots+t_n=1\}$$
-	El \textbf{$n$-simplejo estándar} es $\Delta^n:=[e_1,...,e_n]$ donde $e_1,\cdots,e_n$ es la base canónica de $\R^{n+1}$.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.7\linewidth]{Homología/H2.1.2}
-	\end{figure}
-	Y observemos que $\Delta^n=\{(t_0,...,t_n)\in\R^{n+1}|t_0+\cdots+t_n=1\}$
-Para nosotros el orden de los vértices en $[v_0,...,v_n]$ es importante y siempre hay que tenerlo en mente.
-
-Dado un $n$-simplejo siempre tenemos la función:
-\begin{align*}
-	(v_0,...,v_n):\Delta^n&\to[v_0,...,v_n]\\
-	(t_0,\cdots+t_n)&\mapsto t_0v_0+\cdots+t_nv_n
-\end{align*}
-Y diremos que $(t_0,\cdots+t_n$ son las \textbf{coordenadas baricéntricas} del punto $t_0v_0+\cdots+t_nv_n\in[v_0,...,v_n]$.
-
-Una \textbf{cara} de $[v_0,...,v_n]$ es el subsimplejo de generado por cualquier subconjunto no vacío de ${v_0,...,v_n}$. Cualquier cara 1-dimensional $[v_i,v_j]$ con $i<j$ vamos a considerarla orientada en orden ascendente:
-\vspace*{.7cm}
-
-\begin{center}
-\begin{tikzpicture}
-	%Vertices
-	\coordinate[label=below:$v_i$] (vi) at (0,0);
-	\coordinate[label=below:$v_j$] (vj) at (2,0);
-	
-	% Vertices circles
-	\foreach \vertex in {vi,vj}
-	\draw[fill=black] (\vertex) circle (2pt);
-
-	% Edge
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (vi) -- (vj);
-\end{tikzpicture}
-\hspace{1cm}
-\begin{tikzpicture}
-	% Vertices
-	\coordinate[label=below:$v_0$] (v0) at (0,0);
-	\coordinate[label=below:$v_1$] (v1) at (2,0);
-	\coordinate[label=above:$v_2$] (v2) at (1,{sqrt(3)});
-	
-	% Vertices circles
-	\foreach \vertex in {v0,v1,v2}
-	\draw[fill=black] (\vertex) circle (2pt);
-	
-	% Edges
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v1);
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v2);
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v2);
-\end{tikzpicture}
-\hspace{1cm}
-\begin{tikzpicture}[line join=bevel, scale=2]
-	\coordinate[label=below:$v_0$] (v0) at (0,0);
-	\coordinate[label=below:$v_1$] (v1) at (1,0);
-	\coordinate[label=above:$v_2$] (v2) at (0.5,{sqrt(3)/2});
-	\coordinate[label=below:$v_3$] (v3) at (0.5,{sqrt(3)/6});
-	
-
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v2);
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v2) -- (v3);
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v1);
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v2);
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v0) -- (v3);
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v1) -- (v3);
-	\draw[postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{>}}}}] (v2) -- (v3);
-	
-	% Vertices circles
-\foreach \vertex in {v0,v1,v2,v3}
-\draw[fill=black] (\vertex) circle (1pt);
-\end{tikzpicture}
-\end{center}
-
-¿Cómo quedan orientadas las caras de dimensión 2?
-
 \section{El complejo de cadenas singulares}
-Tomos un espacio topológico  $X$  y un anillo asociativo con unidad $R$. Un \textbf{$n$-simplejo singular} es una función $\sigma:\Delta^n\to X$.
+	Tomemos un espacio topológico  $X$  y un anillo asociativo con unidad $R$. Un \textbf{$n$-simplejo singular} es una función $\sigma:\Delta^n\to X$.
+	
+	El término ``singular" proviene de que no se le imponen condiciones a la función $\sigma$ salvo continuidad. Esto quiere decir que un simplejo singular puede verse bastante diferente de como lo imaginamos inicialmente.
+	
+	Definamos el siguiente conjunto 
+	\[C_n(X):=\left\{\sum_{i=1}^mr_i\sigma_i|m\in\Z,r_i\in\R,\sigma_i\text{ es un simplejo singular}\right\}\]
+	Que es el $R$-módulo libre generado por el conjunto de $n$-simplejos singulares. Los elementos de $C_n$ se llaman $n$-cadenas singulares. Queremos construir la siguiente sucesión:
+	\begin{equation}\label{eq2.1}\begin{tikzcd}
+		\cdots\arrow{r}&C_{n+1}(X)\arrow{r}{\partial_{n+1}}&C_n(X)\arrow{r}{\partial_n}&C_{n-1}(X)\arrow{r}{\partial{n-1}}&\cdots\arrow{r}{\partial_1}&C_0(X)
+	\end{tikzcd}\end{equation}
+	Para lo cual basta definir
+	$\partial_n:C_n(X)\to C_{n-1}(X)$ como sigue: para un $n$-simplejo singular $\sigma:\Delta^n=[v_0,\ldots,v_n]\to X$,
+	\[\partial_n(\sigma)=\sum_{i=0}^n(-1)^i\sigma|[v_0,\ldots,\hat{v}_i,\ldots,v_n]\]
+	Donde $\sigma|[v_0,\ldots,\hat{v}_i,\ldots,v_n]$ es el siguiente $n-1$-simplejo singular: primero tomemos la $n-1$-cara de $\Delta^n$ que se obtiene al quitar el vértice $v_i$, es decir, $[v_0,\ldots,v_{i-1},v_{i+1},\ldots,v_n]$. Y luego simplemente componemos:
+	$\partial_n:C_n(X)\to C_{n-1}(X)$ como sigue: para un $n$-simplejo singular $\partial_n:C_n(X)\to C_{n-1}(X)$ como sigue: para un $n$-simplejo singular $\sigma:\Delta^n=[v_0,\ldots,v_n]\to X$,
+	\[\partial_n(\sigma)=\sum_{i=0}^n(-1)^i\sigma|[v_0,\ldots,\hat{v}_i,\ldots,v_n]\]
+	Donde $\sigma|[v_0,\ldots,\hat{v}_i,\ldots,v_n]$ es el siguiente $n-1$-simplejo singular: primero tomemos la $n-1$-cara de $\Delta^n$ que se obtiene al quitar el vértice $v_i$, es decir, $[v_0,\ldots,\hat{v}_i,\ldots,v_n]:= [v_0,\ldots,v_{i-1},v_{i+1},\ldots,v_n]$. Y luego simplemente componemos:
+	\[
+	\begin{tikzcd}
+		{[v_0,\ldots,v_n]} \arrow{r}{\sigma} & X \\
+		{[v_0,\ldots,\hat{v}_i,\ldots,v_n]}\arrow[u,hook]&{[v_0,\ldots,v_{n-1}]}=\Delta^{n-1}\arrow{l}\arrow{u}[swap]{\sigma|[v_0,\ldots,\hat{v}_i,\ldots,v_n]}
+		\arrow[from=1-1, to=2-2, phantom, "\circlearrowright"]
+	\end{tikzcd}
+	\]
+	Donde la flecha de abajo es la función obvia: manda los vértices en orden y se brinca el $i$-ésimo. Y bueno, así queda definida la función $\partial_n$ en la base de $C_n$, y simplemente extendemos por linealidad a todo $C_n$. Ahora veamos una proposición:
+	\begin{prop}
+		$\partial_{n-1}\circ\partial_n=0$
+	\end{prop}
+	Con lo que la sucesión \eqref{eq2.1} es un complejo de cadenas que podemos llamar el \textbf{complejo de cadenas singulares de $X$}, que denotaremos por $C_\bullet(X)$. Y ahora podemos considerar sus grupos de homología y definir \[H_n(X;R):=H_n(C_\bullet(X))\] como el \textbf{$n$-ésimo grupo de homología singular de $X$ con coeficientes en $R$.}
 
-El término ``singular" proviene de que no se le imponen condiciones a la función $\sigma$ salvo continuidad. Esto quiere decir que un simplejo singular puede verse bastante diferente de cómo lo imaginamos inicialmente.
 
-Definamos el siguiente conjunto 
-$$C_n(X):=\left\{\sum_{i=1}^mr_i\sigma_i|m\in\Z,r_i\in\R,\sigma_i\text{ es un simplejo singular}\right\}$$
+
+
+
+
 \end{document}
