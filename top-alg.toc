@@ -22,6 +22,8 @@
 \contentsline {section}{\numberline {2.7}Homología relativa}{17}{section.2.7}%
 \contentsline {section}{\numberline {2.8}Escisión}{17}{section.2.8}%
 \contentsline {section}{\numberline {2.9}La sucesión de Mayer-Vietoris}{18}{section.2.9}%
-\contentsline {chapter}{\numberline {3}Complejos CW}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Construcción}{19}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Homología de complejos CW}{20}{section.3.2}%
+\contentsline {chapter}{\numberline {3}Complejos CW}{20}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Construcción}{20}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Homología de complejos CW}{21}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Ejemplos}{23}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Característica de Euler}{24}{section.3.4}%
