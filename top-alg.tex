@@ -68,6 +68,7 @@
 \newtheorem{coro}{Corolario}
 \newtheorem*{coro*}{Corolario}
 \newtheorem*{ejer}{Ejercicio}
+\newtheorem*{ejem}{Ejemplo}
 \newtheorem*{pregunta}{Pregunta}
 
 \newcommand{\R}{\mathbb{R}}
@@ -629,4 +630,163 @@ Esto induce la homología dada por
 	
 	Finalmente agregamos el comentario de que aunque el mapeo $\partial$ que usamos para completar la sucesión exacta larga de la pareja viene del teorema fundamental del álgebra homológica, y al recordar la demostración del teorema nos damos cuenta de que este mapeo actúa exactamente como el operador frontera original de $X$.
 \end{ejer}
+
+\section{Escisión}
+Sean $Z\subseteq A\subseteq X$ tales que la cerradura de $Z$ está contenida en el interior de $A$. Entonces
+\[(X-Z,A-Z)\hookrightarrow (X,A)\]
+induce un isomorfismo
+\[H_n(X-Z,A-Z)\to H_n(X,A)\qquad\forall n\]
+Equivalentemente, para subespacios $A,B\subseteq X$ cuyos interiores cubren a $X$, la inclusión
+\[(B,A\cap B)\hookrightarrow (X,A)\]
+induce un isomorfismo
+\[H_n(B,A\cap B)\to H_n(X,A)\qquad\forall n\]
+\begin{defn} Decimos que $(X,A)$ es un \textbf{buen par} si $A$ es cerrado y es retracto fuerte por deformación de una vecindad en $X$.
+\end{defn}
+
+El arete hawaiiano no es un buen par porque cualquier vecindad del punto de pegado contiene un círculo entero, así que no se puede retraer por deformación.
+
+\begin{teo}Sea $(X,A)$ un buen par, entonces
+\[q:(X,A)\to(X/A,A/A)\]
+induce isomorfismos para toda $n$ de la forma
+\[q_{*}:H_n(X,A)\to H_n(X/A,A/A)\cong \tilde{H}_n(X/A)\]
+donde la tilde denota la homología reducida.
+\end{teo}
+
+En la demostración se usa lema de los 5, invarianza homotópica, etc.
+
+\begin{coro}
+	 Sea $(X,A)$ un buen par. Entonces tenemos la siguiente sucesión exacta larga:
+	\[…\to\tilde H_n(A)\to\tilde H_n(X)\to \tilde H_n(X/A)\to \tilde H_{n-1}(A)\to\tilde H_{n-1}(X)\to \tilde H_{n-1}(X/A)\to\ldots\]
+\end{coro}
+\begin{teo}[Homología de la esfera]
+\[\tilde H_i(S^n;R)=\begin{cases}R\qquad\text{si   } n=i\\
+	0\qquad\text{si   } n\neq i
+\end{cases}\]
+\end{teo}
+\begin{teo}[del punto fijo de Bruwer]
+	Sean $n\geq2$ y  $f:D^n\to D^n$, entonces $f$ tiene un punto fijo.
+\end{teo}
+
+\section{La sucesión de Mayer-Vietoris}
+Sea $X$ un espacio topológico y $A,B\subseteq X$ tales que $X=\text{int } A\cup \text{int } B$. Entonces tenemos la siguiente sucesión larga en homología reducida:
+\[…\to\tilde H_{n+1}(X)\to\tilde H_n(A\cap B)\to \tilde H_n(A)\oplus \tilde H_n(B)\to \tilde H_{n}(X)\to\tilde H_{n-1}(A\cap B)\to \tilde H_{n-1}(A)\oplus \tilde H_{n-1}(B)\to…\]
+
+\begin{ejem}
+	Veamos el toro $S^1\times S^1$ visto como en el examen, con $A=D^2$ y $B=S^1\vee S^1$, casi todos los grupos de homología se hacen cero (aquí hay que usar que la homología de la cuña es la suma de las homologías de los "cuñandos"), y que la homología de $S^1$ es cero cuando el subíndice es mayor o igual que 2. En fin, para $m>2$, $\tilde H_m(X)=0$.
+	
+	Ahora para la parte que sí nos toca, *Falta*
+\end{ejem}
+
+\chapter{Complejos CW}
+\section{Construcción}
+	Establezcamos algo de notación
+	\begin{itemize}
+		\item $D^n=\{x\in\mathbb R^n:|x|\leq1\}$ es el $n$-disco cerrado.
+		\item $S^n=\{x\in\mathbb R^n:|x|=1\}$ es la $n$-esfera.
+		\item $e^n=\{x\in\mathbb R^n:|x|<1\}$ es la $n$-célula abierta o sólo la $n$-célula.
+	\end{itemize}
+	De tal forma que
+	\begin{itemize}
+		\item $\partial D^n=S^{n-1}$
+		\item $D^n=e^n\cup S^{n-1}$ como conjuntos (no se usa la topología de la unión disjunta)
+		\item Y bueno debe ser cierto que $e^0=\{pt\}$.
+	\end{itemize}
+	\begin{defn}
+		Un espacio $X$ es un complejo $CW$ si se puede construir mediante el siguiente procedimiento:
+		\begin{enumerate}
+			\item Comenzamos con un espacio discreto $X^0$ que se llama el 0-esqueleto.
+			\item El $n$-esqueleto $X^n$ lo obtengo a partir del $n-1$-esqueleto $X^{n-1}$ pegando $n$-células $e^n_\alpha$ vía funciones $\varphi_\alpha:S^{n-1}\to X^{n-1}$. Formalmente tenemos el espacio
+			\[X^n=X^{n-1}\bigsqcup_\alpha D_\alpha^n\Big/\sim\qquad\qquad x\sim\varphi_\alpha(x)\quad\text{ si }\quad x\in\partial D^n_\alpha\]
+			\textit{Realmente es tomar puntos y unirlos con líneas, y luego tomar líneas y rellenar con discos, etc...}
+			\item Realmente es tomar puntos y unir líneas entre ellos, y luego pegar puntos o líneas con discos, etc...
+		\end{enumerate}
+	\end{defn}
+	\begin{defn}
+		Si $X=X^n$ para algún $n\in\mathbb N$, decimos que $X$ es de dimensión finita y definimos la dimensión de $X$ como la dimensión de la célula más grande que adjunté. Formalmente, $\dim X=\min \{n:X^n=X\}$.
+	\end{defn}
+	\begin{ejem}
+		\begin{itemize}
+			\item Los 0-complejos CW son gráficas.
+			\item $S^n$ es un complejo CW.
+			\item Los espacios proyectivos:
+				\begin{align*}
+					\mathbb RP^n&=\mathbb R^{n+1}-\{0\}/x\sim\lambda x,\qquad\lambda\in\mathbb R\\
+					&=S^n/x\sim-x\\
+					&=D^n/x\sim-x,\qquad x\in\partial D^n=S^{n-1}\\
+					&=\mathbb RP^{n-1}\cup e^n\\
+					&=\mathbb RP^{n-2}\cup e^{n-1}\cup e^n\\
+					&=e^0\cup e^1\cup...\cup e^n
+				\end{align*}
+				donde las funciones de pegado son justamente las antipodales, que ya conocíamos por ser el cubriente universal.
+		\end{itemize}
+	\end{ejem}
+	\begin{ejer}
+		Todo complejo $CW$ es semilocalmente simplemente conexo. Es decir, todo complejo $CW$ tiene cubriente universal.
+	\end{ejer}
+	\begin{defn}
+		La función característica es $\Phi_\alpha$:
+		\[\begin{tikzcd}
+			&e^n_\alpha \ar[rd] \ar[d, "\text{inclusión}"'] & X^{n-1} \sqcup D_\alpha^n \ar[d, "\text{proyección al cociente}"] \\
+			&D^n_\alpha \ar[ur] \ar[r, "\Phi_\alpha"'] & X^n
+		\end{tikzcd}\]
+	\end{defn}
+	\begin{defn}
+		Sea $X$ un complejo $CW$. Un subcomplejo $Z$ es un subespacio cerrado que además es unión de células de $X$.	
+	\end{defn}
+	\begin{obs}
+		Para un subcomplejo $Z$,
+		\begin{itemize}
+			\item $Z\subseteq X$ es una buena pareja ($Z$ es retracto por deformación de una vecindad de $X$)
+			\item $X/Z$ es un complejo $CW$.
+		\end{itemize}
+	\end{obs}
+	\begin{obs}[Muy importante] $X$ complejo $CW$. El cociente por el $n-1$ esqueleto es una cuña de esferas, tantas como células en el $n-1$ esqueleto. En símbolos, $X^n/X^{n-1}=\bigvee_{\alpha\in I_n}S^n$, donde $I_n$ es el conjunto que indexa las $n-1$-celdas.
+	\end{obs}
+
+\section{Homología de complejos CW}
+\begin{lema}\leavevmode
+	
+	\begin{itemize}
+		\item \[H_k(X^n,X^{n-1})=\begin{cases}0\qquad\quad\qquad\text{si }k\neq0\\
+			\bigoplus_{\alpha\in I_n}R\qquad \text{si } k=n
+		\end{cases}\]
+		\begin{proof}[Express]
+			$H_k=\tilde H_k(X^n/X^{n-1})=\tilde H_k(\bigvee_{\alpha \in I_n}S^n)=\bigoplus_{\alpha\in I_n}H_k(S^n)$
+		\end{proof}
+		\item $H_k(X^n)=0$ para toda $k>n$. 
+		
+		Nuevamente, la homología, lo que aclance a ver la homología, lo ve solamente hasta la dimensión del espacio
+		\item La inclusión $X^n\hookrightarrow X$ induce un isomorfismo $H_k(X^n)\hookrightarrow H_k(X)\qquad k>n$.
+		
+		Aquí la idea es que adjuntar células de dimensión mayor que la homología que estamos calculando no cambia la homología. Es decir, para $n>k$ se tiene que $H_k(X\cup D^n)=H_k(X)$.
+	\end{itemize}
+	\end{lema}
+	\begin{proof}
+		content...Fijémonos en $(X^n,X^{n-1})$, hay una sucesión exacta corta de la pareja:
+		
+		\[H_{k+1}(X^n,X^{n-1})\to H_k(X^{n-1})\to H_k(X^n)\to H_k(X^n,X^{n-1})\]
+		
+		Usando el inciso 1, si $k\neq n,n-1$ entonces $H_k(X^{n-1})\cong H_k(X^n)$.
+		
+		Bueno para demostrar (2), justamente tenemos $k>n$ y entonces resultará, fijando $k$ y bajando uno por uno, $H_k(X^n)\cong H_k(X^0)$ que es un espacio discreto y la homología de grado mayor que cero en espacios discretos es cero. Terminamos el inciso (2).
+		
+		Para (3), si $k<n<n+1<n+2<...$, simplemente tenemos que
+		\[H_k(X^n)\cong H_k(X^{n+1})\cong...\cong H_k(X^{n+m})\]
+		y si pedimos que $X$ sea de dimensión finita entonces terminaremos en algún punto y listo. El caso de dimensión infinita queda para el futuro.
+	\end{proof}
+	\begin{defn}[Homología celular] Consideremos
+		\[\begin{tikzcd}[column sep=tiny]
+			& H_{n-1}(X^{n-1}) \arrow[rd, "j_{n-1}"] \\
+			H_n(X^n, X^{n-1}) \arrow[ru, "\partial_n"] \arrow[rr, "d_n"] && H_{n-1}(X^{n-1}, X^{n-2}) \arrow[rd, "\partial_{n-1}"] \arrow[rr, "d_{n-1}"] && H_{n-2}(X^{n-2}, X^{n-3}) \\
+			& && H_{n-2}(X^{n-2}) \arrow[ru, "j_{n-2}"]
+		\end{tikzcd}\]
+		Resultará que las flechas horizontales que definimos con los triangulitos, es decir las $d_i$, satisfacen que \[d_{n+1}\circ d_n=0\] así que podemos bautizar el complejo de cadenas $C_\bullet^{CW}(X,R)$. Y ahora podemos definir la homología celular: \[H^{CW}_n(X;R)=H_n(C_\bullet^{CW}(X))\]
+	\end{defn}
+	\begin{teo}
+		\[H_n^{CW}(X;R)\cong H_n(X;R)\qquad\forall n\geq0\]
+	\end{teo}
+	El primero depende de la estructura celular del espacio $X$, pero el segundo no. Así, la homología de un complejo $CW$ es independiente de la estructura celular.
+	\begin{obs}
+		content...Estos grupos $H_n(X^n,X^{n-1})$ son las sumas directas de $R$, uno por cada n-celula de $X$ ie $\bigoplus_{n-\text{células de }X}R=\{\sum r_\alpha e^n_\alpha|e^n_\alpha \text{ es una }n\text{-célula }r_\alpha\in R\}$.
+	\end{obs}
 \end{document}

@@ -1,22 +1,27 @@
-\contentsline {part}{I\hspace {1em}Grupo fundamental}{3}{part.1}%
-\contentsline {part}{II\hspace {1em}Espacios cubrientes}{4}{part.2}%
-\contentsline {part}{III\hspace {1em}Homología}{5}{part.3}%
-\contentsline {chapter}{\numberline {1}Álgebra Homológica}{6}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Conceptos básicos}{6}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Sucesiones exactas}{7}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Homotopía}{8}{section.1.3}%
-\contentsline {section}{\numberline {1.4}El lema de la serpiente}{9}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Teorema fundamental del álgebra homológica}{10}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Natrualidad del homomorfismo de conexión}{11}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Lema de los cinco}{11}{section.1.7}%
-\contentsline {chapter}{\numberline {2}Homología singular}{12}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Simplejos}{12}{section.2.1}%
-\contentsline {section}{\numberline {2.2}El complejo de cadenas singulares}{13}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Primeras propiedades de la homología}{14}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}La homología y las componentes arco-conexas}{14}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}El 0-ésimo grupo de homología}{14}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}La homología de un punto}{15}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Homología reducida}{15}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Funtorialidad}{15}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Invarianza homotópica}{15}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Homología relativa}{16}{section.2.7}%
+\contentsline {part}{I\hspace {1em}Grupo fundamental}{4}{part.1}%
+\contentsline {part}{II\hspace {1em}Espacios cubrientes}{5}{part.2}%
+\contentsline {part}{III\hspace {1em}Homología}{6}{part.3}%
+\contentsline {chapter}{\numberline {1}Álgebra Homológica}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Conceptos básicos}{7}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Sucesiones exactas}{8}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Homotopía}{9}{section.1.3}%
+\contentsline {section}{\numberline {1.4}El lema de la serpiente}{10}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Teorema fundamental del álgebra homológica}{11}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Natrualidad del homomorfismo de conexión}{12}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Lema de los cinco}{12}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Homología singular}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Simplejos}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}El complejo de cadenas singulares}{14}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Primeras propiedades de la homología}{15}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}La homología y las componentes arco-conexas}{15}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}El 0-ésimo grupo de homología}{15}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}La homología de un punto}{16}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Homología reducida}{16}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Funtorialidad}{16}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Invarianza homotópica}{16}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Homología relativa}{17}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Escisión}{17}{section.2.8}%
+\contentsline {section}{\numberline {2.9}La sucesión de Mayer-Vietoris}{18}{section.2.9}%
+\contentsline {chapter}{\numberline {3}Complejos CW}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Construcción}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Homología de complejos CW}{20}{section.3.2}%
