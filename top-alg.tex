@@ -438,9 +438,9 @@
 			\centering
 			\begin{tikzpicture}[>=latex]
 				% Axes
-				\draw[->] (0,0,0) -- (2,0,0) node[right]{$x$};
-				\draw[->] (0,0,0) -- (0,2,0) node[above]{$y$};
-				\draw[->] (0,0,0) -- (0,0,2) node[below left]{$z$};
+				\draw[->] (0,0,0) -- (2,0,0) node[right]{$y$};
+				\draw[->] (0,0,0) -- (0,2,0) node[above]{$z$};
+				\draw[->] (0,0,0) -- (0,0,2) node[below left]{$x$};
 				
 				% Vertices
 				\coordinate (v0) at (1,0,0);
@@ -553,10 +553,80 @@
 		$\partial_{n-1}\circ\partial_n=0$
 	\end{prop}
 	Con lo que la sucesión \eqref{eq2.1} es un complejo de cadenas que podemos llamar el \textbf{complejo de cadenas singulares de $X$}, que denotaremos por $C_\bullet(X)$. Y ahora podemos considerar sus grupos de homología y definir \[H_n(X;R):=H_n(C_\bullet(X))\] como el \textbf{$n$-ésimo grupo de homología singular de $X$ con coeficientes en $R$.}
+\section{Primeras propiedades de la homología}
+\subsection{La homología y las componentes arco-conexas}
+\begin{prop}
+	Sea $X=\bigsqcup X_i$ la descomposición en componentes arco-conexas del espacio topológico $X$, entonces
+	\[H_n(\bigsqcup X_i,R)\cong \bigoplus H_n(X_i,R)\]
+\end{prop}
+\subsection{El 0-ésimo grupo de homología}
+\begin{prop}
+	Para cualquier espacio $X$, $H_0(X;R)$ es un suma directa de copias de $R$, una por cada componente arcoconexa.
+\end{prop}
+\subsection{La homología de un punto}
+	 \begin{prop}
+	 	Si $X$ consiste de un sólo punto, entonces
+	 	\[H_n(X;R)=\begin{cases}R\qquad\text{si   } n=0\\
+	 	0\qquad\text{si   } n\neq0
+		 \end{cases}\]
+	\end{prop}
+\section{Homología reducida}
+	Considera
+	\[\quad...\xrightarrow[]{} C_p\xrightarrow[]{\partial_p} C_{p-1}\xrightarrow[]{\partial_{p-1}} C_{p-2}\to...\to C_1\xrightarrow[]{\partial_1}C_0\xrightarrow[]{\partial_0}R\xrightarrow[]{\varepsilon}0\]
+	donde $\varepsilon(\sum n_i\sigma_i)=\sum n_i$ es el \textbf{mapeo de aumentación}.
+	
+	Va a resultar que $\tilde H_n(X;R)=H_n(X;R)$ para toda $n\geq 1$.
+	\vspace{1cm}
+	
+	\textbf{Sobre la homología reducida del espacio que es un sólo punto}
 
+	Sabemos por la proposición de la homología de un punto que si $X=\{x\}$, entonces $H_0(X)=R$, es decir, $\ker{\partial_0}/\text{img }\partial_1=R$. Esto implica que la sucesión corta $0\to \text{img }\partial_1\xrightarrow[]{\partial_1}\ker\partial_0\xrightarrow[]{\partial_0}R\xrightarrow[]{\varepsilon}0$ es exacta.
+	
+	\textit{¿Cómo deducimos de aquí que $\tilde H_0(X;R)=0$?} Bueno resulta que como el espacio es un punto, $\partial_1=0$, así que de entrada $\text{img }\partial_1=0$. Luego, en realidad tenemos la sucesión exacta corta $0\to\ker\partial_0\xrightarrow[]{\partial_0}R\xrightarrow[]{\varepsilon}0$ que hace a $\partial_0$ un isomorfismo que en particular es inyectivo.
+	
+	Como $\tilde H_0=\ker\partial_0/\text{img }\partial_1$, entonces $\tilde H_0(X;R)=0$.
+	
+	\textbf{Y en general} $H_0(X;R)=\tilde H_0(X;R)\oplus R$
 
+\section{Funtorialidad}
+\section{Invarianza homotópica}
+\begin{teo}
+	Si dos funciones $f,g:X\to Y$ son homotópicas, entonces inducen el mismo homomorfismo $f_*=g_*:H_n(X)\to H_n(Y)$.
+\end{teo}
+\begin{coro}
+	Si dos funciones $f,g:X\to Y$ son homotópicas, entonces inducen el mismo homomorfismo $f_*=g_*:H_n(X)\to H_n(Y)$.
+\end{coro}
+\section{Homología relativa}
+Sean $A\subseteq X$ espacios topológicos. Diremos que $(X,A)$ es una buena pareja. Notemos que $(C_\bullet(A))$ es un subcomplejo de $C_\bullet (X)$, así que podemos definir el complejo relativo
+\[
+C_\bullet(X,A)=C_\bullet(X)/C_\bullet(A)
+\]
+Y esto simplemente quiere decir que para toda $n$,
+\[
+C_n(X,A)=C_n(X)/C_n(A)
+\]
+de forma que las cadenas en $A$ se vuelven triviales.
 
-
-
-
+Es claro que el n-ésimo operador frontera restringido a $C_n(A)$ se mapea a $C_{n-1}(A)$, (pues la frontera de una cadena en $A$ no podría salirse de $A$). Esto quiere decir que el mapeo frontera está bien definido en el cociente. 
+\[
+...\to C_{n+1}(X,A)\xrightarrow{\partial_{n+1}}C_n(X,A)\xrightarrow{\partial_n}C_{n-1}(X,A)\to...
+\]
+Esto induce la homología dada por
+\[H_n(X,A)=\ker\partial_n/\text{img }\partial_{n-1}\]
+\begin{ejer}
+	$H_n(X,\{x_0\})=H_n(X)$.
+	
+	Ahora lo primero que pasa es que tenemos una sucesión exacta corta a la que aplicaremos el teorema fundamental del álgebra homológica:
+%	\[
+%	0\to C_\bullet(A)\xhookrightarrow{i}C_\bullet(X)\xtwoheadrightarrow{j}C_\bullet(X,A)\to0
+%	\]
+	Así que obtenemos la \textbf{sucesión exacta larga de la pareja}
+	
+	\[
+	...\to H_n(A)\xrightarrow{i_{*n}}H_n(X)\xrightarrow{j_{*n}}H_n(X,A)\xrightarrow{\partial_n}H_{n-1}(A)\xrightarrow{i_{*n-1}}H_{n-1}(X)\xrightarrow{i_{*p-1}}...
+	\]
+	Como primera observación notemos que si los grupos de homología de la pareja $C_p(X,A)$ fueran triviales, autimáticamente tedríamos que el mapeo inducido por la inclusión sería un isomorfismo. De hecho, esto es un si y sólo si. Así, los grupos de homología miden qué tan diferentes son los grupos de homología de $A$ y los de $X$.
+	
+	Finalmente agregamos el comentario de que aunque el mapeo $\partial$ que usamos para completar la sucesión exacta larga de la pareja viene del teorema fundamental del álgebra homológica, y al recordar la demostración del teorema nos damos cuenta de que este mapeo actúa exactamente como el operador frontera original de $X$.
+\end{ejer}
 \end{document}

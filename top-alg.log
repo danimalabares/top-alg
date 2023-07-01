@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  30 JUN 2023 11:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  1 JUL 2023 09:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -967,7 +967,7 @@ File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 ) [6
 
 ]
-<Homología/H1.png, id=115, 189.1065pt x 193.6836pt>
+<Homología/H1.png, id=155, 189.1065pt x 193.6836pt>
 File: Homología/H1.png Graphic file (type png)
 <use Homología/H1.png>
 Package pdftex.def Info: Homología/H1.png  used on input line 143.
@@ -1068,16 +1068,23 @@ LaTeX Warning: Command \textellipsis invalid in math mode on input line 470.
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 470.
 
-[13] [14] (./top-alg.aux)
+[13] [14] [15]
+Overfull \hbox (2.75935pt too wide) in paragraph at lines 627--629
+\OT1/ppl/m/n/10 Como primera ob-ser-vaci[]on note-mos que si los gru-pos de ho-
+molog[]^^Pa de la pareja $\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
+ X; A\OT1/cmr/m/n/10 )$
+ []
+
+[16] (./top-alg.aux)
 Package rerunfilecheck Info: File `top-alg.out' has not changed.
-(rerunfilecheck)             Checksum: AAAD13B20E21C4D84658CB22306B4CDD;2299.
+(rerunfilecheck)             Checksum: 87F466C6469078EAAD3E03BA44F60FF9;3846.
  ) 
 Here is how much of TeX's memory you used:
- 29142 strings out of 476025
- 592441 string characters out of 5790018
+ 29167 strings out of 476025
+ 592765 string characters out of 5790018
  1905388 words of memory out of 5000000
- 49064 multiletter control sequences out of 15000+600000
- 532723 words of font info for 90 fonts, out of 8000000 for 9000
+ 49076 multiletter control sequences out of 15000+600000
+ 533788 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,16n,89p,1196b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -1094,11 +1101,12 @@ ve/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/t
 exlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
 al/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texl
 ive/2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/202
-3/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on top-alg.pdf (14 pages, 312204 bytes).
+3/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf
+-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on top-alg.pdf (16 pages, 333171 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 192 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 130 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 299 PDF objects out of 1000 (max. 8388607)
+ 244 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 500000)
+ 194 words of extra memory for PDF output out of 10000 (max. 10000000)
 
