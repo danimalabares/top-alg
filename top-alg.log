@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  1 JUL 2023 17:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  1 JUL 2023 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -967,7 +967,7 @@ File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 ) [7
 
 ]
-<Homología/H1.png, id=197, 189.1065pt x 193.6836pt>
+<Homología/H1.png, id=207, 189.1065pt x 193.6836pt>
 File: Homología/H1.png Graphic file (type png)
 <use Homología/H1.png>
 Package pdftex.def Info: Homología/H1.png  used on input line 147.
@@ -1085,17 +1085,17 @@ Overfull \hbox (93.9547pt too wide) detected at line 680
 []
  []
 
-[18] [19]
+[18] [19] [20]
 Chapter 3.
-[20
+[21
 
-] [21]
-Overfull \hbox (33.92769pt too wide) detected at line 790
+] [22]
+Overfull \hbox (33.92769pt too wide) detected at line 858
 []
  []
 
-[22] [23]
-Overfull \hbox (18.24146pt too wide) in paragraph at lines 859--860
+[23] [24]
+Overfull \hbox (18.24146pt too wide) in paragraph at lines 927--928
 []\OT1/ppl/b/n/10 Ejemplo. []\OT1/ppl/m/n/10 ?`Y si tomamos $\OML/cmm/m/it/10 R
  \OT1/cmr/m/n/10 = \U/msb/m/n/10 Z\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 2$\OT1/ppl/
 m/n/10 ? Mul-ti-plicar por 2 es la funci[]on 0, as[]^^P que $\OML/cmm/m/it/10 H
@@ -1103,18 +1103,18 @@ m/n/10 ? Mul-ti-plicar por 2 es la funci[]on 0, as[]^^P que $\OML/cmm/m/it/10 H
 /m/it/10 =\OT1/cmr/m/n/10 2) =
  []
 
-[24] [25] [26] (./top-alg.aux)
+[25] [26] [27] (./top-alg.aux)
 Package rerunfilecheck Info: File `top-alg.out' has not changed.
-(rerunfilecheck)             Checksum: 702140491A9A078DF3FA11BED1CC8B17;4846.
+(rerunfilecheck)             Checksum: C865A09FAD93B45D80B0A64A30E4A439;5210.
  ) 
 Here is how much of TeX's memory you used:
- 29999 strings out of 476025
- 613789 string characters out of 5790018
+ 30082 strings out of 476025
+ 615678 string characters out of 5790018
  1905388 words of memory out of 5000000
- 49886 multiletter control sequences out of 15000+600000
+ 49958 multiletter control sequences out of 15000+600000
  534463 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,16n,89p,1196b,1057s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,24n,89p,1196b,1478s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
@@ -1131,10 +1131,10 @@ al/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texl
 ive/2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/202
 3/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf
 -dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on top-alg.pdf (26 pages, 380857 bytes).
+Output written on top-alg.pdf (27 pages, 387953 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 318 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 250 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 
