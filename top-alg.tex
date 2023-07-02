@@ -684,6 +684,74 @@ En la demostración se usa lema de los 5, invarianza homotópica, etc.
 	
 	Ahora para la parte que sí nos toca, *Falta*
 \end{ejem}
+\section{Grado de una función entre esferas}
+Hagamos dos observaciones básicas:
+\begin{itemize}
+	\item $H_i(D^n,\partial D^n)\cong H_i(S^n)$
+	\item Usaremos los homeomorfismos $(D^n,\partial D^n)\cong (\Delta ^n,\partial\Delta ^n)$.
+\end{itemize}
+\begin{prop}
+	content...Pensando que que $S^n$ es $\Delta^n\bigcup_{\partial\Delta^n}\Delta^n$, y denotado cada copia de $\Delta^n$ con un subíndice, tenemos que $\Delta^n_1-\Delta^n_2$ es un generador de $H_n(S^n)$ para $n>0$.
+\end{prop}
+\begin{defn}
+	En la notación de arriba, el \textbf{grado} de $f$ es $d$.
+\end{defn}
+\begin{prop}
+	\begin{enumerate}
+		\item $\text{deg }Id=1$
+		\begin{proof}
+			Por funtorialidad.
+		\end{proof}
+		\item Si $f$ no es suprayectiva, entonces $\text{deg }(f)=0$.
+		\begin{proof}
+			Como $f$ no es suprayectiva puedo escoger un punto $x\notin\text{img }f$. Entonces puedo pensar en el diagrama y su inducido.
+			\begin{figure}
+				\centering
+				\begin{subfigure}[b]{0.4\textwidth}
+					\centering
+					\begin{tikzcd}[column sep=small]
+						& S^2 - x \arrow[rd,hook] \\
+						& S^2 \arrow[u, "f"] \arrow[r, "f"] & S^2
+					\end{tikzcd}
+				\end{subfigure}
+				\qquad\qquad
+				\begin{subfigure}[b]{0.4\textwidth}
+					\centering
+					\begin{tikzcd}[column sep=small]
+						& \tilde{H}_n(S^2 - x) \cong 0 \arrow[rd,hook] \\
+						& \tilde{H}_n(S^2) \arrow[u, "f_*"] \arrow[r, "f_*"] & \tilde{H}_n(S^2)
+					\end{tikzcd}
+				\end{subfigure}
+			\end{figure}
+			Y como el primero es conmutativo, el segundo también, y entonces $f_*$ es constante.
+		\end{proof}
+		\item $f\simeq g$ entonces $\deg f=\deg g$
+		\begin{proof}
+			Por invarianza homotópica las funciones inducidas son iguales.
+		\end{proof}
+		\item $\deg(fg)=\deg(f)\deg(g)$
+		\item Si $f$ es una reflexión que intercambia los hemisferios, entonces $\deg(f)=-1$.
+		\item La función antipodal $-Id:S^n\to S^n$ tiene grado $(-1)^{n+1}$. Es decir,
+		\[\deg (-Id)=\begin{cases}1\qquad\text{ si }n\text{ es impar}\\
+			-1\qquad\text{ si }n\text{ es par}\end{cases}\]
+		\item Si $f$ no tiene puntos fijos, entonces $\deg (f)=(-1)^{n+1}$
+	\end{enumerate}
+\end{prop}
+\subsection{Grado local}
+	Siguiendo a Hatcher,
+	\begin{defn}
+		Supongamos que $f:S^n\to S^n$ es tal que la imagen inversa de algún $y\in S^n$ consiste de una cantidad finita de puntos, digamos $f^{-1}(y)=\{x_1,...,x_m\}$. Tomemos una familia de abiertos disjuntos $U_1,...,U_m$ que contengan a cada $x_i$, y que vayan a dar a una vecindad $V$ de $y$ bajo $f$. Mediante un diagrama conmutativo, usando escisión y la sucesión exacta larga, Hatcher argumenta que el homomorfismo $f_*$ originalmente definido así:
+		\[H_n(S^n,S^n-x_i)\xleftarrow{\cong}H_n(U_i,U_i-x_i)\xrightarrow{f_*}H_n(V,V-y)\]
+		es de la forma $f_*:\Z \to \Z$, la multiplicación por un número que se llama el **grado local** de $f$ y se denota $\deg f|x_i$.
+	\end{defn}
+	Supongamos que $f:S^n\to S^n$ es tal que la imagen inversa de algún $y\in S^n$ consiste de una cantidad finita de puntos, digamos $f^{-1}(y)=\{x_1,...,x_m\}$. Tomemos una familia de abiertos disjuntos $U_1,...,U_m$ que contengan a cada $x_i$, y que vayan a dar a una vecindad $V$ de $y$ bajo $f$. Mediante un diagrama conmutativo, usando escisión y la sucesión exacta larga, Hatcher argumenta que el homomorfismo $f_*$ originalmente definido así:
+	\[H_n(S^n,S^n-x_i)\xleftarrow{\cong}H_n(U_i,U_i-x_i)\xrightarrow{f_*}H_n(V,V-y)\]
+	es de la forma $f_*:\Z \to \Z$, la multiplicación por un número que se llama el **grado local** de $f$ y se denota $\deg f|x_i$.
+	
+	Y luego:
+	\begin{teo}
+		$\deg f=\sum_i\deg f|_{x_i}$
+	\end{teo}
 
 \chapter{Complejos CW}
 \section{Construcción}
