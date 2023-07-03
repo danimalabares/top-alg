@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  1 JUL 2023 17:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  3 JUL 2023 11:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -810,49 +810,41 @@ s.code.tex
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.markings.code.tex))
-(/usr/local/texlive/2023/texmf-dist/tex/latex/tocbibind/tocbibind.sty
-Package: tocbibind 2010/10/13 v1.5k extra ToC listings
-Package tocbibind Info: The document has chapter divisions on input line 50.
-
-
-Package tocbibind Note: Using chapter style headings, unless overridden.
-
-)
-Package hyperref Info: Option `colorlinks' set `false' on input line 56.
+Package hyperref Info: Option `colorlinks' set `true' on input line 64.
 \c@defs=\count319
-\c@coro=\count320
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 9
-0.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+9.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count321
+\l__color_backend_stack_int=\count320
 \l__pdf_internal_box=\box92
 )
 (./top-alg.aux)
 \openout1 = `top-alg.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-Package hyperref Info: Link coloring OFF on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+Package hyperref Info: Link coloring ON on input line 99.
  (./top-alg.out) (./top-alg.out)
 \@outlinefile=\write4
 \openout4 = `top-alg.out'.
@@ -860,29 +852,21 @@ Package hyperref Info: Link coloring OFF on input line 90.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count322
+\scratchcounter=\count321
 \scratchdimen=\dimen300
 \scratchbox=\box93
-\nofMPsegments=\count323
-\nofMParguments=\count324
+\nofMPsegments=\count322
+\nofMParguments=\count323
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count325
+\MPscratchCnt=\count324
 \MPscratchDim=\dimen301
-\MPnumerator=\count326
-\makeMPintoPDFobject=\count327
+\MPnumerator=\count325
+\makeMPintoPDFobject=\count326
 \everyMPtoPDFconversion=\toks49
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(/usr/local/texlive/2023/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
@@ -925,19 +909,19 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 92.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 101
+.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 92.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 101
+.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 92
-.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 10
+1.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
@@ -954,148 +938,162 @@ al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./top-alg.toc [2
  [3] [4
 
 ]
+Chapter 1.
 [5
 
-] [6
+] [6]
+Chapter 2.
+
+Overfull \hbox (3.04631pt too wide) in paragraph at lines 172--173
+[]\OT1/ppl/b/n/10 Teorema \OT1/ppl/m/n/10 (Propiedad uni-ver-sal del pro-ducto 
+li-bre)\OT1/ppl/b/n/10 . []\OT1/ppl/m/n/10 Da-dos los ho-mo-mor-fis-mos $\OML/c
+mm/m/it/10 '[] \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 G[] \OMS/cmsy/m/n/10 !
+ []
+
+[7
+
+] [8] [9] [10
+
+] [11
 
 ]
-Chapter 1.
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
-33.
+Chapter 3.
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 2
+43.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [7
+) [12
 
 ]
-<Homología/H1.png, id=207, 189.1065pt x 193.6836pt>
+<Homología/H1.png, id=290, 189.1065pt x 193.6836pt>
 File: Homología/H1.png Graphic file (type png)
 <use Homología/H1.png>
-Package pdftex.def Info: Homología/H1.png  used on input line 147.
+Package pdftex.def Info: Homología/H1.png  used on input line 257.
 (pdftex.def)             Requested size: 154.66681pt x 158.41963pt.
 
-Overfull \hbox (1.80315pt too wide) in paragraph at lines 158--159
+Overfull \hbox (1.80315pt too wide) in paragraph at lines 268--269
 []\OT1/ppl/m/n/10 Con este ejer-ci-cio comen-zamos a ver las propiedades fun-to
 -ri-ales de la ho-molog[]^^Pa, aunque
  []
 
-[8 <./Homología/H1.png>] [9]
-Overfull \hbox (2.49338pt too wide) in paragraph at lines 214--215
+[13 <./Homología/H1.png>] [14]
+Overfull \hbox (2.49338pt too wide) in paragraph at lines 324--325
 []\OT1/ppl/b/n/10 Lema \OT1/ppl/m/n/10 (de la ser-pi-ente)\OT1/ppl/b/n/10 . []\
 OT1/ppl/m/n/10 Con-sid-er-e-mos el di-a-grama con-mu-ta-tivo de $\OML/cmm/m/it/
 10 R$\OT1/ppl/m/n/10 -m[]odulos y supong-
  []
 
 
-Overfull \hbox (1.14769pt too wide) detected at line 224
+Overfull \hbox (1.14769pt too wide) detected at line 334
 []
  []
 
-[10]
-Overfull \hbox (54.65804pt too wide) detected at line 293
+[15]
+Overfull \hbox (54.65804pt too wide) detected at line 403
 []
  []
 
-[11]
-Overfull \hbox (26.4153pt too wide) detected at line 318
+[16]
+Overfull \hbox (26.4153pt too wide) detected at line 428
 []
  []
 
-[12]
-Chapter 2.
+[17]
+Chapter 4.
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 396.
-
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 396.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 506.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 396.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 506.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 396.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 506.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 398.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 506.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 398.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 508.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 464.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 508.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 464.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 574.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 465.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 574.
 
-[13
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 575.
+
+[18
 
 ]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 471.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 471.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 471.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 471.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 471.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 471.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 471.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 471.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 472.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 582.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 472.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 582.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 474.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 584.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 474.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 584.
 
-[14] [15] [16]
-Overfull \hbox (2.75935pt too wide) in paragraph at lines 632--634
+[19] [20] [21]
+Overfull \hbox (2.75935pt too wide) in paragraph at lines 761--763
 \OT1/ppl/m/n/10 Como primera ob-ser-vaci[]on note-mos que si los gru-pos de ho-
 molog[]^^Pa de la pareja $\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  X; A\OT1/cmr/m/n/10 )$
  []
 
-[17]
-Overfull \hbox (29.10924pt too wide) detected at line 665
+[22]
+Overfull \hbox (29.10924pt too wide) detected at line 794
 []
  []
 
-
-Overfull \hbox (93.9547pt too wide) detected at line 680
+[23]
+Overfull \hbox (93.9547pt too wide) detected at line 809
 []
  []
 
-[18] [19] [20]
-Chapter 3.
-[21
+[24] [25] [26]
+Chapter 5.
+[27
 
-] [22]
-Overfull \hbox (33.92769pt too wide) detected at line 858
+] [28]
+Overfull \hbox (33.92769pt too wide) detected at line 1023
 []
  []
 
-[23] [24]
-Overfull \hbox (18.24146pt too wide) in paragraph at lines 927--928
+[29] [30]
+Overfull \hbox (18.24146pt too wide) in paragraph at lines 1113--1114
 []\OT1/ppl/b/n/10 Ejemplo. []\OT1/ppl/m/n/10 ?`Y si tomamos $\OML/cmm/m/it/10 R
  \OT1/cmr/m/n/10 = \U/msb/m/n/10 Z\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 2$\OT1/ppl/
 m/n/10 ? Mul-ti-plicar por 2 es la funci[]on 0, as[]^^P que $\OML/cmm/m/it/10 H
@@ -1103,18 +1101,24 @@ m/n/10 ? Mul-ti-plicar por 2 es la funci[]on 0, as[]^^P que $\OML/cmm/m/it/10 H
 /m/it/10 =\OT1/cmr/m/n/10 2) =
  []
 
-[25] [26] [27] (./top-alg.aux)
-Package rerunfilecheck Info: File `top-alg.out' has not changed.
-(rerunfilecheck)             Checksum: C865A09FAD93B45D80B0A64A30E4A439;5210.
+[31] [32] [33] (./top-alg.aux)
+
+Package rerunfilecheck Warning: File `top-alg.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `top-alg.out':
+(rerunfilecheck)             Before: 51D62848CC7B4AA3C7EC4B1C03B7353A;7327
+(rerunfilecheck)             After:  9B8BA2C80509A7F3C5ECFC95FF84616A;7250.
  ) 
 Here is how much of TeX's memory you used:
- 30082 strings out of 476025
- 615678 string characters out of 5790018
+ 30194 strings out of 476025
+ 618890 string characters out of 5790018
  1905388 words of memory out of 5000000
- 49958 multiletter control sequences out of 15000+600000
+ 50061 multiletter control sequences out of 15000+600000
  534463 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,24n,89p,1196b,1478s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,24n,89p,1196b,1476s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
@@ -1131,10 +1135,10 @@ al/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texl
 ive/2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/202
 3/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf
 -dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on top-alg.pdf (27 pages, 387953 bytes).
+Output written on top-alg.pdf (33 pages, 414152 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 342 compressed objects within 4 object streams
- 81 named destinations out of 1000 (max. 500000)
- 266 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 428 compressed objects within 5 object streams
+ 98 named destinations out of 1000 (max. 500000)
+ 362 words of extra memory for PDF output out of 10000 (max. 10000000)
 

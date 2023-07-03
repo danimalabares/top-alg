@@ -34,6 +34,7 @@
 \usepackage{array}%This is used in a table
 \usepackage{amsthm}
 \usepackage{amssymb}
+%\usepackage{mathabx}
 \usepackage[nointegrals]{wasysym}%I was getting some problem "\iint already defined"
 \usepackage{amsmath}
 \usepackage{tikz}
@@ -47,12 +48,19 @@
 }
 \tikzstyle{line}=[draw]
 %\usepackage[style=nature]{biblatex}
-\usepackage[nottoc,numbib]{tocbibind}%This is to include the References in the ToC. For some reason it is not working so I add it manually at the end of the document.
+%\usepackage[numbib]{tocbibind}%This is to include the References in the ToC. For some reason it is not working so I add it manually at the end of the document.
 %\addbibresource{bib.bib}
 
-\hypersetup{%Remove red rectangles on hyperlinks
-	colorlinks=false,
-	hidelinks
+\hypersetup{
+	colorlinks=true,
+	urlcolor=blue,
+	linkcolor=blue,
+	citecolor=blue,
+	filecolor=blue,
+	urlbordercolor=white,
+	linkbordercolor=white,
+	citebordercolor=white,
+	filebordercolor=white
 }
 
 \theoremstyle{definition}
@@ -66,8 +74,7 @@
 \newtheorem*{obs}{Observación}
 \newtheorem*{teo}{Teorema}
 \newtheorem*{prop}{Proposición}
-\newtheorem{coro}{Corolario}
-\newtheorem*{coro*}{Corolario}
+\newtheorem*{coro}{Corolario}
 \newtheorem*{ejer}{Ejercicio}
 \newtheorem*{ejem}{Ejemplo}
 \newtheorem*{ejems}{Ejemplos}
@@ -83,6 +90,8 @@
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\img}{img}
 \DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Grp}{Grp}
 
 \title{Notas de Topología Algebraica}
 \author{Prof. Luis Jorge Sánchez Saldaña\\ \\ Notas por Dani}
@@ -92,7 +101,108 @@
 	\tableofcontents
 	
 \part{Grupo fundamental}
+\chapter{El grupo fundamental}
+\section{Homomorfismos inducidos (funtorialidad)}
+Primero establezcamos algo de notación. Si $f:X\to Y$, $x_0\in X$, $y_0\in Y$ y $f(x_0)=y_0$, escribimos $f:(X,x_0)\to(Y,y_0)$.
+\begin{teo}[El grupo fundamental es un funtor $\pi_1:\Top^*\to\Grp$]
+	La función $f:(X,x_0)\to(Y,y_0)$ induce un homomorfismo \[f_*:\pi_1(X,x_0)\to\pi_1(Y,y_0)\] tal que
+	\begin{enumerate}
+		\item Si $g:(Y,y_0)\to(Z,z_0)$, entonces $(g\circ f)_*=g_*\circ f_*$
+		\item $(Id_X)_*=Id_{\pi_1(X,x_0)}$
+	\end{enumerate}
+\end{teo}
+\section{Homotopía}
+\label{def:func-homot}
+	Dos funciones $f,g:X\to Y$ son \textbf{homotópicas} si existe una función que llamaremos \textbf{homotopía} de la forma $H:X\times I\to Y$ tal que
+	\begin{align*}
+		H(x,0)=f(x)\qquad\forall x\in X\\
+		H(x,1)=g(x)\qquad\forall x\in X
+	\end{align*}
+	y se denota por $f\simeq g$.
 	
+	Si tenemos $A\subseteq X$ y $B\subseteq Y$ y $f$ es tal que $f(A)\subseteq B$, escribiremos \[f:(X,A)\to(Y,B)\]Una homotopía entre funciones de este estilo es una función $H:X\times I\to Y$ tal que todas las funciones que obtenemos al cambiar el parámetro en el tiempo sean funciones que siguen enviando $A$ en $B$. Es decir, que tenemos las funciones \[H(\_,t):(X,A)\to(Y,B)\qquad\forall t\in I\] tales que 
+	\begin{align*}
+		H(x,0)=f(x)\qquad\forall x\in X\\
+		H(x,1)=g(x)\qquad\forall x\in X
+	\end{align*}
+	
+	Y en particular, si $A=\{x_0\}$ y $B=\{y_0\}$, igualito que antes, escribiremos \[f:(X,x_0)\to(Y,y_0)\]	
+	En este caso, diremos que \textbf{homotopía que preserva el punto base} es una función $H:X\times I\to Y$ tal que 
+		\begin{align*}
+		H(x_0,t)=y_0\qquad\forall t\in I\\
+		H(x,0)=f(x)\qquad\forall x\in X\\
+		H(x,1)=g(x)\qquad\forall x\in X
+	\end{align*}
+	y diremos, así nomás, que $f$ y $g$ son homotópicas, especificando si es necesario que la homotopía preserva el punto base.
+	\begin{prop}
+		Si $f,g:(X,x_0)\to(Y,y_0)$ son homotópicas (preservando el punto base) entonces inducen el mismo homomorfismo en grupos fundamentales, es decir,  $f_*=g_*:\pi_1(X,x_0)\to\pi_1(Y,y_0)$.
+	\end{prop}
+	\begin{defn}
+		Dos espacios $X$ y $Y$ son \textbf{homotópicamente equivalentes} si existen dos funciones llamadas \textbf{equivalencias homotópicas} $f:X\to Y$ y $g:Y\to X$ tales que $g\circ f\simeq Id_X$ y $f\circ g\simeq Id_Y$. Y se denota por $X\simeq Y$.
+	\end{defn}
+	\begin{coro}\label{1.2.1}
+		Si $f:X\to Y$ es una equivalencia homotópica, entonces la función inducida $f_*:\pi_1(X,x_0)\to\pi_1(Y,y_0)$ es un isomorfismo.
+	\end{coro}
+	\begin{proof}
+		Supongamos que $g:Y\to X$ es como en la definición anterior. Basta mostrar que $f_*$ y $g_*$ son inversas una de la otra. Y sí, porque $Id_{\pi_1(X,x_0)}=(g f)_*=g_*f_*$ y análogamente $Id_{\pi_1(Y,y_0)}=f_*g_*$.
+	\end{proof}
+\chapter{El teorema de Van Kampen}
+\section{Grupos libres}
+\section{Productos libres}
+	En teoría de grupos, normalmente definimos el producto directo pensando en algo así: 
+	\[\begin{tikzcd}[column sep=1em, row sep=2em]
+		&G\times H\\
+		G_\alpha\arrow[ur,hook,"g\mapsto(g\text{,}1)"]&&H \arrow[ul,hook,swap,"h\mapsto(1\text{,}h)"]
+	\end{tikzcd}\]
+	donde el producto es conmutativo, es decir \[(g,1)(1,h)=(1,h)(g,1)\]
+	Ahora vamos a definir un producto que se llamará el \textbf{producto libre} donde los elementos no van a conmutar:
+	\begin{defn}
+		Sea $\{G_\alpha\}_\{\alpha\in I\}$ una colección de grupos. Como conjunto, el producto libre $\ast_{\alpha\in I}G_\alpha$ consiste de las palabras $g_1g_2\ldots g_m$ para $m\in\N\cup\{0\}$ donde cada $g_i$ está en algún $G_\alpha$. Además, $g_i\neq1$, y $g_i,g_{i+1}$ siempre pertenecen a diferentes $G_\alpha$, es decir $g_i\in G_\alpha$ y $g_{i+1}\in G_\beta$ con $\alpha\neq\beta$. En este caso, decimos que $g_1\ldots g_m$ es una \textbf{palabra reducida}.
+		
+		La operación binaria en $\ast_{\alpha\in I}$ está dada por la concatenación.
+	\end{defn}
+	\begin{obs}
+		Cada uno de los $G_\alpha$ está contenido en $\ast_{\alpha\in I}G_\alpha$, pues están en la forma de palabras de una sola letra. En símbolos:
+		\begin{align*}
+			G&\hookrightarrow\ast_{\alpha\in I}G_\alpha\\
+			g&\mapsto g
+		\end{align*}
+	\end{obs}
+	\begin{teo}[Propiedad universal del producto libre]
+		Dados los homomorfismos $\varphi_\alpha:G_\alpha\to H$, entonces existe un único homomorfismo $\varphi:\ast_{\alpha\in I}G_\alpha\to H$ que extiende a los $\varphi_\alpha$, es decir, que el siguiente diagrama conmuta:
+		\[\begin{tikzcd}[column sep=1em, row sep=2em]
+			G_\alpha\arrow[rr,"\varphi_\alpha"]\arrow[dr]&&H\\
+			&\ast_{\alpha\in I}G_\alpha \arrow[ur,"\varphi"]
+		\end{tikzcd}\]
+	\end{teo}
+\section{Subgrupos normalmente generados}
+\section{El teorema de Van Kampen}
+	Imagínense que queremos calcular el grupo fundamental de un espacio pero no sabemos cómo. (Esto pasa muy seguido). Pero resulta que podemos ver este espacio como la unión de muchos subespacios de los que conocemos sus grupos fundamentales. Éste es el escenario del teorema de Van Kampen.
+
+	Tomemos un espacio topológico $X$, un punto base $x_0\in X$ y supongamos que $X=\bigcup_{\alpha\in I}A_\alpha$ para ciertos espacios $A_\alpha$ tales que $x_0\in A_\alpha$, para toda $\alpha\in I$, y además supongamos que los $A_\alpha$ son arco-conexos.
+	
+	Así que como los $A_\alpha$ son subespacios, podemos pensar en la inclusión $A_\alpha\hookrightarrow X$ y en los homomorfismos inducidos en los grupos fundamentales, que llamaremos $j_\alpha:\pi_1(A_\alpha,x_0)\to\pi_1(X,x_0)$. Entonces, por la propiedad fundamental del producto libre, tenemos un homomorfismo que sale del producto libre de esos grupos al grupo fundamental de $X$, es decir
+	\[\ast_{\alpha\in I}\pi_1(A_\alpha,x_0)\to\pi_1(X,x_0)\]
+	El teorema nos dirá que esta función es suprayectiva. Intuitivamente, nos dice que cualquier lazo en $X$ es homotópico a otro lazo que es la concatenación de ciertos lazos, cada uno completamente contenido en alguno de los $A_\alpha$.
+	
+	Ahora pensemos en un lazo que está en la intersección de dos de los $A_\alpha$. Podemos pensar el lazo está en, digamos, $A_\alpha$, y su inverso está en $A_\beta$. Entonces, como elemento en el producto libre $\ast_{\alpha\in I}\pi_1(A_\alpha,x_0)$, este lazo no es la identidad. Pero al empujarlo al grupo $\pi_1(X,x_0)$, sí es la identidad. Bueno, todo esto para decir que el mapeo que hemos construido no es inyectivo.
+	
+	Ahora pensemos que para $\alpha,\beta\in I$, tenemos la inclusión $A_\alpha\cap A_\beta\hookrightarrow A_\alpha$, que induce un mapeo \[i_{\alpha\beta}:\pi_1(A_\alpha\cap A_\beta)\to \pi_1(A_\alpha)\]. (El orden de los subíndices fue importante, ya que el codominio está dado por el primer símbolo en el subíndice).
+	
+	Juntemos lo que hemos dicho en los dos párrafos anteriores. El lazo no trivial $1\neq i_{\alpha\beta}[f]i_{\beta\alpha}[\bar f]\in \ast_{\alpha\in I}A_\alpha$ puede ser empujado a $\pi_1(X,x_0)$. El teorema de Van Kampen nos dirá que el kernel del homomorfismo (que ya dijimos que seguramente no es inyectivo) está generado justamente por elementos de ese estilo.
+	
+	Ahora sí:
+	
+	\begin{teo}[de Van Kampen]
+		Si $X=\bigcup_{\alpha\in I}A_\alpha$ con $A_\alpha$ arco-conexo $\forall\alpha\in I$, $x_0\in A_\alpha$, y además $A_\alpha\cap A_\beta$ es arco-conexo $\forall\alpha,\beta\in I$. Entonces el homomorfismo
+		\[\Phi:\ast_{\alpha\in I}\pi_1(A_\alpha,x_0)\to\pi_1(X,x_0)\]
+		es suprayectivo.
+		
+		Si además $A_\alpha\cap A_\beta\cap A_\gamma$ es arcoconexo $\forall\alpha,\beta,\gamma\in I$, entonces
+		\[\ker\Phi=\langle\langle i_{\alpha\beta}(\omega)i_{\beta\alpha}(\omega)^{-1}:\omega\in\pi_1(A_\alpha\cap A_\beta\rangle\rangle\]
+		
+		En particular,\[\pi_1(X,x_0)\cong \ast_{\alpha\in I}\pi_(A_\alpha,x_0)/\ker\Phi\]
+	\end{teo}
 \part{Espacios cubrientes}
 	
 \part{Homología}
@@ -461,7 +571,7 @@
 			\caption*{3-simplejo estándar}
 		\end{subfigure}
 	\end{figure}
-		Y observemos que $\Delta^n=\{(t_0,…,t_n)\in\R^{n+1}|t_0+…+t_n=1\}$
+	Y observemos que $\Delta^n=\{(t_0,…,t_n)\in\R^{n+1}|t_0+…+t_n=1\}$
 	Para nosotros el orden de los vértices en $[v_0,…,v_n]$ es importante y siempre hay que tenerlo en mente.
 	
 	Dado un $n$-simplejo siempre tenemos la función:
@@ -596,12 +706,31 @@
 
 \section{Funtorialidad}
 \section{Invarianza homotópica}
+Primero \hyperref[def:func-homot]{recordemos} que 
+\begin{defn}
+	Dos funciones $f,g:X\to Y$ son \textbf{homotópicas} si existe una función $H:X\times I\to Y$ tal que
+	\begin{align*}
+		H(x,0)=f(x)\qquad\forall x\in X\\
+		H(x,1)=g(x)\qquad\forall x\in X
+	\end{align*}
+	y se denota por $f\simeq g$.
+\end{defn}
+\begin{defn}
+	Dos espacios $X$ y $Y$ son \textbf{homotópicamente equivalentes} si existen dos funciones llamadas \textbf{equivalencias homotópicas} $f:X\to Y$ y $g:Y\to X$ tales que $g\circ f\simeq Id_X$ y $f\circ g\simeq Id_Y$. Y se denota por $X\simeq Y$.
+\end{defn}
+Ahora sí:
 \begin{teo}
-	Si dos funciones $f,g:X\to Y$ son homotópicas, entonces inducen el mismo homomorfismo $f_*=g_*:H_n(X)\to H_n(Y)$.
+	Si dos funciones $f,g:X\to Y$ son homotópicas, entonces inducen el mismo homomorfismo en el $n$-ésimo grupo de homología $f_*=g_*:H_n(X)\to H_n(Y)$ para toda $n$.
 \end{teo}
 \begin{coro}
-	Si dos funciones $f,g:X\to Y$ son homotópicas, entonces inducen el mismo homomorfismo $f_*=g_*:H_n(X)\to H_n(Y)$.
+	Si $f:X\to Y$ es una equivalencia homotópica, entonces la función inducida $f_*:H_n(X)\to H_n(Y)$ es un isomorfismo para toda $n$.
 \end{coro}
+\begin{proof}
+	Usando el teorema y las propiedades de funtorialidad.
+\end{proof}
+\begin{ejem}
+	Si $X\simeq \{x_0\}$, es decir $X$ es \textbf{contraible}, entonces \[H_n(X,R)=\begin{cases} R\qquad\text{si }n=0\\0\qquad\text{si }n\neq0\end{cases}\]
+\end{ejem}
 \section{Homología relativa}
 Sean $A\subseteq X$ espacios topológicos. Diremos que $(X,A)$ es una buena pareja. Notemos que $(C_\bullet(A))$ es un subcomplejo de $C_\bullet (X)$, así que podemos definir el complejo relativo
 \[
@@ -684,6 +813,42 @@ En la demostración se usa lema de los 5, invarianza homotópica, etc.
 	
 	Ahora para la parte que sí nos toca, *Falta*
 \end{ejem}
+\section{Representantes de la homología de la esfera}
+En esta sección usaremos $R=\mathbb Z$.
+\begin{prop}
+	 $Id:\Delta^n\to\Delta^n$ representa un generador de $H_n(\Delta^n,\partial\Delta^n)$
+	 \begin{proof}
+	 	Por inducción en $n$. Si $n=0$, entonces $\Delta^0=\{e_0\}$ es un punto y su frontera es el vacío. Luego $H_0(\Delta^0,\partial\Delta^0)=H_0(\Delta^0)=\mathbb Z=\langle[e_0]\rangle$.
+	 	
+	 	Ahora supongamos para $n$ y demostremos para $n+1$. Definamos $\Lambda$ como la unión de todas las $n-1$ caras en la frontera salvo alguna. Luego
+	 	$$
+	 	H_n(\Delta^n,\partial\Delta^n)\to^\delta H_n(\partial\Delta^n,\Lambda)\leftarrow^{\iota}H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})
+	 	$$
+	 	Luego como puedo retraer el simplejo en el $\Lambda$,
+	 	$$
+	 	H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})=0
+	 	$$
+	 	Así que (creo que) incluyendo el de en medio la primera ecuación en este anterior, obtenemos que $\delta$ es un isomorfismo.
+	 	
+	 	Para checar $\iota$, 
+	 	$$
+	 	H_{n-1}(\Delta^{n},\Lambda)\cong H_{n-1}(\partial\Delta^n/\Lambda)\\
+	 	H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})\cong H_{n-1}(\partial\Delta^{n-1}/\partial\Delta^{n-1})
+	 	$$
+	 	Y los dos de la derecha deben ser isomorfos. Hay un cuadrado conmutativo abajo de la inclusión $\iota$. Luego $\iota_{n-1}$ genera por hipótesis inductiva…
+	 \end{proof}
+\end{prop}
+\section{Generadores para la homología de la esfera}
+\begin{obs}\leavevmode
+	
+	\begin{itemize}
+		\item $H_i(D^n,\partial D^n)\cong H_i(S^n)$
+		\item Usaremos los homeomorfismos $(D^n,\partial D^n)\cong (\Delta ^n,\partial\Delta ^n)$
+	\end{itemize}
+\end{obs}
+\begin{prop}
+	Pensando que que $S^n$ es $\Delta^n\bigcup_{\partial\Delta^n}\Delta^n$, y denotado cada copia de $\Delta^n$ con un subíndice, tenemos que $\Delta^n_1-\Delta^n_2$ es un generador de $H_n(S^n)$ para $n>0$.
+\end{prop}
 \section{Grado de una función entre esferas}
 Hagamos dos observaciones básicas:
 \begin{itemize}
@@ -826,7 +991,7 @@ Hagamos dos observaciones básicas:
 		\item \[H_k(X^n,X^{n-1})=\begin{cases}0\qquad\quad\qquad\text{si }k\neq0\\
 			\bigoplus_{\alpha\in I_n}R\qquad \text{si } k=n
 		\end{cases}\]
-		\begin{proof}[Express]
+		\begin{proof}
 			$H_k=\tilde H_k(X^n/X^{n-1})=\tilde H_k(\bigvee_{\alpha \in I_n}S^n)=\bigoplus_{\alpha\in I_n}H_k(S^n)$
 		\end{proof}
 		\item $H_k(X^n)=0$ para toda $k>n$. 
@@ -838,10 +1003,10 @@ Hagamos dos observaciones básicas:
 	\end{itemize}
 	\end{lema}
 	\begin{proof}
-		content...Fijémonos en $(X^n,X^{n-1})$, hay una sucesión exacta corta de la pareja:
-		
-		\[H_{k+1}(X^n,X^{n-1})\to H_k(X^{n-1})\to H_k(X^n)\to H_k(X^n,X^{n-1})\]
-		
+		Fijémonos en $(X^n,X^{n-1})$, hay una sucesión exacta corta de la pareja:
+		\[\begin{tikzcd}[column sep=small]
+			H_{k+1}(X^n,X^{n-1}) \arrow[r] & H_k(X^{n-1}) \arrow[r] & H_k(X^n) \arrow[r] & H_k(X^n,X^{n-1})
+		\end{tikzcd}\]
 		Usando el inciso 1, si $k\neq n,n-1$ entonces $H_k(X^{n-1})\cong H_k(X^n)$.
 		
 		Bueno para demostrar (2), justamente tenemos $k>n$ y entonces resultará, fijando $k$ y bajando uno por uno, $H_k(X^n)\cong H_k(X^0)$ que es un espacio discreto y la homología de grado mayor que cero en espacios discretos es cero. Terminamos el inciso (2).
@@ -856,14 +1021,14 @@ Hagamos dos observaciones básicas:
 			H_n(X^n, X^{n-1}) \arrow[ru, "\partial_n"] \arrow[rr, "d_n"] && H_{n-1}(X^{n-1}, X^{n-2}) \arrow[rd, "\partial_{n-1}"] \arrow[rr, "d_{n-1}"] && H_{n-2}(X^{n-2}, X^{n-3}) \\
 			& && H_{n-2}(X^{n-2}) \arrow[ru, "j_{n-2}"]
 		\end{tikzcd}\]
-		Resultará que las flechas horizontales que definimos con los triangulitos, es decir las $d_i$, satisfacen que \[d_{n+1}\circ d_n=0\] así que podemos bautizar el complejo de cadenas $C_\bullet^{CW}(X,R)$. Y ahora podemos definir la homología celular: \[H^{CW}_n(X;R)=H_n(C_\bullet^{CW}(X))\]
+		Resultará que las flechas horizontales que definimos con los triangulitos, es decir las $d_i$, satisfacen que \[d_{n+1}\circ d_n=0\] así que podemos bautizar el \textbf{complejo de cadenas celular} $C_\bullet^{CW}(X,R)$. Y ahora podemos definir la \textbf{homología celular}: \[H^{CW}_n(X;R)=H_n(C_\bullet^{CW}(X))\]
 	\end{defn}
 	\begin{teo}
 		\[H_n^{CW}(X;R)\cong H_n(X;R)\qquad\forall n\geq0\]
 	\end{teo}
 	El primero depende de la estructura celular del espacio $X$, pero el segundo no. Así, la homología de un complejo $CW$ es independiente de la estructura celular.
-	\begin{obs}
-		content...Estos grupos $H_n(X^n,X^{n-1})$ son las sumas directas de $R$, uno por cada n-celula de $X$ ie $\bigoplus_{n-\text{células de }X}R=\{\sum r_\alpha e^n_\alpha|e^n_\alpha \text{ es una }n\text{-célula }r_\alpha\in R\}$.
+	\begin{obs}\label{obs1}
+		Estos grupos $H_n(X^n,X^{n-1})$ son las sumas directas de $R$, uno por cada $n$-célula de $X$.
 	\end{obs}
 	Bueno, ahora tratemos de entender cómo es la $d$. Consideremos sl siguiente diagrama:
 	\[\begin{tikzcd}
@@ -871,11 +1036,10 @@ Hagamos dos observaciones básicas:
 		& S^{n-1}_\beta & \bigvee_{\gamma\in I_n}S^{n-1}_\gamma = X^{n-1}/X^{n-2} \arrow[l]
 	\end{tikzcd}\]
 	Esta función que descubrimos $\varphi_{\alpha\beta}$ es una función entre esferas que tiene un grado $d_{\alpha\beta}$.
-	\section{Ejemplos}
-	Usaremos que 
 	\begin{teo}
 		Para $n\geq 2$, la diferencial $d_n$ manda $e^{n}_\alpha\mapsto\sum d_{\alpha\beta}e^{n-1}_\beta$.
 	\end{teo}
+	\section{Ejemplos}
 	\begin{ejem}
 		Calculamos de dos maneras distintas la homología de $X=\bigvee_{\alpha\in I}S_\alpha^1$, por un lado usando directamente que $H_0(X)=R$ y otro usando el teorema anterior. Para el teorema anterior, descubrimos que para como sólo hay una 0-célula, para cualquier $\alpha$, $e_\alpha^1\mapsto x_0-x_0=0$, así que de hecho $d_1=0$. Resulta que $H_1=\bigoplus_IR$.
 	\end{ejem}
@@ -884,7 +1048,29 @@ Hagamos dos observaciones básicas:
 		Si $X$ es un complejo con una única 0-célula, entonces $d_1=0$.
 	\end{lema}
 	\begin{ejem}[El toro]
-		Hemos visto que hay una descomposición del toro pegando los lados de un cuadrado. Eventualemente se descubre que $d_2=0$.
+		Hemos visto que hay una descomposición del toro pegando los lados de un cuadrado. De acuerdo a este lema, y a la \hyperref[obs1]{observación} hecha hace unos momentos, contando los vértices y las aristas de esa descomposición obtenemos la siguiente homología:
+		\[\begin{tikzcd}
+			0\arrow[r]&\Z\arrow[r,"d_2"]&\Z\arrow[r,"d_1=0"]&\Z\arrow[r]&0
+		\end{tikzcd}\]
+		(Eventualemente se descubre que $d_2=0$.)
+		
+%		\[\begin{tikzpicture}[decoration={
+%				markings,
+%				mark=at position 0.5 with {\arrow{stealth}}
+%			}]
+%			% Vertices
+%			\node[fill=black, circle, inner sep=1.5pt] at (-2,0) {};
+%			\node[fill=black, circle, inner sep=1.5pt] at (2,0) {};
+%			\node[fill=black, circle, inner sep=1.5pt] at (-2,2) {};
+%			\node[fill=black, circle, inner sep=1.5pt] at (2,2) {};
+%			
+%			% Sides as arrows with arrowheads in the middle
+%			\draw[postaction={decorate}] (-2,0) -- (2,0); % Horizontal arrow (AB)
+%			\draw[postaction={decorate}] (-2,2) -- (2,2); % Horizontal arrow (CD)
+%			\draw[postaction={decorate}, double distance=2pt] (-2,0) -- (-2,2); % Vertical double arrow (AC)
+%			\draw[postaction={decorate}, double distance=2pt] (2,0) -- (2,2); % Vertical double arrow (BD)
+%			\end{tikzpicture}\]
+	
 	\end{ejem}
 	\begin{teo}[Extra]
 		Una superficie compacta y conexa sólo puede ser una esfera, un toro, una suma conexa de toros, el plano proyectivo o una suma conexa de planos proyectivos.
@@ -977,4 +1163,16 @@ Hagamos dos observaciones básicas:
 		\end{align*}
 	\end{proof}
 	Y con eso se demuestra fácilmente el teorema.
+	\section{Ejercicios}
+	\begin{ejer}Demuestre que $S^1 \times S^1$ y $S^1 \vee S^1 \vee S^2$ tienen grupos de homología (con coeficientes enteros) isomorfos pero no son homotópicamente equivalentes.
+	\begin{proof}[Solución]
+		Por sus descomposiciones como complejos CW, \hyperref[obs1]{sabemos} que la homología de ambos espacios está dada por
+		\[\begin{tikzcd}[column sep=small]
+			0\arrow[r]&\Z\arrow[r]&\Z^2\arrow[r]&\Z\arrow[r]&0
+		\end{tikzcd}\]
+		Si estos espacios fueran homotópicamente equivalementes, entonces, \hyperref[1.2.1]{sus grupos fundamentales serían isomorfos}. Sabemos que el grupo fundamental del toro es $\Z\times\Z$, y el de $S^1 \vee S^1 \vee S^2$, por Van Kampen, es isomorfo a $\Z\ast\Z$.
+		
+		Para confirmar está última observación basta notar que el espacio se puede ver naturalmente como la unión de dos copias de $S^1$ y otra de $S^2$. La intersección de las tres es un sólo punto, que es arcoconexo, así que podemos aplicar Van Kampen. De hecho, como la intersección es contraible, el kernel del isomorfismo de Van Kampen es trivial, así que el grupo fundamental es simplemente el producto libre de los grupos fundamentales de cada compoenente. Obtenemos $\Z\ast\Z\ast0\cong\Z\ast\Z$.
+	\end{proof}
+	\end{ejer}
 \end{document}
