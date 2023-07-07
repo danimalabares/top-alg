@@ -71,4 +71,4 @@
 \contentsline {chapter}{\numberline {8}Homología y homotopía}{50}{chapter.8}%
 \contentsline {section}{\numberline {8.1}El homomorfismo de Hurewicz}{50}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Grupos de homotopía superiores}{50}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Ejercicios}{51}{section.8.3}%
+\contentsline {chapter}{\numberline {9}Ejercicios}{51}{chapter.9}%

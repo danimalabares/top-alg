@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  7 JUL 2023 09:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  7 JUL 2023 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1078,7 +1078,7 @@ Chapter 5.
 [28
 
 ]
-<Homología/H1.png, id=543, 189.1065pt x 193.6836pt>
+<Homología/H1.png, id=544, 189.1065pt x 193.6836pt>
 File: Homología/H1.png Graphic file (type png)
 <use Homología/H1.png>
 Package pdftex.def Info: Homología/H1.png  used on input line 825.
@@ -1218,13 +1218,17 @@ m/n/10 ? Mul-ti-plicar por 2 es la funci[]on 0, as[]^^P que $\OML/cmm/m/it/10 H
 Chapter 8.
 [50
 
-] [51] (./top-alg.aux)
+]
+Chapter 9.
+[51
+
+] (./top-alg.aux)
 Package rerunfilecheck Info: File `top-alg.out' has not changed.
-(rerunfilecheck)             Checksum: 5A7F99CEDBE1CDB562B85E58E991D8A8;15045.
+(rerunfilecheck)             Checksum: 4036CA691C13EE25769D7DE180747A8E;15040.
  ) 
 Here is how much of TeX's memory you used:
  30770 strings out of 476025
- 631539 string characters out of 5790018
+ 631535 string characters out of 5790018
  1905388 words of memory out of 5000000
  50564 multiletter control sequences out of 15000+600000
  537461 words of font info for 104 fonts, out of 8000000 for 9000
@@ -1249,10 +1253,10 @@ exlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/
 2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/te
 xmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dis
 t/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on top-alg.pdf (51 pages, 502199 bytes).
+Output written on top-alg.pdf (51 pages, 502370 bytes).
 PDF statistics:
- 789 PDF objects out of 1000 (max. 8388607)
- 689 compressed objects within 7 object streams
+ 790 PDF objects out of 1000 (max. 8388607)
+ 690 compressed objects within 7 object streams
  167 named destinations out of 1000 (max. 500000)
  610 words of extra memory for PDF output out of 10000 (max. 10000000)
 
