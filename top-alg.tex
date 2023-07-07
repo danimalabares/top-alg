@@ -21,7 +21,6 @@
 \renewcommand{\chaptermark}[1]{\markboth{{} \thechapter: #1}{}}
 
 
-
 \usepackage[bookmarks,bookmarksopen,bookmarksdepth=3]{hyperref}
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -54,7 +53,7 @@
 \hypersetup{
 	colorlinks=true,
 	urlcolor=blue,
-	linkcolor=blue,
+	linkcolor=magenta,
 	citecolor=blue,
 	filecolor=blue,
 	urlbordercolor=white,
@@ -92,25 +91,154 @@
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\Top}{Top}
 \DeclareMathOperator{\Grp}{Grp}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Orb}{Orb}
 
 \title{Notas de Topología Algebraica}
 \author{Prof. Luis Jorge Sánchez Saldaña\\ \\ Notas por Dani}
 
 \begin{document}
 	\maketitle
+	\phantomsection
+	\addcontentsline{toc}{part}{\contentsname}
 	\tableofcontents
 	
 \part{Grupo fundamental}
 \chapter{El grupo fundamental}
+\section{Caminos y homotopías}
+	Denotaremos por $I$ al intervalo unitario $[0,1]$ y por $X$ a un espacio topológico cualquiera.
+	\begin{defn}
+		Un \textbf{camino} es una función $f:I\to X$.
+	\end{defn}
+	\begin{defn}
+		Una \textbf{homotopía de caminos} en $X$ es una familia $f_t:I\to X$, con $0\leq t\leq0$, tal que la función asociada
+		\begin{align*}
+			F:I\times I&\to X\\
+			(s,t)&\mapsto f_t(s)
+		\end{align*}
+		es continua.
+		
+		Decimos que la homotopía $F:I\times I\to X$ es \textbf{relativa a los extremos} si
+		\begin{align*}
+			F(0,t)=x_0\qquad\forall t\in I		F(0,t)=x_1\qquad\forall t\in I
+		\end{align*}
+		para $x_0,x_1\in X$.
+		
+		Por último, dos caminos $f_0$ y $f_1$ en $X$ tales que $f_0(0)=f_1(0)$ y $f_0(1)=f_1(1)$ son \textbf{homotópicos rel} $\mathbf{0,1}$ si hay una homotopía entre ellos, y se denota $f_0\simeq f_1\rel0,1$.
+	\end{defn}
+	\begin{teo}
+		La relación $f_1\sim{}f_2\iff f_1\simeq f_2\rel0,1$ es una relación de equivalencia en en conjunto de caminos en $X$, que denotaremos por $\Omega(X):=\{f:I\to X\}$.
+	\end{teo}
+	
+\section{Definición del grupo fundamental}
+	En nuestro camino a definir el grupo fundamental, primero definiremos una operación entre caminos:
+	
+	Denotaremos por $[f]$ a la clase de homotoía $\rel0,1$ de $f\in\Omega(X)$.
+	\begin{defn}
+		Dados $f,g:I\to X$ tales que $f(1)=g(0)$, podemos definir la \textbf{concatenación de caminos}
+		\begin{align*}
+			f&\cdot g:I\to X\\
+			f\cdot g(s)&=\begin{cases}
+				f(2s)\qquad s\in[0,1/2]\\
+				g(2s-1)\qquad s\in[1/2,1]
+			\end{cases}
+		\end{align*}
+	\end{defn}
+	\begin{obs}
+		Si $f\simeq f_1\rel0,1$ y $g\simeq g_1\rel0,1$, entonces $f\cdot g\simeq f_1\cdot g_1\rel0,1$.
+		
+		Dicho de otra forma, si $[f]=[f_1]$ y $[g]=[g_1]$ entonces $[f\cdot g]=[f_1\cdot g]$.
+	\end{obs}
+	\begin{defn}
+		Decimos que $f:I\to X$ es un \textbf{lazo basado en} $x_0\in X$ si $f(0)=f(1)=x_0$. Denotaremos por $\Omega(X,x_0)=\{f:I\to X:f(0)=f(1)=x_0\}$ al conjunto de tales lazos.
+	\end{defn}
+	La relación de equivalencia $\rel0,1$ se restringe correctamente a $\Omega(X,x_0)\subseteq\Omega(X)$, así que podemos por fin definir
+	\begin{defn}
+		El \textbf{grupo fundamental} de $X$ basado en $x_0$ es el conjunto
+		\[\pi_1(X,x_0)=\Omega(X,x_0)/\rel0,1\]
+	\end{defn}
+	\begin{teo}
+		El grupo fundamental es un grupo con la operación concatenación.
+	\end{teo}
+	\begin{proof}
+		Hay que ver que:
+		\begin{itemize}
+			\item El producto está bien definido.
+			\item Hay un neutro, el camino constante $c_{x_0}:I\to X$ dado por $c_{x_0}(t)=x_0$ para toda $t\in I$.
+			\item Hay inversos.
+			\item Hay asociatividad.
+		\end{itemize}
+	\end{proof}
+\section{Cambio de punto base}
+	¿Qué pasa cuando cambiamos del punto base? ¿Cambia el grupo fundamental? Es fácil notar que si los puntos están diferentes componentes arco-conexas, es muy fácil que cambien los grupos fundamentales. Pero, ¿qué pasa si están en la misma componente conexa?
+	\begin{teo}
+		Si $x_0,x_1\in X$ se pueden conectar por un camino, entonces $\pi_1(X,x_0)\cong\pi_1(X,x_1)$.
+	\end{teo}
+
+\section{El grupo fundamental del círculo}
+	Pensemos que $S^1=\{z\in\C:|z|=1\}$.
+	\begin{teo}
+		$\pi_1(S^1,x_0)\cong\Z$ para cualquier $x_0\in S^1$.
+	\end{teo}
+
+\section{Consecuencias del grupo fundamental del círculo}
+
+\subsection{El teorema fundamental del álgebra}
+
+\subsection{Teorema del punto fijo de Brouwer en dimensión 2}
+	\begin{teo}
+		Toda función $f:D^2\to D^2$ tiene un punto fijo.
+	\end{teo}
+
+\subsection{El teorema de Borsuk-Ulam en dimensión 2}
+	\begin{teo}
+		Para cualquier función continua $f:S^2\to\R^2$ existe $x\in S^2$ tal que $f(x)=f(-x)$.
+	\end{teo}
+	
+\section{El grupo fundamental de un producto}
+	\begin{teo}
+		Sean $X$ y $Y$ espacios topológicos y $x_0\in X$, $y_0\in Y$. Entonces
+		\[\pi_1(X\times Y,(x_0,y_0))\cong\pi_1(X,x_0)\times\pi_1(Y,y_0)\]
+	\end{teo}
+
 \section{Homomorfismos inducidos (funtorialidad)}
-Primero establezcamos algo de notación. Si $f:X\to Y$, $x_0\in X$, $y_0\in Y$ y $f(x_0)=y_0$, escribimos $f:(X,x_0)\to(Y,y_0)$.
-\begin{teo}[El grupo fundamental es un funtor $\pi_1:\Top^*\to\Grp$]
-	La función $f:(X,x_0)\to(Y,y_0)$ induce un homomorfismo \[f_*:\pi_1(X,x_0)\to\pi_1(Y,y_0)\] tal que
-	\begin{enumerate}
-		\item Si $g:(Y,y_0)\to(Z,z_0)$, entonces $(g\circ f)_*=g_*\circ f_*$
-		\item $(Id_X)_*=Id_{\pi_1(X,x_0)}$
-	\end{enumerate}
-\end{teo}
+	Primero establezcamos algo de notación. Si $f:X\to Y$, $x_0\in X$, $y_0\in Y$ y $f(x_0)=y_0$, escribimos $f:(X,x_0)\to(Y,y_0)$.
+	\begin{teo}[El grupo fundamental es un funtor $\pi_1:\Top^*\to\Grp$]
+		La función $f:(X,x_0)\to(Y,y_0)$ induce un homomorfismo \[f_*:\pi_1(X,x_0)\to\pi_1(Y,y_0)\] tal que
+		\begin{enumerate}
+			\item Si $g:(Y,y_0)\to(Z,z_0)$, entonces $(g\circ f)_*=g_*\circ f_*$
+			\item $(Id_X)_*=Id_{\pi_1(X,x_0)}$
+		\end{enumerate}
+	\end{teo}
+
+\section{El grupo fundamental de la $n$-esfera}
+	\begin{prop}
+		$\pi_1(S^n)=0$ si $n\geq2$.
+	\end{prop}
+	Para lo cual se usa el siguiente lema:
+	\begin{lema}
+		Sea $X=\bigcup_{\alpha\in\ I} A_\alpha$ tal que
+		\begin{itemize}
+			\item $A_\alpha$ son abiertos (es una cubierta abierta)
+			\item Existe $x_0\in\bigcap A_\alpha$
+			\item $A_\alpha$ es arco conexo
+			\item $A_\alpha\cap A_\beta$ también es arcoconexo $\forall\alpha,\beta$.
+		\end{itemize}
+		Entonces  todo lazo $\gamma$ en $X$ es homotópico rel 0,1 a un producto (concatenación) de lazos de la forma $\gamma\cong\gamma_1...\gamma_n$
+		tal que toda $\gamma_i$ está completamente contenido en algún $A_\alpha$.
+	\end{lema}
+
+\section{$\R^n$ no es homeomorfo a $\R^n$ si $n\neq2$}
+	\begin{teo}
+		$\R^2$ no es homeomorfo a $\R^n$ si $n\neq2$
+	\end{teo}
+	\begin{obs}
+		Si $x\in\R^n$, entonces $\R^n-\{x\}$ es homeomorfo a $S^{n-1}\times\R$.
+	\end{obs}
+	\begin{teo}
+		$\R^n\cong\R^m\iff n=m$.
+	\end{teo}
+
 \section{Homotopía}
 \label{def:func-homot}
 	Dos funciones $f,g:X\to Y$ son \textbf{homotópicas} si existe una función que llamaremos \textbf{homotopía} de la forma $H:X\times I\to Y$ tal que
@@ -146,6 +274,9 @@ Primero establezcamos algo de notación. Si $f:X\to Y$, $x_0\in X$, $y_0\in Y$ y
 	\begin{proof}
 		Supongamos que $g:Y\to X$ es como en la definición anterior. Basta mostrar que $f_*$ y $g_*$ son inversas una de la otra. Y sí, porque $Id_{\pi_1(X,x_0)}=(g f)_*=g_*f_*$ y análogamente $Id_{\pi_1(Y,y_0)}=f_*g_*$.
 	\end{proof}
+	\begin{ejer}[Hatcher 0.11]\label{hatcher:0.11}
+		\textit{Se pueden usar diferentes funciones para ir y regresar.} $f:X\to Y$ es una equivalencia homotópica si existen $g,h:Y\to X$ tales que $fg\simeq Id_Y$ y $gf\simeq Id_X$. Y más generalmente, $f$ es una equivalencia homotópica si $fg$ y $hf$ son equivalencias homotópicas.
+	\end{ejer}
 \chapter{El teorema de Van Kampen}
 \section{Grupos libres}
 \section{Productos libres}
@@ -203,8 +334,445 @@ Primero establezcamos algo de notación. Si $f:X\to Y$, $x_0\in X$, $y_0\in Y$ y
 		
 		En particular,\[\pi_1(X,x_0)\cong \ast_{\alpha\in I}\pi_(A_\alpha,x_0)/\ker\Phi\]
 	\end{teo}
-\part{Espacios cubrientes}
 	
+\section{El grupo fundamental de una cuña de espacios}
+		\textcolor{red}{No encontré \href{https://www.youtube.com/watch?v=9P6n__Njlz8}{este video} en la página del curso.}
+		
+		Consideremos una colección de espacios topológicos $X_\alpha$ con $\alpha\in I$ y escojamos un punto en cada espacio, digamos $x_\alpha\in X_\alpha$. Entonces, definimos la \textbf{cuña} de estos espacios como
+		
+		\[\bigvee_{\alpha\in I}X_\alpha:=\bigsqcup_{\alpha\in I}X_\alpha\Big/\{x_\alpha\sim{}x_\beta,\forall\alpha,\beta\in I\}\]
+		
+		Supongamos también que cada $x_\alpha$ es una retracción por deformación de alguna vecindad $U_\alpha\subseteq X_\alpha$.
+		
+		Entonces tenemos:
+		
+		\begin{teo}
+			Dadas estas hipótesis, el homomorfismo que aparece en el teorema de Van Kampen
+			
+			\[\phi\ast_{\alpha\in I}\pi_1(X_\alpha,x_0)\to \pi_1(\bigvee_{\alpha\in I}X_\alpha)\]
+			
+			es un isomorfismo.
+		\end{teo}
+
+\section{Todo grupo es el grupo fundamental de algún espacio}
+\subsection{Presentaciones de grupos}
+	Consideremos un grupo $G$ y un conjunto generador $S\subseteq G$, es decir, tal que $\langle S\rangle=G$. Eso es equivalente a adecir que todo elemento de $G$ se puede ver como un producto de elementos en $S$.
+	
+	Consideremos también el grupo libre generado por $S$, digamos $F_S$, y usemos la propiedad universal de los grupos libres para ver que existe un único homomorfismo suprayectivo
+
+	\[\begin{tikzcd}
+		S\arrow[r,hook]\arrow[d,hook]&G\\
+		F_S\arrow[ur,->>,dashed,swap,"\varphi"]
+	\end{tikzcd}\]
+
+	Hemos demostrado que
+	
+	\begin{teo}
+		Dado un grupo $G$ existe un grupo libre $F_S$ que se suprayecta a $G$. En particular, por el primer teorema de isomorfismo, todo grupo es cociente de un grupo libre.
+	\end{teo}
+	
+	Si además tenemos un conjunto $R\subseteq\ker\varphi$ que genera normalmente al kernel, es decir, $\langle\langle R\rangle\rangle =\ker\varphi$, tenemos que $G\cong F_S/\ker\varphi\cong F_S/\langle\langle R\rangle\rangle$ y decimos que
+	\[G=\langle S,R\rangle\]
+	es una \textbf{presentación} de $G$.
+	
+	\begin{ejems}
+		\begin{enumerate}
+			\item S
+		\end{enumerate}
+	\end{ejems}
+	
+	\begin{prop}
+		Si $G=\langle S,R\rangle$ es una presentación de grupos, $K$ es otro grupo, y $f:S\to K$ es una función tal que para cualesquiera $s_1,\ldots,s_m\in R$, $s_i\in S$,
+		
+		\[f(s_1)\ldots f(s_m)=1,\]
+		
+		entonces existe un único homomorfismo $\bar{f}:G\to K$ tal que el siguiente diagrama conmuta:
+		
+		\[\begin{tikzcd}
+			S\arrow[r,hook]\arrow[d,swap,"f"]&G\arrow[dl,dashed,"\bar{f}"]\\
+			K
+		\end{tikzcd}\]
+	\end{prop}
+	Es decir, para definir un homomorfismo` que salga de un grupo dada una presentación, sólo hay que asegurarnos de que las relaciones ``se respeten".
+\subsection{Todo grupo es isomorfo al grupo fundamental de algún espacio}
+	\begin{lema}
+		Sea $X$ un espacio topológico, $x_0\in X$ un punto base y $f:S^1\to X$ tal que $f(1)=x_0$. Para el espacio de adjunción $Y=X\cup_f D^2$,
+		\[\pi_1(Y,x_0)\cong\pi_1(X,x_0)\big/\langle\langle [f]\rangle\rangle\]
+		donde estamos viendo a $f$ como un lazo en el grupo fundamental.
+	\end{lema}
+	Esto se llama ``matar" un lazo.
+	\begin{lema}
+		Sea $X$ un espacio topológico, $x_0\in X$ un punto base y $f_\alpha:S^1\to X$, con $\alpha\in I$, tales que $f(1)=x_0$. Para el espacio de adjunción $Y=X\cup_{\{f_\alpha\}} \{D^2\}$,
+		\[\pi_1(Y,x_0)\cong\pi_1(X,x_0)\big/\langle\langle [f_\alpha]:\alpha\in I\rangle\rangle\]
+		donde estamos viendo a $f$ como un lazo en el grupo fundamental.
+	\end{lema}
+	Y ahora sí,
+	\begin{teo}
+		Para cualquier grupo $G$ existe un espacio topológico $X$ tal que $\pi_1(X,x_0)\cong G$.
+	\end{teo}
+	
+\section{El grupo fundamental no detecta células de dimensión mayor que 2}
+	Para formalizar el nombre de esta sección, necesitaremos: 
+	\begin{itemize}
+		\item Un espacio topológico conexo $X$
+		\item na célula $e^n$ de dimensión $n>2$, es decir, un espacio homeomorfo al $n$-disco cerrado.
+		\item Una función de pegado $f:S^{n-1}\to X$.
+		\item El espacio de adjunción $Y\cup_f e^n$.
+		\item Un punto $x_0\in\img(f)$.
+	\end{itemize}
+	Entonces tenemos que:
+	\begin{teo}
+		La inclusión $i:X\hookleftarrow Y$ induce un isomorfismo $i_*:\pi_1(X,x_0)\to\pi_1(Y,y_0)$.
+	\end{teo}
+	Es decir, cuando le pegamos a un espacio una célula de dimensión mayor que 2, el grupo fundamental quedó igual.
+\part{Espacios cubrientes}
+\chapter{Espacios cubrientes}
+\section{Definición de espacio cubriente}
+En la demostración del grupo fundamental del círculo ya habíamos usado la idea de espacio cubriente. Aquí está la definición general:
+\begin{defn}
+	Un \textbf{espacio cubriente} de $X$ es un espacio $\tilde X$ junto con una función \[p:\tilde X\to X\] tal que cada punto $x\in X$ tiene una vecindad abierta $U\subseteq X$ tal que $p^{-1}(U)$ es una unión disjunta de abiertos de $\tilde X$ de manera que cada uno se proyecta homeomorfamente a $U$ vía $p$.
+\end{defn}
+\begin{wrapfigure}[13]{l}{0.33\textwidth}
+\begin{tikzpicture}[scale=1.2]
+	% Rectangle representing X
+	\draw[thick] (0,0) rectangle (3,1.5);
+	\node at (1.5,0.75) {X};
+	
+	% Pancake U inside X
+	\draw[fill=brown!40] (1.5,0.75) ellipse (0.6 and 0.2);
+	\node at (1.5,0.75) {$U$};
+	\node at (2.6,0.26) {$X$};
+	
+	% Rectangle representing \tilde X
+	\draw[thick] (0,3) rectangle (3,6);
+	\node at (2.6,3.3) {$\tilde{X}$};
+	
+	% Stacked pancakes above U
+	\def\numpans{5}
+	\def\pancakeHeight{0.2}
+	\def\pancakeSpacing{0.3}
+	\def\tildeXtop{6.2}
+	
+	\foreach \i in {1,...,\numpans} {
+		\pgfmathsetmacro\yshift{\tildeXtop - \i*(\pancakeHeight + \pancakeSpacing)}
+		\draw[fill=brown!40] (1.5,-0.2+\yshift) ellipse (0.6 and \pancakeHeight);
+	}
+	 % Arrow from \tilde X to X
+	\draw[->, thick] (1.5,2.6) -- (1.5,1.8);
+	\node at (1.8,2.2) {$p$};
+\end{tikzpicture}
+\vspace{-2.6cm}
+\end{wrapfigure}
+	Introducimos otros términos:
+	\begin{itemize}
+		\item A la función $p$ le llamamos \textbf{proyección cubriente}.
+		\item A $U$ se le llama \textbf{vecindad regular}.
+		\item A los abiertos de $p^{-1}(U)$ que se proyectan homeomorfamente a $U$ se les llama \textbf{hojas} de $\tilde X$ sobre $U$.
+		\item El conjunto $p^{-1}(x)$ se llama la \textbf{fibra} de $x$ bajo $p$.
+	\end{itemize}
+	\begin{obs}\leavevmode
+		\begin{itemize}
+			\item Si $U$ es conexo entonces las hojas de $U$ son las componentes conexas de $p^{-1}$.
+			\item El número de hojas sobre $U$ es igual a la cardinalidad de $p^{-1}(x)$.
+			\item Este número es \textit{localmente constante}, es decir, es igual para cualquier punto:
+		\end{itemize}
+	\end{obs}\newpage
+	
+	\begin{ejems}\leavevmode
+		\begin{enumerate}
+			\item La identidad $Id:X\to X$.
+			\item La proyección natural de la unión disjunta de copias de un espacio, es decir $p:\bigsqcup_{\alpha\in I}X\to X$.
+			\item Para cualesquiera dos cubrientes $p:\tilde X\to X$ y $q:\hat X\to X$, la proyección desde la unión disjunta $r:\tilde{X}\sqcup\hat{X}\to X$ definida de la manera natural, también es un cubriente. Esto para decir que nos interesan los cubrientes de espacios conexos cuyos cubrientes sean conexos.
+			\item $p:\R\to S^1$ como en la prueba del grupo fundamental del círculo.
+			\item Para $n\in\N$, la función	$p:S^1\to S^1$ dada por $p(z)=z^n$
+		\end{enumerate}
+	\end{ejems}
+\section{Levantamiento de homotopía para cubrientes}
+\begin{defn}
+	Un \textbf{levantamiento} de una función $f:Y\to X$ con respecto a un cubriente $p:\tilde{X}\to X$ es una función $\tilde{f}:Y\to\tilde{X}$ tal que $p\tilde{f}=f$. Es decir, que el siguiente diagrama conmute:
+	\[\begin{tikzcd}[column sep=1cm,row sep=1cm]
+		&\tilde{X}\arrow[d,"p"]\\
+		Y\arrow[ur,dashed,"\tilde{f}"]\arrow[r,swap,"f"]&X
+	\end{tikzcd}\]
+	\begin{teo}[Propiedad del levantamiento de homotopía para cubrientes]\label{teo-lhc}
+		Dado un cubriente $p:\tilde{X}\to X$ y una homotopía $h_t:Y\to X$ y un levantamiento $\tilde{f}_0:Y\to \tilde{X}$ de $f_0$, entonces existe una única homotopía $\tilde{f}_t:Y\to \tilde{X}$ que levanta a cada uno de los $f_t$.
+		
+		Es decir, que el siguiente diagrama conmuta:
+		\[\begin{tikzcd}[column sep=1cm,row sep=1cm]
+			Y\times\{0\}\arrow[r,"\tilde{f}_0"]\arrow[rd,"f_0" near end]\arrow[d,hook]&\tilde{X}\arrow[d,"p"]\\
+			Y\times I\arrow[r]\arrow[ru,dashed]&X
+		\end{tikzcd}\]
+	\end{teo}
+\end{defn}
+\section{El homomorfismo inducido de la proyección cubriente}
+Dada una proyección cubriente $p:\tilde{X}\to X$, ¿qué propiedades tendrá el mapeo inducido $p_*:\pi_1(\tilde{X},\tilde{x}_0)\to (X,x_0)$ donde $p(\tilde{x}_0)=x_0$. Resultará que es inyectivo.
+
+Para demostrar esto, se usará la \hyperref[teo-lhc]{Propiedad del levantamiento de homotopía para cubrientes}. Entonces primero vamos a ver un par de casos sencillos de cómo se usa este teorema:
+\begin{prop}[Propiedad del levantamiento de caminos]
+	Un camino tiene un único levantamiento una vez definido a dónde va a dar el punto inicial. Para verlo, escogemos el caso en que $Y$ consta de un sólo punto, así que una homotopía de $Y\times I$ es un camino en $X$.
+\end{prop}
+\begin{obs}
+	El levantamiento de un camino constante es un camino constante.
+\end{obs}
+\begin{obs}
+	Si $Y=I$, y $H:I\times I$ es una homotopía $\rel 0,1$, entonces el levantamiento $\tilde{H}$ también es una homotopía $\rel 0,1$.
+\end{obs}
+Ahora sí,
+\begin{prop}
+	Dada una proyección cubriente $p:\tilde{X}\to X$, el mapeo inducido $p_*:\pi_1(\tilde{X},\tilde{x}_0)\to (X,x_0)$ es inyectivo. Más aún, $p_*\left(\pi_1(\tilde{X},\tilde{x}_0)\right)\leq(X,x_0)$ consiste de los lazos basados en $x_0$ que se levantan a lazos en $\tilde{X}$ basados en $\tilde{x}_0$.
+\end{prop}
+\section{El número de hojas de un cubriente y el grupo fundamental}
+\begin{prop}
+	Sea $p:\tilde{X}\to X$ un cubriente con $\tilde{X}$ y $X$ conexos por trayectorias. Entonces el número de hojas del cubriente es igual al índice de $p_*(\pi_1(\tilde{X},\tilde{x}_0))$ en $\pi_1(X,x_0)$.
+\end{prop}
+\section{El criterio de levantamiento de funciones}
+Consideremos un cubriente $p:\tilde{X}\to X$ y una función cualquiera $f:Y\to X$. ¿Bajo qué condiciones será posible levantar esta función al cubriente? Queremos que este diagrama conmute:
+\[\begin{tikzcd}[column sep=1cm,row sep=1cm]
+	&\tilde{X}\arrow[d,"p"]\\
+	Y\arrow[ur,dashed,"\tilde{f}"]\arrow[r,swap,"f"]&X
+\end{tikzcd}\]
+Estas funciones no siempre van a existir. Para saber cuándo sí, primero veamos:
+\begin{defn}
+	Decimos que un espacio topológico $Y$ es \textbf{localmente arco-conexo} si para todo punto $y\in Y$ y cada vecindad $U$ de $y$, existe $y\in V\subseteq U$ que es arcoconexa.
+\end{defn}
+\begin{prop}
+	Sean $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ un cubriente y una función $f:(Y,y_0)\to (X,x_0)$ con $Y$ espacio arco-conexo y localmente arco-conexo. Entonces existe un levantamiento $\tilde{f}:(Y,y_0)\to(\tilde{X},x_0)$ si y sólo si $f_*\left(\pi_1(Y,y_0)\right)\subseteq p_*\left(\pi_1(\tilde{X},x_0)\right)$.
+\end{prop}
+\section{Unicidad del levantamiento de funciones}
+	¿Bajo qué condiciones un levantamiento es único? Cuando dos levantamientos coincidan en un punto, tienen que ser iguales. (Siempre que el dominio sea arco-conexo.)
+	
+	\begin{prop}
+		Sean $p:\tilde{X}\to X$ un cubriente y $f:Y\to X$ una función. Si dos levantamientos $\tilde{f}_1,\tilde{f}_2:Y\to\tilde{X}$ de $f$ coinciden en un punto y $Y$ es conexo, entonces $\tilde{f}_1=\tilde{f}_2$.
+		\[\begin{tikzcd}
+				&\tilde{X}\arrow[d,"p"]\\
+				Y\arrow[ru,"\tilde{f}_1"]\arrow[ru,swap,"\tilde{f}_2"]\arrow[r,swap,"f"]&X
+			\end{tikzcd}\]
+	\end{prop}
+
+
+
+% Aquí está la prop como estaba en el video, pero me fui por la versión de Hatcher	
+
+%\begin{prop}
+%	Sean $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ un cubriente y $f:(Y,y_0)\to (X,x_0)$ una función. Si $\tilde{f}_1,\tilde{f}_2:Y\to\tilde{X}$ son levantamientos de $f$ que coinciden en un punto y $Y$ es conexo, entonces $\tilde{f}_1=\tilde{f}_2$.
+%	\[\begin{tikzcd}
+%		&(\tilde{X},\tilde{x_0})\arrow[d,"p"]\\
+%		(Y,y,_0)\arrow[ru,"\tilde{f}_1"]\arrow[ru,swap,"\tilde{f}_2"]\arrow[r,swap,"f"]&(X,x_0)
+%	\end{tikzcd}\]
+%\end{prop}
+\section{El cubriente universal}
+En esta sección intentaremos clasificar todos los cubrientes que puede tener un espacio. La primera pregunta que nos hacemos en qué casos un cubriente tiene un cubriente cuyo grupo fundamental sea trivial. Tal cubriente será llamado el \textbf{cubriente universal}, que será universal en cuanto a que va a cubrir a cualquier otro cubriente.
+
+Supongamos que tenemos un espacio $X$ que
+\begin{itemize}
+	\item es arco-conexo.
+	\item es localmente arco-conexo.
+\end{itemize}
+Ahora tomemos un cubriente $p:\tilde{X}\to X$ como decíamos, simplemente conexo. Cuando tomamos un punto $p\in X$ y una vecindad regular, cualquier lazo contenido en esa vecindad, podemos levantarlo a una de sus preimágenes. Pero como el cubriente $\tilde{X}$ es simplemente conexo, entonces el lazo levantado es contraible, y esa homotopía se proyecta a una homotopía del lazo con el que empezamos al lazo constante.
+
+\begin{defn}
+	Un espacio es \textbf{semilocalmente simplemente conexo} si para cada $x\in X$ existe una vecindad $U$ tal que todo lazo contenido en $U$ se retrae al lazo constante $c_x$ en $X$. Equivalenetemente, el homomorfismo inducido por la inclusión $\pi_1(U,x_0)\to(X,x_0)$ es constante.
+\end{defn}
+O sea que ya demostramos que si $X$ tiene cubriente universal entonces es semilocalmente simplemente conexo. Ahora queremos ver que el regreso también es cierto (cuando $X$ también es arco-conexo y localmente arco-conexo).
+\begin{prop}
+	Un espacio $Y$ es simplemente conexo si y sólo si para todo $x,y\in Y$ existe una única clase de homotopía $\rel0,1$ de caminos que unen $x$ a $y$.
+	
+	Esto implica que hay una biyección entre los puntos de $Y$ y las clases de equivalencia de caminos que empiezan en $x_0$, es decir, $Y\leftrightarrow \{[\gamma]:\gamma(0)=x_0\}$.
+	
+	Ahora consideremos un cubriente $p:\tilde{X}\to X$ con $\tilde{X}$ simplemente conexo y un punto $\tilde{x}\in\tilde{X}$. Denotemos $p(\tilde{x}_0)=x_0\in X$. Entonces, por lo dicho hace un momento los puntos en el espacio cubriente $\tilde{X}$ están in biyección con los caminos que empiezan en $\tilde{x}$, y proyectando mediante $p$, vamos a dar a los caminos que comienzan en $x_0$. Usando la propiedad del levantamiento de homotopía, se verifica que esa correspondencia es biyectiva: \[\{[\gamma]:\gamma(0)=\tilde{x}_0\}\leftrightarrow\{[\beta]:\beta(0)=x_0\}\]
+\end{prop}
+Ahora sí:
+\begin{teo}
+	Supongamos que $X$ es un espacio topológico arco-conexo, localmente arco-conexo y semilocalmente simplemente conexo, y tomemos un punto base $x_0\in X$. El espacio \[\tilde{X}:=\{[\gamma]:\gamma(0)=x_0\}\]
+	acompañado de la función
+	\begin{align*}
+		p:\tilde{X}&\to X\\
+		[\gamma]&\mapsto\gamma(1)
+	\end{align*}
+	son un cubriente universal de $X$. Es decir:
+	\begin{itemize}
+		\item $\tilde{X}$ tiene una topología.
+		\item $p$ es continua.
+		\item $p$ es cubriente.
+		\item $\tilde{X}$ es simplemente conexo.
+	\end{itemize}
+\end{teo}
+\section{El teorema de clasificación de cubrientes}
+En esta sección veremos, grosso modo, que hay una correspondencia entre cubrientes universales (salvo isomorfismo) con los subgrupos del grupo fundamental.
+
+\begin{prop}
+	Sea $X$ un espacio topológico arco-conexo, localmente arco-conexo y semilocalmente simplemente conexo. Entonce spara todo $H\leq\pi_1(X,x_0)$ existe un cubriente $p:X_H\to X$ tal que $p_{*}\left(\pi_1(X_H,\tilde{x}_0)\right)=H$.
+\end{prop}
+\begin{proof}
+	Usando la construcción del cubriente universal, tomamos una relación de equivalencia determinada por $H$ y proponemos el espacio cociente $\tilde{X}/\sim{}$.
+\end{proof}
+Ahora nos preguntamos si este cubriente es único de alguna manera. La respuesta es que sí, pero primero debemos definir la noción de isomorfismo de cubrientes.
+\begin{defn}
+	Dos cubrientes $\tilde{X}_1$ y $\tilde{X}_2$ son \textbf{isomorfos} si existe un homeomorfismo que hace conmutar el siguiente diagrama:
+	\[\begin{tikzcd}
+		\tilde{X}_1\arrow[dr,swap,"p_1"]\arrow[rr,"homeo"]&&\tilde{X}_2\arrow[dl,"p_2"]\\
+		&X
+	\end{tikzcd}\]
+\end{defn}
+\begin{prop}
+	Si $X$ es arco-conexo y localmente arco-conexo, entonces $p_1:\tilde{X}_1\to X$ y $p_2:\tilde{X}_2\to X$ son isomorfos mediante $f:\tilde{X}_1\to\tilde{X}_2$, con ciertos puntos base tales que $f(\tilde{x}_1)=\tilde{x}_2$ y $p_1(\tilde{x}_1)=p_2(\tilde{x}_2)=x_0\in X$ si y sólo si
+	\[p_{1*}\left(\pi_1(\tilde{X}_1,\tilde{x}_1)\right)=p_{2*}\left(\pi_2(\tilde{X}_2,\tilde{x}_2)\right)\]
+\end{prop}
+Notemos que en la proposición anterior, $p_{1*}\left(\pi_1(\tilde{X}_1,\tilde{x}_1)\right)=H$ era un subgrupo arbitrario de $\pi_1(X,x_0)$. Hemos demostrado que dos cubrientes que provienen del mismo grupo son isomorfmos. De hecho, ya demostramos:
+
+\begin{teo}
+	Sean $X$ un espacio conexo, localmente arco-conexo y semilocalmente arco-conexo, y $x_0\in X$. Entonces la correspondencia
+	\[
+	\begin{array}{c}
+		\{p:(\tilde{X},\tilde{x}_0)\to(X,x_0):p\text{ es un cubriente}\}\Big/\text{isomorfismo}\\\leavevmode\\
+		\tilde{X}\xrightarrow{p} X
+	\end{array}
+	\begin{array}{c}
+		\longleftrightarrow\\\leavevmode\\
+		\mapsto
+	\end{array}
+	\begin{array}{c}
+		\{H\leq\pi_1(X,x_0)\}\\\leavevmode\\
+		p_*\left(\pi_1(\tilde{X},\tilde{x}_0)\right)
+	\end{array}
+	\]
+	es una biyectiva.
+\end{teo}
+Notemos que si cambiamos la elección del punto base $\tilde{x}_0$ en el cubriente, podemos ir a dar a un subgrupo muy diferente. Esto nos lleva a:
+\begin{teo}
+	Sean $X$ un espacio conexo, localmente arco-conexo y semilocalmente arco-conexo, y $x_0\in X$. Entonces hay una biyección
+		\[
+	\begin{array}{c}
+		\{p:\tilde{X}\to X:p\text{ es un cubriente}\}\Big/\text{isomorfismo}\\\leavevmode\\
+		\tilde{X}\xrightarrow{p} X\\
+		\text{escojo }\tilde{x}_0\in p^{-1}(x_0)
+	\end{array}
+	\begin{array}{c}
+		\longleftrightarrow\\\leavevmode\\
+		\mapsto
+	\end{array}
+	\begin{array}{c}
+		\{H\leq\pi_1(X,x_0)\}\Big/\text{conjugación}\\\leavevmode\\
+		p_*\left(\pi_1(\tilde{X},\tilde{x}_0)\right)
+	\end{array}
+	\]
+\end{teo}
+
+\section{Transfromaciones de cubierta}
+	\begin{defn}
+		Tomemos un espacio $X$ y algún cubriente $p:\tilde{X}\to X$. Una \textbf{transformación de cubierta} es un isomorfismo de $\tilde{X}$ en sí mismo, es decir, homeomorfismos que hacen conmutar este diagrama:
+		\[\begin{tikzcd}
+			\tilde{X}\arrow[r,"f"]\arrow[d,swap,"p"]&\tilde{X}\arrow[dl,"p"]\\
+			X
+		\end{tikzcd}\]
+		Es decir, $pf=p$
+	\end{defn}
+		El conjunto $G(\tilde{X}):=\left\{f:\tilde{X}\to\tilde{X}:f\text{ es transformación de cubierta}\right\}$ tiene estructura de grupo, y le llamaremos \textbf{el grupo de transformaciones de cubierta}.
+	\begin{ejem}
+		El cubriente $f_n:S^1\to S^1$ dado por $z\mapsto z^n$ tiene grupo de transformaciones de cubierta $G(f_n:S^1\to S^1)=\Z/n\Z$. Además, $f_{n*}\pi_1(S^1)=n\Z$. O sea que $G(f_n:S^1\to S^1)\cong\pi_1(S^1)/f_{n*}\pi_1(S^1)$. Y esto no es ninguna casualidad.
+		
+		Además, para el cubriente universal de $S^1$, que es $\exp:\R\to S^1$ también se cumple, ya que el grupo fundamental es trivial, es decir, $G(\exp:\R\to S^1)\cong\Z/\{0\}\cong\Z$.
+	\end{ejem}
+	\begin{prop}
+		Si $g,f:\tilde{X}\to\tilde{X}$ son transformaciones de cubierta con $\tilde{X}$ arco-conexo y tales que existe $x\in\tilde{X}$ con $g(x)=f(x)$, entonces $g=f$.
+	\end{prop}
+	\begin{proof}
+		Basta pensar que la transformación de cubierta es un levantamiento de la proyección cubriente:
+		\[\begin{tikzcd}
+			&\tilde{X}\arrow[d,"p"]\\
+			\tilde{X}\arrow[ur,dashed,"f"]\arrow[r,"p"]&X
+		\end{tikzcd}\]
+		Por el teorema del levantamiento de funciones, $f$ es único una vez que escogemos un punto $y\in f^{-1}(x)$ en la fibra de $x$.
+	\end{proof}
+	\begin{defn}
+		Decimos que un cubriente $p:\tilde{X}\to X$ es \textbf{normal} si para cualquier $x\in X$ y $\tilde{x},\tilde{x}'\in\tilde{X}$ existe una transformación de cubierta $f:\tilde{X}\to\tilde{X}$ tal que $f(\tilde{x})=\tilde{x}'$. Es decir, que el grupo de transformaciones de cubierta actúa transitivamente en las fibras.
+	\end{defn}
+	\begin{prop}
+		Sea $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ un cubriente con $\tilde{X}$ y $X$ arco-conexo y localmente arco-conexo. Sea $H=p_*\pi_1(\tilde{X},\tilde{x}_0)\leq\pi_1(X,x_0)$. Entonces
+		\begin{enumerate}[label=\alph*)]
+			\item El cubriente es normal si y sólo si $H\trianglelefteq\pi_1(X,x_0)$.
+			\item $G(\tilde{X})\cong N(H)/H$
+			donde $N(H)=\left\{g\in\pi_1(X,x_0)|g^{-1}Hg=H)\right\}$
+		\end{enumerate}
+		En particular, cuando $\tilde{X}$ es normal, $G(\tilde{X})\cong\pi_1(X,x_0)/H$. Y si además $\tilde{X}$ es el cubriente universal, simplemente tenemos que $G(\tilde{X})\cong\pi_(X,x_0)$.
+	\end{prop}
+\section{Acciones de grupos y cubrientes}
+\begin{defn}
+	Decimos que un grupo $G$ \textbf{actúa} en $X$ si hay un homomorfismo de grupos
+	\begin{align*}
+		\varphi:G\to\text{Homeo}(X)\\
+		g\mapsto\varphi(g):X\to &X\\
+		x\mapsto&\varphi(g)(x)
+	\end{align*}
+	de forma que
+	\begin{itemize}
+		\item  $\varphi(g_1g_2)=\varphi(g_1)\varphi(g_2)$
+		\item $(g_1g_2)x=g_1(g_2(x))$
+		\item $\varphi(1_G)=Id_X$
+	\end{itemize}
+	Y se denota $G\curvearrowright X$.
+	La \textbf{órbita} de un punto $x\in X$ es el conjunto $\Orb\{g(x):g\in G)\}$.
+\end{defn}
+Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que podemos pensar en el espacio cociente $X/\sim{}:=X/G$. Nos hacemos la siguiente pregunta: dada una acción de grupos $G\curvearrowright Y$, ¿cuándo $Y/G$ es un cubriente?
+\begin{defn}
+	Decimos que $G\curvearrowright Y$ es una \textbf{acción cubriente} si se cumple cualquiera de los dos siguientes condiciones equivalentes:
+	\begin{itemize}
+		\item Cualquier punto $y\in Y$ tiene una vecindad $U$ tal que $(g_1U\cap g_2U)\neq\emptyset\implies g_1=g_2$
+		\item Cualquier punto $y\in Y$ tiene una vecindad $U$ tal que $gU\cap U\neq\emptyset\implies g=1_G$.
+	\end{itemize}
+	En particular, estas condiciones implican que la acción es \textbf{libre}, es decir, que si $g(y)=y$ para cualesquiera $g\in G$ y $y\in Y$, entonces, $g=1_G$.
+\end{defn}
+\begin{prop}
+	Dada una acción cubriente $G\curvearrowright Y$,
+	\begin{enumerate}[label=\alph*)]
+		\item La proyección cociente $p:Y\to Y/G$ dada por $p(y)=Gy$ es un cubriente normal.
+		\item Si $Y$ es arco-conexo, $G$ es el grupo de transformaciones de cubierta de $p$.
+		\item Si $Y$ es arco-conexo y localmente arco-conexo, $G\cong\pi_1(Y/G,y_0)/p_*\pi_1(Y,\tilde{y}_0)$
+	\end{enumerate}
+\end{prop}
+\begin{coro}
+	Si además $Y$ es simplemente conexo, por b) y por c), $G=G(\tilde{Y})\cong\pi_1(Y/G,y_0)$.
+\end{coro}
+\chapter{Ejercicios}
+\begin{ejer}[2, General 2022-2]
+	\textbf{Sean $S$ la 2-esfera y $T$ el 2-toro. Calcule el grupo fundamental $G$ de $X := S \vee T$, construya el cubriente universal $\widetilde{X} \to X$ y describa la acción por transformaciones de cubierta de $G$ en $\widetilde{X}$.}
+	\begin{proof}[Solución] Por el teorema de Van Kampen, $\pi_1(S\vee T,x_0)=\Z\times\Z$ para cualquier elección de $x_0$.
+	\end{proof}
+\end{ejer}
+\begin{ejer}[Hatcher, 1.3.8]
+	\textbf{Sean $\tilde{X}$ y $\tilde{Y}$ espacios cubrientes simplemente conexos de espacios arco-conexos y simplemente conexos $X$ y $Y$. Muestre que si $X\simeq Y$, entonces $\tilde{X}\simeq\tilde{Y}$. (Quizás convenga usar el ejercicio \hyperref[hatcher:0.11]{0.11, Hatcher})}
+\end{ejer}
+\begin{proof}[Solución]
+	Todo está en el siguiente diagrama conmutativo:
+	\[\begin{tikzcd}
+		&&&\tilde{X}\arrow[dd,"p"]\\
+		&&\tilde{Y}\arrow[d,"q"]\arrow[ru,dashed,"\tilde{g}"]\\
+		\tilde{X}\arrow[rru,dashed,"\tilde{f}"]\arrow[r,swap,"p"]&X\arrow[r,swap,"f"]&Y\arrow[r,swap,"g"]&X
+	\end{tikzcd}\]
+	Donde:
+	\begin{enumerate}
+		\item $f$ y $g$ son equivalencias homotópicas entre $X$ y $Y$.
+		\item $pf$ se levanta a una única función $\tilde{f}$ por las hipótesis de conexidad. Lo mismo para encontrar $\tilde{g}$.
+		\item Como todo conmuta, $\tilde{g}\tilde{f}$ es un levantamiento de $gfp$.
+		\item Como $gf\simeq Id_X$, entonces $gfp\simeq p$. Esta homotopía se levanta de manera única a una homotopía $H:\tilde{X}\times I\to\tilde{X}$ ya que, como acabamos de ver, $H(\underline{\hspace{5pt}},0)=\tilde{g}\tilde{f}$. Luego, $pH(\underline{\hspace{5pt}},1)=p$.
+		\item Así que $H(\underline{\hspace{5pt}},1):=h$ es un levantamiento de $p$, igual que la identidad. Si lográramos ver que coinciden en un sólo punto, es decir que $h$ fija a cualquier punto, por unicidad del levantamiento de funciones, tendríamos que $h=Id_{\tilde{X}}$.
+		
+		Pero no tenemos certeza de que eso ocurra. Lo que sí sabemos que como $\tilde{X}$ es simplemente conexo, entonces $p$ es un cubriente normal. O sea que el grupo de transformaciones de cubierta actúa transitivamente en las fibras de los puntos.
+		
+		Entonces tomemos un punto $\xi\in\tilde{X}$. Si $h$ no lo fija, ni modo, pero sabemos que existe una transformación de cubierta $u$ tal que $u(h(\xi))=\xi$.
+		
+		Ahora sí, por unicidad del levantamiento de funciones, $uh= Id_{\tilde{X}}$.
+		\item Entonces $u\tilde{g}\tilde{f}\simeq Id_{\tilde{X}}$.
+		\item El \hyperref[hatcher:0.11]{ ejercicio 0.11}, nos asegura que si encontramos dos funciones $\phi,\psi:\tilde{X}\to\tilde{X}$ tales que $\phi\tilde{f}\simeq Id_{\tilde{X}}$ y $\tilde{f}\psi\simeq Id_{\tilde{Y}}$, entonces $\tilde{f}$ es una equivalencia homotópica y terminamos. Ya encomtramos $\phi$.
+		
+		Para encontrar $\psi$, simplemente hacemos el mismo razonamiento sólo que ahora necesitamos una transformación de cubierta $w$ tal que $\tilde{f}\tilde{g}w\simeq Id_{\tilde{Y}}$.
+		
+		Es decir, aquí hay que aplicar la $w$ antes de la función que obtenemos mediante la homotopía, digamos $\bar{h}$. Esto es legal: en vez de mover a $\bar{h}(\xi)$ de regreso a $\xi$, de antemano movemos a $\xi$ mediante $w$ a un punto en la preimagen de $\xi$ bajo $\bar{h}$. Aunque quizás $\bar{h}$ es suprayectiva, basta con escoger $\xi\in\img\bar{h}$.
+	\end{enumerate}
+\end{proof}
+\begin{ejer}
+	Para el sábado: hacer de homología y quizás uno de grupo fundamental.
+\end{ejer}
 \part{Homología}
 \chapter{Álgebra Homológica}
 \section{Conceptos básicos}
@@ -1163,7 +1731,14 @@ Hagamos dos observaciones básicas:
 		\end{align*}
 	\end{proof}
 	Y con eso se demuestra fácilmente el teorema.
-	\section{Ejercicios}
+
+\chapter{Homología y homotopía}	
+\section{El homomorfismo de Hurewicz}
+
+\section{Grupos de homotopía superiores}
+	
+\newpage
+\section{Ejercicios}
 	\begin{ejer}Demuestre que $S^1 \times S^1$ y $S^1 \vee S^1 \vee S^2$ tienen grupos de homología (con coeficientes enteros) isomorfos pero no son homotópicamente equivalentes.
 	\begin{proof}[Solución]
 		Por sus descomposiciones como complejos CW, \hyperref[obs1]{sabemos} que la homología de ambos espacios está dada por

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  3 JUL 2023 11:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  7 JUL 2023 09:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -810,10 +810,10 @@ s.code.tex
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.markings.code.tex))
-Package hyperref Info: Option `colorlinks' set `true' on input line 64.
+Package hyperref Info: Option `colorlinks' set `true' on input line 63.
 \c@defs=\count319
-LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 9
-9.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 1
+00.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
@@ -826,25 +826,25 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 (./top-alg.aux)
 \openout1 = `top-alg.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-Package hyperref Info: Link coloring ON on input line 99.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+Package hyperref Info: Link coloring ON on input line 100.
  (./top-alg.out) (./top-alg.out)
 \@outlinefile=\write4
 \openout4 = `top-alg.out'.
@@ -909,19 +909,19 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 101
+LaTeX Font Info:    Trying to load font information for U+msa on input line 102
 .
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 101
+LaTeX Font Info:    Trying to load font information for U+msb on input line 102
 .
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+wasy on input line 10
-1.
+2.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
@@ -931,169 +931,282 @@ File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./top-alg.toc [2
 
-])
+] [3])
 \tf@toc=\write5
 \openout5 = `top-alg.toc'.
 
- [3] [4
+ [4]
+[5
 
 ]
 Chapter 1.
-[5
+[6
 
-] [6]
+]
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
+66.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+)
+Overfull \hbox (8.91425pt too wide) in paragraph at lines 175--176
+[]\OT1/ppl/b/n/10 Teorema. []\OT1/ppl/m/n/10 Si $\OML/cmm/m/it/10 x[]; x[] \OMS
+/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$ \OT1/ppl/m/n/10 se pueden conec-tar por un c
+amino, en-tonces $\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[
+]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X
+; x[]\OT1/cmr/m/n/10 )$\OT1/ppl/m/n/10 . 
+ []
+
+[7]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 214.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 214.
+
+[8]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\not' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 231.
+
+[9] [10]
 Chapter 2.
 
-Overfull \hbox (3.04631pt too wide) in paragraph at lines 172--173
+Overfull \hbox (3.04631pt too wide) in paragraph at lines 303--304
 []\OT1/ppl/b/n/10 Teorema \OT1/ppl/m/n/10 (Propiedad uni-ver-sal del pro-ducto 
 li-bre)\OT1/ppl/b/n/10 . []\OT1/ppl/m/n/10 Da-dos los ho-mo-mor-fis-mos $\OML/c
 mm/m/it/10 '[] \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 G[] \OMS/cmsy/m/n/10 !
  []
 
-[7
+[11
 
-] [8] [9] [10
+] [12]
+Overfull \hbox (4.62534pt too wide) in paragraph at lines 361--362
+[]\OT1/ppl/m/n/10 Consideremos tambi[]en el grupo li-bre gen-er-ado por $\OML/c
+mm/m/it/10 S$\OT1/ppl/m/n/10 , dig-amos $\OML/cmm/m/it/10 F[]$\OT1/ppl/m/n/10 ,
+ y use-mos la propiedad
+ []
 
-] [11
+[13] [14]
+Overfull \hbox (37.12866pt too wide) has occurred while \output is active
+\OT1/ppl/m/sl/10 2.7.  EL GRUPO FUNDAMENTAL NO DETECTA C[]ELULAS DE DIMENSI[]ON
+ MAYOR QUE 2 \OT1/ppl/m/n/10 15
+ []
+
+[15] [16
 
 ]
 Chapter 3.
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 2
-43.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
-File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [12
+[17
+
+] [18] [19]
+Overfull \hbox (4.00261pt too wide) in paragraph at lines 576--577
+\OT1/ppl/m/n/10 mente sim-ple-mente conexo. Ahora quer-e-mos ver que el re-gres
+o tambi[]en es cierto (cuando
+ []
+
+[20]
+Overfull \hbox (2.22237pt too wide) in paragraph at lines 604--605
+[]\OT1/ppl/b/n/10 Proposici^^Son. []\OT1/ppl/m/n/10 Sea $\OML/cmm/m/it/10 X$ \O
+T1/ppl/m/n/10 un es-pa-cio topol[]ogico arco-conexo, lo-cal-mente arco-conexo y
+ semilo-
+ []
+
+[21]
+Overfull \hbox (0.49586pt too wide) detected at line 658
+[][][]
+ []
+
+[22] [23]
+Overfull \hbox (2.10588pt too wide) in paragraph at lines 734--735
+[]\OT1/ppl/b/n/10 Corolario. []\OT1/ppl/m/n/10 Si adem[]as $\OML/cmm/m/it/10 Y$
+ \OT1/ppl/m/n/10 es sim-ple-mente conexo, por b) y por c), $\OML/cmm/m/it/10 G 
+\OT1/cmr/m/n/10 = \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ([]) [] \OML/cmm/m/it/10 ^^
+Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y=G; y[]\OT1/cmr/m/n/10 )$\OT1/ppl/m/n/10 
+. 
+ []
+
+[24]
+Chapter 4.
+
+Overfull \hbox (2.26497pt too wide) in paragraph at lines 758--759
+[]\OT1/ppl/m/n/10 As[]^^P que $\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 ([]\OML/cmm/m/
+it/10 ; \OT1/cmr/m/n/10 1) := \OML/cmm/m/it/10 h$ \OT1/ppl/m/n/10 es un lev-an-
+tamiento de $\OML/cmm/m/it/10 p$\OT1/ppl/m/n/10 , igual que la iden-ti-dad. Si 
+logr[]aramos
+ []
+
+[25
+
+] [26] [27
 
 ]
-<Homología/H1.png, id=290, 189.1065pt x 193.6836pt>
+Chapter 5.
+[28
+
+]
+<Homología/H1.png, id=543, 189.1065pt x 193.6836pt>
 File: Homología/H1.png Graphic file (type png)
 <use Homología/H1.png>
-Package pdftex.def Info: Homología/H1.png  used on input line 257.
+Package pdftex.def Info: Homología/H1.png  used on input line 825.
 (pdftex.def)             Requested size: 154.66681pt x 158.41963pt.
 
-Overfull \hbox (1.80315pt too wide) in paragraph at lines 268--269
+Overfull \hbox (1.80315pt too wide) in paragraph at lines 836--837
 []\OT1/ppl/m/n/10 Con este ejer-ci-cio comen-zamos a ver las propiedades fun-to
 -ri-ales de la ho-molog[]^^Pa, aunque
  []
 
-[13 <./Homología/H1.png>] [14]
-Overfull \hbox (2.49338pt too wide) in paragraph at lines 324--325
+[29 <./Homología/H1.png>] [30]
+Overfull \hbox (2.49338pt too wide) in paragraph at lines 892--893
 []\OT1/ppl/b/n/10 Lema \OT1/ppl/m/n/10 (de la ser-pi-ente)\OT1/ppl/b/n/10 . []\
 OT1/ppl/m/n/10 Con-sid-er-e-mos el di-a-grama con-mu-ta-tivo de $\OML/cmm/m/it/
 10 R$\OT1/ppl/m/n/10 -m[]odulos y supong-
  []
 
 
-Overfull \hbox (1.14769pt too wide) detected at line 334
+Overfull \hbox (1.14769pt too wide) detected at line 902
 []
  []
 
-[15]
-Overfull \hbox (54.65804pt too wide) detected at line 403
+[31]
+Overfull \hbox (54.65804pt too wide) detected at line 971
 []
  []
 
-[16]
-Overfull \hbox (26.4153pt too wide) detected at line 428
+[32]
+Overfull \hbox (26.4153pt too wide) detected at line 996
 []
  []
 
-[17]
-Chapter 4.
+[33]
+Chapter 6.
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 506.
-
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 506.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1074.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 506.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1074.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 506.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1074.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 508.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1074.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 508.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1076.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 574.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1076.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 574.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1142.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 575.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1142.
 
-[18
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1143.
+
+[34
 
 ]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1149.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1149.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1149.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1149.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1149.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1149.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1149.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 581.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1149.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 582.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1150.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 582.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1150.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 584.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1152.
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 584.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1152.
 
-[19] [20] [21]
-Overfull \hbox (2.75935pt too wide) in paragraph at lines 761--763
+[35] [36] [37]
+Overfull \hbox (2.75935pt too wide) in paragraph at lines 1329--1331
 \OT1/ppl/m/n/10 Como primera ob-ser-vaci[]on note-mos que si los gru-pos de ho-
 molog[]^^Pa de la pareja $\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  X; A\OT1/cmr/m/n/10 )$
  []
 
-[22]
-Overfull \hbox (29.10924pt too wide) detected at line 794
+[38]
+Overfull \hbox (29.10924pt too wide) detected at line 1362
 []
  []
 
-[23]
-Overfull \hbox (93.9547pt too wide) detected at line 809
+[39]
+Overfull \hbox (93.9547pt too wide) detected at line 1377
 []
  []
 
-[24] [25] [26]
-Chapter 5.
-[27
+[40] [41] [42]
+Chapter 7.
+[43
 
-] [28]
-Overfull \hbox (33.92769pt too wide) detected at line 1023
+] [44]
+Overfull \hbox (33.92769pt too wide) detected at line 1591
 []
  []
 
-[29] [30]
-Overfull \hbox (18.24146pt too wide) in paragraph at lines 1113--1114
+[45] [46]
+Overfull \hbox (18.24146pt too wide) in paragraph at lines 1681--1682
 []\OT1/ppl/b/n/10 Ejemplo. []\OT1/ppl/m/n/10 ?`Y si tomamos $\OML/cmm/m/it/10 R
  \OT1/cmr/m/n/10 = \U/msb/m/n/10 Z\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 2$\OT1/ppl/
 m/n/10 ? Mul-ti-plicar por 2 es la funci[]on 0, as[]^^P que $\OML/cmm/m/it/10 H
@@ -1101,44 +1214,45 @@ m/n/10 ? Mul-ti-plicar por 2 es la funci[]on 0, as[]^^P que $\OML/cmm/m/it/10 H
 /m/it/10 =\OT1/cmr/m/n/10 2) =
  []
 
-[31] [32] [33] (./top-alg.aux)
+[47] [48] [49]
+Chapter 8.
+[50
 
-Package rerunfilecheck Warning: File `top-alg.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `top-alg.out':
-(rerunfilecheck)             Before: 51D62848CC7B4AA3C7EC4B1C03B7353A;7327
-(rerunfilecheck)             After:  9B8BA2C80509A7F3C5ECFC95FF84616A;7250.
+] [51] (./top-alg.aux)
+Package rerunfilecheck Info: File `top-alg.out' has not changed.
+(rerunfilecheck)             Checksum: 5A7F99CEDBE1CDB562B85E58E991D8A8;15045.
  ) 
 Here is how much of TeX's memory you used:
- 30194 strings out of 476025
- 618890 string characters out of 5790018
+ 30770 strings out of 476025
+ 631539 string characters out of 5790018
  1905388 words of memory out of 5000000
- 50061 multiletter control sequences out of 15000+600000
- 534463 words of font info for 93 fonts, out of 8000000 for 9000
+ 50564 multiletter control sequences out of 15000+600000
+ 537461 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,24n,89p,1196b,1476s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
-usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
-r/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
-al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/tex
-live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
-al/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texl
-ive/2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/202
-3/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf
--dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on top-alg.pdf (33 pages, 414152 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
+r/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/t
+exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive
+/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
+023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
+exlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/te
+xmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dis
+t/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on top-alg.pdf (51 pages, 502199 bytes).
 PDF statistics:
- 502 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
- 98 named destinations out of 1000 (max. 500000)
- 362 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 789 PDF objects out of 1000 (max. 8388607)
+ 689 compressed objects within 7 object streams
+ 167 named destinations out of 1000 (max. 500000)
+ 610 words of extra memory for PDF output out of 10000 (max. 10000000)
 
