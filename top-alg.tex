@@ -95,8 +95,8 @@
 \DeclareMathOperator{\Orb}{Orb}
 \DeclareMathOperator{\Int}{int}
 
-\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
 \definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
+\definecolor{azure}{rgb}{0.0, 0.5, 1.0}
 
 \title{Notas de Topología Algebraica}
 \author{Prof. Luis Jorge Sánchez Saldaña\\ \\ Notas por Dani\\ \\ \href{https://github.com/danimalabares/top-alg}{github.com/danimalabares/top-alg}}
@@ -339,7 +339,7 @@
 		En particular,\[\pi_1(X,x_0)\cong \ast_{\alpha\in I}\pi_(A_\alpha,x_0)/\ker\Phi\]
 	\end{teo}
 	
-\section{El grupo fundamental de una cuña de espacios}
+\section{El grupo fundamental de una cuña de espacios}\label{sec:grp-fund-cuña}
 		\textcolor{red}{No encontré \href{https://www.youtube.com/watch?v=9P6n__Njlz8}{este video} en la página del curso.}
 		
 		Consideremos una colección de espacios topológicos $X_\alpha$ con $\alpha\in I$ y escojamos un punto en cada espacio, digamos $x_\alpha\in X_\alpha$. Entonces, definimos la \textbf{cuña} de estos espacios como
@@ -1121,9 +1121,9 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 			\centering
 			\begin{tikzpicture}[>=latex]
 				% Axes
-				\draw[->] (0,0,0) -- (2,0,0) node[right]{$y$};
+				\draw[->] (0,0,0) -- (2,0,0) node[right]{$x$};
 				\draw[->] (0,0,0) -- (0,2,0) node[above]{$z$};
-				\draw[->] (0,0,0) -- (0,0,2) node[below left]{$x$};
+				\draw[->] (0,0,0) -- (0,0,2) node[below left]{$y$};
 				
 				% Vertices
 				\coordinate (v0) at (1,0,0);
@@ -1240,7 +1240,7 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 \subsection{La homología y las componentes arco-conexas}
 \begin{prop}
 	Sea $X=\bigsqcup X_i$ la descomposición en componentes arco-conexas del espacio topológico $X$, entonces
-	\[H_n(\bigsqcup X_i,R)\cong \bigoplus H_n(X_i,R)\]
+	\[H_n\left(\bigsqcup X_i,R\right)\cong \bigoplus H_n(X_i,R)\]
 \end{prop}
 \subsection{El 0-ésimo grupo de homología}
 \begin{prop}
@@ -1462,20 +1462,27 @@ induce un isomorfismo
 	\[\Phi(x)=(i_*x,-j_*x)\qquad\Psi(y,z)=k_*y+\ell_*z \]
 	Y el homomorfismo de conexión que baja la dimensión está dado, usando algunos resultados que no veremos aquí, por
 	\[[w]=[a+b]\mapsto[a]\qquad\text{para algunos }a\in A,b\in B\]
-\begin{obs}
-	Se puede dar una versión de esta sucesión para $X=A\cup B$ tales que $A$ y $B$ son retractos por deformación de ciertas vecindades $U$ y $V$ donde $U\cap V$ es retracto de $A\cap B$.
+	\begin{ejem}
+		\href{https://math.stackexchange.com/questions/58311/the-homology-groups-of-t2-by-mayer-vietoris}{Es posible} calcular la homología del toro usando la sucesión de Mayer-Vietoris, aunque no basta con escribir la sucesión exacta: hay que entender cómo actúan los homomorfismos.
+	\end{ejem}
+	\begin{obs}
+		Se puede dar una versión de esta sucesión para $X=A\cup B$ tales que $A$ y $B$ son retractos por deformación de ciertas vecindades $U$ y $V$ donde $U\cap V$ es retracto de $A\cap B$.
+		
+		En particualar, si $X$ es un \hyperref[chap:CCW]{complejo CW} y $A,B\subseteq X$ son subcomplejos CW, entonces es posible demostrar que existen tales vecindades, y obtenemos la misma sucesión de Mayer-Vietoris,
+		\[\begin{tikzcd}[column sep= small]
+			\cdots \arrow[r] & \tilde{H}_n(A\cap B) \arrow[r] & \tilde{H}_n(A) \oplus \tilde{H}_n(B) \arrow[r] & \tilde{H}_n(X) \arrow[r] & \tilde{H}_{n-1}(A\cap B) \arrow[r] &\cdots
+		\end{tikzcd}\]
+		Sólo que ahora $A$ y $B$ no tienen que ser abiertos y no tiene que ser cierto que $\Int A\cup\Int B=X$.
+	\end{obs}
+\begin{ejem}\label{ejem:toroCWMV}
+	\textcolor{red}{En mis notas de clase hay un modo de calcular $H_1$ y $H_0$ del toro visto como complejo CW con subcomplejos:}
 	
-	En particualar, si $X$ es un complejo CW y $A,B\subseteq X$ son subcomplejos CW, entonces es posible demostrar que existen tales vecindades, y obtenemos la misma sucesión de Mayer-Vietoris,
-	\[\begin{tikzcd}[column sep= small]
-		\cdots \arrow[r] & \tilde{H}_n(A\cap B) \arrow[r] & \tilde{H}_n(A) \oplus \tilde{H}_n(B) \arrow[r] & \tilde{H}_n(X) \arrow[r] & \tilde{H}_{n-1}(A\cap B) \arrow[r] &\cdots
-	\end{tikzcd}\]
-	Sólo que ahora $A$ y $B$ no tienen que ser abiertos y no tiene que ser cierto que $\Int A\cup\Int B=X$.
-\end{obs}
-\begin{ejem}
-	Veamos el toro $S^1\times S^1$ visto como en el examen, con $A=D^2$ y $B=S^1\vee S^1$, casi todos los grupos de homología se hacen cero (aquí hay que usar que la homología de la cuña es la suma de las homologías de los "cuñandos"), y que la homología de $S^1$ es cero cuando el subíndice es mayor o igual que 2, y que $A\cap B=\emptyset$.
+	Cuando vemos el toro $S^1\times S^1$ como el cociente de un cuadrado con los lados identificados, tenemos una estructura de complejo CW con una 0-celda, dos 1-celdas y una 2-celdas. Aquí, podemos tomar $A=D^2$ y $B=S^1\vee S^1$.
+	
+	Casi todos los grupos de homología se hacen cero \textcolor{red}{(no veo por qué)} (aquí hay que usar que la homología de la cuña es la suma de las homologías de los "cuñandos"), y que la homología de $S^1$ es cero cuando el subíndice es mayor o igual que 2.
 	
 	En fin, para $m>2$, $\tilde H_m(X)=0$. Y es fácil ver que $H_1(S^1\times S^1)\cong R\oplus R$. Pero para $H_2(S^1\times S^1)$ algo falta…
-
+	
 \end{ejem}
 
 \section{Representantes de la homología de la esfera}
@@ -1555,7 +1562,7 @@ induce un isomorfismo
 			Si $x\neq f(x)$, el segmento de línea en $\R^{n+1}$ que pasa por $f(x)$ y $-x$, dado por $(1-tf(x))-tx$, no pasa por el origen. Esto nos permite definir una homotopía $(1-tf(x))-tx/|(1-tf(x))-tx|$ entre $f$ y el mapeo antipodal. 
 		\end{enumerate}
 	\end{prop}
-\subsection{Grado local}
+\subsection{Grado local}\label{subsec:grloc}
 	Siguiendo a Hatcher,
 	\begin{defn}
 		Supongamos que $f:S^n\to S^n$ es tal que la imagen inversa de algún $y\in S^n$ consiste de una cantidad finita de puntos, digamos $f^{-1}(y)=\{x_1,...,x_m\}$. Tomemos una familia de abiertos disjuntos $U_1,...,U_m$ que contengan a cada $x_i$, y que vayan a dar a una vecindad $V$ de $y$ bajo $f$. Mediante un diagrama conmutativo, usando escisión y la sucesión exacta larga, Hatcher argumenta que el homomorfismo $f_*$ originalmente definido así:
@@ -1584,7 +1591,7 @@ induce un isomorfismo
 		$\Z/2\Z$ es el único grupo no trivial que \hyperref[sec:acciones]{actúa} libremente en $S^n$ si $n$ es par.
 	\end{teo}
 
-\chapter{Complejos CW}
+\chapter{Complejos CW}\label{chap:CCW}
 \section{Construcción y propiedades básicas}
 	Establezcamos algo de notación
 	\begin{itemize}
@@ -1795,30 +1802,41 @@ Veamos cómo define Lee los complejos CW en su libro Introduction to Topological
 	\begin{lema}
 		Si $X$ es un complejo con una única 0-célula, entonces $d_1=0$.
 	\end{lema}
-	\begin{ejem}[El toro]
-		Hemos visto que hay una descomposición del toro pegando los lados de un cuadrado. De acuerdo a este lema, y a la \hyperref[obs1]{observación} hecha hace unos momentos, contando los vértices y las aristas de esa descomposición obtenemos la siguiente homología:
+	\begin{ejem}[El toro]\label{ejem:toroCW}
+		Sabemos que hay una descomposición del toro como complejo CW en una 0-celda, dos 1-celdas y una 2-celda. Esto nos el siguiente complejo de cadenas:
 		\[\begin{tikzcd}
-			0\arrow[r]&\Z\arrow[r,"d_2"]&\Z\arrow[r,"d_1=0"]&\Z\arrow[r]&0
+			0\arrow[r]&\Z\arrow[r,"d_2"]&\Z\oplus\Z\arrow[r,"d_1=0"]&\Z\arrow[r]&0
 		\end{tikzcd}\]
-		(Eventualemente se descubre que $d_2=0$.)
+		Sabemos que $d_1=0$ porque sólo hay una 0-celda. Para descubrir cómo actúa $d_2$ echemos un vistazo al siguiente diagrama:
+	\[\begin{tikzpicture}[decoration={
+			markings,
+			mark=at position 0.5 with {\arrow{to}}
+		}]
+		% Sides as arrows with arrowheads in the middle
+		\draw[magenta,very thick,postaction={decorate}] (0,0) -- (0,2);
+		\draw[blue-violet,very thick,postaction={decorate}] (0,2) -- (2,2);
+		\draw[magenta,very thick,postaction={decorate}] (2,0) -- (2,2);
+		\draw[blue-violet,very thick,postaction={decorate}] (0,0) -- (2,0);
 		
-%		\[\begin{tikzpicture}[decoration={
-%				markings,
-%				mark=at position 0.5 with {\arrow{stealth}}
-%			}]
-%			% Vertices
-%			\node[fill=black, circle, inner sep=1.5pt] at (-2,0) {};
-%			\node[fill=black, circle, inner sep=1.5pt] at (2,0) {};
-%			\node[fill=black, circle, inner sep=1.5pt] at (-2,2) {};
-%			\node[fill=black, circle, inner sep=1.5pt] at (2,2) {};
-%			
-%			% Sides as arrows with arrowheads in the middle
-%			\draw[postaction={decorate}] (-2,0) -- (2,0); % Horizontal arrow (AB)
-%			\draw[postaction={decorate}] (-2,2) -- (2,2); % Horizontal arrow (CD)
-%			\draw[postaction={decorate}, double distance=2pt] (-2,0) -- (-2,2); % Vertical double arrow (AC)
-%			\draw[postaction={decorate}, double distance=2pt] (2,0) -- (2,2); % Vertical double arrow (BD)
-%			\end{tikzpicture}\]
+
+		
+		% Vertices
+		\filldraw (2,0) circle (0.05);
+		\filldraw (2,2) circle (0.05);
+		\filldraw (0,2) circle (0.05);
+		\filldraw (0,0) circle (0.05);
+		
+		\draw[->] (2.7,1) -- (3.7,1) node[midway, above] {$\varphi_\alpha$};
+		
+		\draw[magenta,very thick,postaction={decorate}] (5.3,1) circle (1);
+		\draw[blue-violet,very thick,postaction={decorate}] (7.3,1) circle (1);
+		
+		\draw[->] (8.9,1) -- (9.7,1);
+		
+		\draw[magenta,very thick,postaction={decorate}] (11.35,1) circle (1);
 	
+	\end{tikzpicture}\]
+	La frontera de la 2-celda, $S^1$ va a dar mediante la función de pegado a la cuña de dos círculos, y \textbf{recorre cada uno dos veces y en direcciones contrarias}. El cociente $X^1/X^0$ no hace nada, pues de por sí $X^0$ ya era sólo un punto, y en el último, paso, al escoger uno de los dos círculos en la cuña, nos damos cuenta de nuestra función lo recorre \textbf{de ida y luego de regreso}. Esta función es homotópica a una constante, así que es de grado cero. Al hacer esto para los dos círculos, concluimos que, $d_2=0$. Luego, $H_1(T^2)=\Z\oplus\Z$ y $H_2(T^2)=\Z$.
 	\end{ejem}
 	\begin{teo}[Extra]
 		Una superficie compacta y conexa sólo puede ser una esfera, un toro, una suma conexa de toros, el plano proyectivo o una suma conexa de planos proyectivos.
@@ -1827,28 +1845,52 @@ Veamos cómo define Lee los complejos CW en su libro Introduction to Topological
 		Resulta que el toro doble se puede ver como el cociente de un octágono identificando aristas. Y en general, el $g$-toro es el cociente de un $4g$-ágono. El resultado final es que $H_0(S_g)=\Z, H_1(S_g)=\Z^{2g}$ y $H_2(S_g)=\Z$.
 	\end{ejem}
 	\begin{ejem}[El plano proyectivo]
-		Aquí, $d_2=2$. $H_2(\R P^2)=0$ y $H_1(\R P^2)=\Z/2$.
+	Recordemos la descomposición más sencilla del plano proyectivo con un célula de cada dimensión:
+	\[\begin{tikzpicture}[decoration={
+			markings,
+			mark=at position 0.5 with {\arrow{to}}
+		}]
+		\draw[very thick, magenta, postaction={decorate}] (0,0) arc[start angle=0, end angle=180, radius=1];
+		\draw[very thick, blue-violet, postaction={decorate}] (-2,0) arc[start angle=180, end angle=360, radius=1];
+		
+		\filldraw (0,0) circle (0.05);
+		
+		\draw[->] (0.5,0) -- (1.5,0);
+		
+		\draw[magenta,very thick,postaction={decorate}] (3.1,0) circle (1);
+		
+		\filldraw (4.1,0) circle (0.05);
+	\end{tikzpicture}\]
+	Aquí, 
+	\[\begin{tikzcd}
+		0\arrow[r]&\Z\arrow[r,"d_2"]&\Z\arrow[r,"d_1=0"]&\Z\arrow[r]&0
+	\end{tikzcd}\]
+	Formalmente, para descubrir cómo actúa la función de pegado hacemos el siguiente razonamiento usando el \hyperref[subsec:grloc]{grado local}. La función que tenemos el dibujo envía el hemisferio norte (sin su frontera) en el círculo de la derecha sin el punto. La restricción de la función al hemisferio norte no ayuda a descomponer la función para calcular el grado. Como la restricción es un homeomorfismo, el grado local aquí es 1.
+	
+	Lo mismo sucede para el pedazo de la función en el hemisferio sur. La observación clave es que cada una de estas funciones locales se obtiene de la otra al componer con la función antípoda, que tiene grado $1$ en $S^1$. El grado de la función completa es la suma de los grados locales, así que el grado es 2. Y como sólo hay una célula de cada dimensión, $d_2=2$. Luego, $H_2(\R P^2)=0$ y $H_1(\R P^2)=\Z/2$.
+
 	\end{ejem}
-	\begin{obs}
-		Esta clase de ejercicios viene en los exámenes generales.
-	\end{obs}
 	\begin{ejem}[$\R P^n$]
-		Recordemos la descomposición de $\R P^n$ como complejo $CW$: $\R P^n=e_0\cup e_1\cup...\cup e_n$. El diagrama de arriba se vuelve:
+		Sólo debemos generalizar el ejemplo anterior. La descomposición de $\R P^n$ como complejo $CW$ es $\R P^n=e_0\cup e_1\cup...\cup e_n$. El diagrama de arriba se vuelve:
 		\[\begin{tikzcd}
-			& S^{k-1} \arrow[r, "\varphi"] \arrow[d, dotted, "\bar\varphi"] & \mathbb{R}P^{k-1} \arrow[d, "q"] \\
+			& S^{k-1} \arrow[r, "\varphi_\alpha"] \arrow[d, dashed,swap, "\bar\varphi"] & \mathbb{R}P^{k-1} \arrow[d, "q"] \\
 			& S^{k-1} & \mathbb{R}P^{k-1}/\mathbb{R}P^{k-2} \arrow[l]
 		\end{tikzcd}\]
-		Las funciones de pegado $\varphi_\alpha$ son la proyección al cociente función antipodal en la esfera (el cubriente del plano proyectivo). Estas funciones son dos a dos, y esto hace que el hemisferio norte de $S^{k-1}$ se mapee homeomorfamente a $S^{k-1}$ menos un punto (a donde va a dar el hemisferio sur).
+		Las funciones de pegado $\varphi_\alpha$ son la proyección al cociente función antipodal en la esfera (el cubriente del plano proyectivo). Estas funciones son dos a dos, y esto hace que el hemisferio norte de $S^{k-1}$ se mapee homeomorfamente a $S^{k-1}$ menos un punto, justo como en el caso de dimesión 2.
 		
-		Ahora observemos que la funciones que obtenemos cuando restringimos $\bar\varphi$ a cada hemisferio difieren una de la otra por el mapeo antipodal. A la hora de calcular el grado, obtenemos la fórmula $\deg (q\varphi)=1+(-1)^k$ usando que de alguna forma, escogiendo una orientación, podemos hacer que estos mapeos tengan grado $\pm1$ (Hatcher usa lo del grado local).
+		Como dijimos, las funciones que obtenemos cuando restringimos $\bar\varphi$ a cada hemisferio difieren una de la otra por el mapeo antipodal. A la hora de calcular el grado, obtenemos la fórmula $\deg (\bar{\varphi})=1+(-1)^k$.
 		
-		En fin,
-		\[\deg\bar\varphi=\begin{cases}2\quad\text{si }k\text{ es par}\\0\quad\text{si }k\text{ es impar}\end{cases}\]
+		Luego,
+		\[d_k=\begin{cases}2\quad\text{si }k\text{ es par}\\0\quad\text{si }k\text{ es impar}\end{cases}\]
 		Esto genera la homología siguiente:
-		\[\begin{tikzcd}
-			0 \arrow[r] & \mathbb{Z} \arrow[r, "0"] & \mathbb{Z} \arrow[r, "2"] & \cdots \arrow[r, "2"] & \mathbb{Z} \arrow[r, "0"] & \mathbb{Z} \arrow[r, "2"] & \mathbb{Z} \arrow[r, "d_1=0"] & \mathbb{Z} \arrow[r] & 0
-		\end{tikzcd}\]
-		Para $\R P^3$, $H_1=\Z/2\Z$, $H_2=0$ y $H_3=\Z$.
+		\[\begin{tikzcd}[column sep=small]
+			0 \arrow[r] & \mathbb{Z} \arrow[r, "0"] & \mathbb{Z} \arrow[r, "2"] & \cdots \arrow[r, "2"] & \mathbb{Z} \arrow[r, "0"] & \mathbb{Z} \arrow[r, "2"] & \mathbb{Z} \arrow[r, "0"] & \mathbb{Z} \arrow[r] & 0
+		\end{tikzcd}\qquad\text{para }n\text{ impar}\]
+		\[\begin{tikzcd}[column sep=small]
+			0 \arrow[r] & \mathbb{Z} \arrow[r, "2"] & \mathbb{Z} \arrow[r, "2"] & \cdots \arrow[r, "2"] & \mathbb{Z} \arrow[r, "0"] & \mathbb{Z} \arrow[r, "2"] & \mathbb{Z} \arrow[r, "0"] & \mathbb{Z} \arrow[r] & 0
+		\end{tikzcd}\qquad\quad\text{para }n\text{ par}
+		\]
+		Así que $H_0(\R P^n)=\Z$, $H_k(\R P^n)=\Z/2$ para $k<n$ impar,  y $H_n(\R P^n)$ es $0$ si $n$ es par, y $\Z$ si $n$ es impar.
 	\end{ejem}
 	\begin{ejem}[Primer ejemplo donde cambian las cosas si cambiamos de anillo]
 		Tomemos $\R P^n$ y el anillo $R=\Q$.
@@ -1961,7 +2003,7 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 \begin{proof}[Solución]
 	Como $C_n(A)\cong0$ para $n\geq1$, tenemos que $H_n(X,A)\cong H_n(X)$ para $n>1$.
 	
-	Para el caso $n=0$ primero notemos que $(X,A)$ es una buena pareja tomando la unión de vecindades disjuntos alrededor de cada punto en $A$ para hacer la retracción. Luego, la homología reducida \hyperref[sec:6.4]{cumple que}
+	Para el caso $n=0$ primero notemos que $(X,A)$ es una buena pareja tomando la unión de vecindades disjuntos alrededor de cada punto en $A$ para hacer la retracción. Luego, la homología reducida \hyperref[sec:6.4]{cumple} que
 	\[H_0(X/A)\cong\tilde{H}_0(X/A)\oplus R\]
 	Y como $X/A$ es arco-conexo, entonces $H_0(X/A)\cong R$, así que $\tilde{H}_0(X/A)\cong0$, es decir $H_0(X,A)\cong0$.
 	
@@ -1969,15 +2011,13 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 \end{proof}
 \begin{ejer}Demuestre que $S^1 \times S^1$ y $S^1 \vee S^1 \vee S^2$ tienen grupos de homología (con coeficientes enteros) isomorfos pero no son homotópicamente equivalentes.
 \begin{proof}[Solución]
-	Por sus descomposiciones como complejos CW, \hyperref[obs1]{sabemos} que la homología de ambos espacios está dada por el complejo de cadenas
+	Por sus descomposiciones como complejos CW, sabemos que la homología de ambos espacios está dada por el complejo de cadenas
 	\[\begin{tikzcd}[column sep=small]
-		0\arrow[r]&\Z\arrow[r]&\Z^2\arrow[r]&\Z\arrow[r]&0
+		0\arrow[r]&\Z\arrow[r,"d_2"]&\Z^2\arrow[r,"0"]&\Z\arrow[r]&0
 	\end{tikzcd}\]
-	\textcolor{blue-violet}{Falta ver qué las $d$ realmente den la misma homología}.
+	\hyperref[ejem:toroCW]{Ya hemos visto que} $d_2=0$ para el caso del toro. Ver que también es cierto para el espacio $S^1\vee S^1\times S^2$ es sencillo, ya que la función de pegado colapsa la frontera de la única 2-celda a un sólo punto, así que induce funciones de grado cero en la homología.
 	
-	Si estos espacios fueran homotópicamente equivalementes, entonces, \hyperref[1.2.1]{sus grupos fundamentales serían isomorfos}. Sabemos que el grupo fundamental del toro es $\Z\times\Z$, y el de $S^1 \vee S^1 \vee S^2$, por Van Kampen, es isomorfo a $\Z\ast\Z$.
-	
-	Para confirmar está última observación basta notar que el espacio se puede ver naturalmente como la unión de dos copias de $S^1$ y otra de $S^2$. La intersección de las tres es un sólo punto, que es arcoconexo, así que podemos aplicar Van Kampen. De hecho, como la intersección es contraible, el kernel del isomorfismo de Van Kampen es trivial, así que el grupo fundamental es simplemente el producto libre de los grupos fundamentales de cada compoenente. Obtenemos $\Z\ast\Z\ast0\cong\Z\ast\Z$.
+	Si estos espacios fueran homotópicamente equivalementes, entonces, \hyperref[1.2.1]{sus grupos fundamentales serían isomorfos}. Sabemos que el grupo fundamental del toro es $\Z\times\Z$, y el de $S^1 \vee S^1 \vee S^2$ es isomorfo a $\Z\ast\Z$, ya que \hyperref[sec:grp-fund-cuña]{el grupo fundamental de una cuña de espacios} es isomorfo al producto libre de sus grupos fundamentales.
 \end{proof}
 \end{ejer}
 \begin{ejer}
@@ -2010,8 +2050,8 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 		\draw (1,0) circle (1);
 		
 		%3D
-		\draw[dashed,gray] (-2,0) arc (180:360:1 and 0.3);
-		\draw[gray] (-2,0) arc (180:0:1 and 0.3);
+		\draw[gray] (-2,0) arc (180:360:1 and 0.3);
+		\draw[gray,dashed] (-2,0) arc (180:0:1 and 0.3);
 		
 		% Common point
 		\filldraw (2,0) circle (0.05);
@@ -2037,4 +2077,57 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 	\end{align*}
 	Así que $\img d_2\cong\Z$ y $\ker d_2\cong\langle (1,0)-(0,1)\rangle\cong\Z$, y entonces $H_2(X,\Z)\cong H_1(X,\Z)\cong H_0(X,\Z)\cong\Z$ y $H_n(X,\Z)\cong0$ para $n\geq3$.
 \end{proof}
+\begin{ejer}
+	Calcule los grupos de homología de $S^1\times(S^1\vee S^1)$.
+\end{ejer}
+\begin{proof}[Solución]
+	Se trata del siguiente espacio:
+	\[\begin{tikzpicture}[decoration={
+			markings,
+			mark=at position 0.5 with {\arrow{to}}
+		}]
+	% Outer circle
+	\draw (0,0) circle (2);
+	\draw[magenta,very thick,postaction={decorate}] (0,0) circle (-4/3);
+	\draw (0,0) circle (2/3);
+	
+	%3D
+	\draw[blue-violet,very thick,postaction={decorate}] (-2,0) arc (180:360:1/3 and 0.1);
+	\draw[blue-violet,very thick,dashed] (-2,0) arc (180:0:1/3 and 0.1);
+	\draw[azure,very thick,postaction={decorate}] (-4/3,0) arc (180:360:1/3 and 0.1);
+	\draw[azure,very thick,dashed] (-4/3,0) arc (180:0:1/3 and 0.1);
+	
+	% Common point
+	\filldraw (-4/3,0) circle (0.05);
+	\end{tikzpicture}\hspace{2cm}
+	\begin{tikzpicture}[decoration={
+		markings,
+		mark=at position 0.5 with {\arrow{to}}
+	}]
+	% Sides as arrows with arrowheads in the middle
+	\draw[magenta,very thick,postaction={decorate}] (0,0) -- (0,2);
+	\draw[blue-violet,very thick,postaction={decorate}] (0,2) -- (2,2);
+	\draw[magenta,very thick,postaction={decorate}] (2,0) -- (2,2);
+	\draw[blue-violet,very thick,postaction={decorate}] (0,0) -- (2,0);
+	
+	\draw[magenta,very thick,postaction={decorate}] (4,0) -- (4,2);
+	\draw[azure,very thick,postaction={decorate}] (2,2) -- (4,2);
+	\draw[azure,very thick,postaction={decorate}] (2,0) -- (4,0);
+
+	% Vertices
+	\filldraw (2,0) circle (0.05);
+	\filldraw (2,2) circle (0.05);
+	\filldraw (0,2) circle (0.05);
+	\filldraw (0,0) circle (0.05);
+	\filldraw (4,0) circle (0.05);
+	\filldraw (4,2) circle (0.05);
+	
+	\filldraw[white] (0,-1) circle (0.05);
+	\end{tikzpicture}\]
+	Cuyo complejo de cadenas celular es:
+	\[\begin{tikzcd}[column sep=small]
+		0\arrow[r]&\Z^2\arrow[r,"d_2"]&Z^3\arrow[r,"0"]&\Z\arrow[r]&0
+	\end{tikzcd}\]
+	Y por un razonamiento análogo al cálculo de la \hyperref[ejem:toroCW]{homología del toro}, $d_2=0$ y concluimos que $H_2(X)=\Z^2$, $H_1(X)=H_0(X)=\Z$.
+	\end{proof}
 \end{document}
