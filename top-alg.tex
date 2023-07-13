@@ -93,6 +93,10 @@
 \DeclareMathOperator{\Grp}{Grp}
 \DeclareMathOperator{\rel}{rel}
 \DeclareMathOperator{\Orb}{Orb}
+\DeclareMathOperator{\Int}{int}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
 
 \title{Notas de Topología Algebraica}
 \author{Prof. Luis Jorge Sánchez Saldaña\\ \\ Notas por Dani\\ \\ \href{https://github.com/danimalabares/top-alg}{github.com/danimalabares/top-alg}}
@@ -349,7 +353,7 @@
 		\begin{teo}
 			Dadas estas hipótesis, el homomorfismo que aparece en el teorema de Van Kampen
 			
-			\[\phi\ast_{\alpha\in I}\pi_1(X_\alpha,x_0)\to \pi_1(\bigvee_{\alpha\in I}X_\alpha)\]
+			\[\Phi:\ast_{\alpha\in I}\pi_1(X_\alpha,x_0)\to \pi_1(\bigvee_{\alpha\in I}X_\alpha)\]
 			
 			es un isomorfismo.
 		\end{teo}
@@ -536,7 +540,7 @@ Estas funciones no siempre van a existir. Para saber cuándo sí, primero veamos
 	Decimos que un espacio topológico $Y$ es \textbf{localmente arco-conexo} si para todo punto $y\in Y$ y cada vecindad $U$ de $y$, existe $y\in V\subseteq U$ que es arcoconexa.
 \end{defn}
 \begin{prop}
-	Sean $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ un cubriente y una función $f:(Y,y_0)\to (X,x_0)$ con $Y$ espacio arco-conexo y localmente arco-conexo. Entonces existe un levantamiento $\tilde{f}:(Y,y_0)\to(\tilde{X},x_0)$ si y sólo si $f_*\left(\pi_1(Y,y_0)\right)\subseteq p_*\left(\pi_1(\tilde{X},x_0)\right)$.
+	Sean $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ un cubriente y una función $f:(Y,y_0)\to (X,x_0)$ con $Y$ espacio arco-conexo y localmente arco-conexo. Entonces existe un levantamiento $\tilde{f}:(Y,y_0)\to(\tilde{X},x_0)$ si y sólo si $f_*\left(\pi_1(Y,y_0)\right)\subseteq p_*\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$.
 \end{prop}
 \section{Unicidad del levantamiento de funciones}
 	¿Bajo qué condiciones un levantamiento es único? Cuando dos levantamientos coincidan en un punto, tienen que ser iguales. (Siempre que el dominio sea arco-conexo.)
@@ -696,7 +700,7 @@ Notemos que si cambiamos la elección del punto base $\tilde{x}_0$ en el cubrien
 		\end{enumerate}
 		En particular, cuando $\tilde{X}$ es normal, $G(\tilde{X})\cong\pi_1(X,x_0)/H$. Y si además $\tilde{X}$ es el cubriente universal, simplemente tenemos que $G(\tilde{X})\cong\pi_(X,x_0)$.
 	\end{prop}
-\section{Acciones de grupos y cubrientes}
+\section{Acciones de grupos y cubrientes}\label{sec:acciones}
 \begin{defn}
 	Decimos que un grupo $G$ \textbf{actúa} en $X$ si hay un homomorfismo de grupos
 	\begin{align*}
@@ -770,9 +774,6 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 		Es decir, aquí hay que aplicar la $w$ antes de la función que obtenemos mediante la homotopía, digamos $\bar{h}$. Esto es legal: en vez de mover a $\bar{h}(\xi)$ de regreso a $\xi$, de antemano movemos a $\xi$ mediante $w$ a un punto en la preimagen de $\xi$ bajo $\bar{h}$. Aunque quizás $\bar{h}$ es suprayectiva, basta con escoger $\xi\in\img\bar{h}$.
 	\end{enumerate}
 \end{proof}
-\begin{ejer}
-	Para el sábado: hacer de homología y quizás uno de grupo fundamental.
-\end{ejer}
 \part{Homología}
 \chapter{Álgebra Homológica}
 \section{Conceptos básicos}
@@ -838,7 +839,7 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 	\begin{defn}
 		Decimos que la sucesión 
 		\[
-		\begin{tikzcd}
+		\begin{tikzcd}[column sep=small]
 			\cdots \arrow{r} & C_p \arrow{r}{f_p} & C_{p-1} \arrow{r}{f_{p-1}} & C_{p-2} \arrow{r} & \cdots
 		\end{tikzcd}
 		\]
@@ -853,7 +854,7 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 	\begin{defn}
 		Una sucesión exacta de la forma \[0\to P\to Q\to R\to 0\] se llama \textbf{sucesión exacta corta}. Las sucesiones exactas infinitas en ambas direcciones se llaman \textbf{sucesiones exactas largas}.
 	\end{defn}
-	\begin{prop}\leavevmode
+	\begin{prop}\label{sucex}\leavevmode
 		\begin{enumerate}
 			\item $0\to A\xrightarrow{\alpha}B$ es exacta si y sólo si $\ker{\alpha}=0$, es decir $\alpha $ es inyectiva.
 			\item $A\xrightarrow{\alpha}B\to 0$ es exacta si y sólo si $\text{img }{\alpha}=B$, es decir $\alpha $ es suprayectiva.
@@ -950,23 +951,23 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 	Primero introduciremos algo de notación
 	\begin{defn}
 		Diremos que una sucesión de complejos de cadena
-		\[\begin{tikzcd}
+		\[\begin{tikzcd}[column sep=small]
 			&\cdots\arrow{r}&C_\bullet\arrow{r}{f}&D_\bullet\arrow{r}{g}&E_\bullet\arrow{r}&\cdots
 		\end{tikzcd}\]
 		es exacta en $D_\bullet$ si 
-		\[\begin{tikzcd}
+		\[\begin{tikzcd}[column sep=small]
 			&\cdots\arrow{r}&C_p\arrow{r}{f_p}&D_p\arrow{r}{g_p}&E_p\arrow{r}&\cdots
 		\end{tikzcd}\]
 		es exacta para todo $p\in\Z$
 	\end{defn}
 	\begin{teo}[fundamental del álgebra homológica]
 		Si 
-		\[\begin{tikzcd}
+		\[\begin{tikzcd}[column sep=small]
 			&\cdots\arrow{r}&A_\bullet\arrow{r}{\phi}&B_\bullet\arrow{r}{\psi}&C_\bullet\arrow{r}&\cdots
 		\end{tikzcd}\]
 		es una sucesión exacta de complejos de cadena, entonces existen homomorfismos \[\partial_{*p}:H_p(C.)\to H_{p-1}(A.)\]
 		tales que la sucesión
-		\[\begin{tikzcd}
+		\[\begin{tikzcd}[column sep=small]
 			&\cdots\arrow{r}&H_p(A_\bullet)\arrow{r}{\bar\phi_p}&H_p(B_\bullet)\arrow{r}{\bar\psi_p}&H_p(C_\bullet)\arrow{r}{\delta_{*p}}&H_{p-1}(A_\bullet)\arrow{r}{\bar\phi_{p-1}}&H_{p-1}(B_\bullet)\arrow{r}&\cdots
 		\end{tikzcd}\]
 		es exacta.
@@ -984,7 +985,7 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 
 \section{Natrualidad del homomorfismo de conexión}
 	\begin{teo}[Naturalidad del homomorfismo de conexión]
-		\[\begin{tikzcd}
+		\[\begin{tikzcd}[column sep=small]
 			&0\arrow{r}&A_\bullet\arrow{r}{i}\arrow{d}{f}&B_\bullet\arrow{r}{j}\arrow{d}{g}&C_\bullet\arrow{r}\arrow{d}{h}&0\\
 			&0\arrow{r}&A'_\bullet\arrow{r}&B'_\bullet\arrow{r}&C'_\bullet\arrow{r}&0
 		\end{tikzcd}\]
@@ -1001,7 +1002,7 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 		Consideremos el diagrama conmutativo con filas exactas
 		\[\begin{tikzcd}
 			M_5\arrow{r}{f_5}\arrow{d}{h_5}&M_4\arrow{r}{f_4}\arrow{d}{h_4}&M_3\arrow{r}{f_3}\arrow{d}{h_3}&M_2\arrow{r}{f_2}\arrow{d}{h_2}&M_1\arrow{d}{h_1}\\
-			N_5\arrow{r}{g_5}&N_4\arrow{r}{g_4}&N_3\arrow{r}{g_3}&N_2\arrow{r}{g_2}&N_1
+			N_5\arrow[r,swap,"g_5"]&N_4\arrow[r,swap,"g_4"]&N_3\arrow[r,swap,"g_3"]&N_2\arrow[r,swap,"g_2"]&N_1
 		\end{tikzcd}\]
 		Si $h_5,h_4,h_2$ y $h_1$ son isomorfismos, entonces $h_3$ también.
 	\end{lema}
@@ -1252,27 +1253,54 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 	 	0\qquad\text{si   } n\neq0
 		 \end{cases}\]
 	\end{prop}
-\section{Homología reducida}
-	Considera
-	\[\begin{tikzcd}[column sep=small]
-		\cdots \arrow[r] & C_p \arrow[r, "\partial_p"] & C_{p-1} \arrow[r, "\partial_{p-1}"] & C_{p-2} \arrow[r] & \cdots \arrow[r] & C_1 \arrow[r, "\partial_1"] & C_0 \arrow[r, "\partial_0"] & R \arrow[r, "\varepsilon"] & 0
-	\end{tikzcd}\]
-	donde $\varepsilon(\sum n_i\sigma_i)=\sum n_i$ es el \textbf{mapeo de aumentación}.
+	Para que esto no es totalmente intuitivo: nos gustaría que la homología de este espacio fuera 0 en todas las dimensiones. Vamos a componer esto en la siguiente sección.
+\section{Homología reducida}\label{sec:6.4}
+	La homología reducida es una variante de la homología singular que nos sirve para hacer cuentas en dimensiones bajas.
 	
-	Va a resultar que $\tilde H_n(X;R)=H_n(X;R)$ para toda $n\geq 1$.
-	\vspace{1cm}
+	\begin{defn}
+		Sean $X$ un espacio topológico y $R$ un anillo asociativo con unidad. Los grupos de \textbf{homología reducida} de $X$ con coeficientes en $R$, que denotamos por $\tilde{H}(X;R)$, son los grupos de homología del siguiente complejo de cadenas:
 	
-	\textbf{Sobre la homología reducida del espacio que es un sólo punto}
-
-	Sabemos por la proposición de la homología de un punto que si $X=\{x\}$, entonces $H_0(X)=R$, es decir, $\ker{\partial_0}/\text{img }\partial_1=R$. Esto implica que la sucesión corta $0\to \text{img }\partial_1\xrightarrow[]{\partial_1}\ker\partial_0\xrightarrow[]{\partial_0}R\xrightarrow[]{\varepsilon}0$ es exacta.
+		\[\begin{tikzcd}[column sep=small]
+			\cdots \arrow[r] & C_p(X) \arrow[r, "\partial_p"] & C_{p-1}(X) \arrow[r, "\partial_{p-1}"] & C_{p-2}(X) \arrow[r] & \cdots \arrow[r] & C_1(X) \arrow[r, "\partial_1"] & C_0(X) \arrow[r, "\varepsilon"] & R \arrow[r] & 0
+		\end{tikzcd}\]
+		donde $\varepsilon(\sum n_i\sigma_i)=\sum n_i$ es el \textbf{mapeo de aumentación}.
+	\end{defn}
 	
-	\textit{¿Cómo deducimos de aquí que $\tilde H_0(X;R)=0$?} Bueno resulta que como el espacio es un punto, $\partial_1=0$, así que de entrada $\text{img }\partial_1=0$. Luego, en realidad tenemos la sucesión exacta corta $0\to\ker\partial_0\xrightarrow[]{\partial_0}R\xrightarrow[]{\varepsilon}0$ que hace a $\partial_0$ un isomorfismo que en particular es inyectivo.
+	\begin{obs}
+		Como el complejo de cadenas es idéntico al complejo de cadenas singulares salvo en los términos hasta la derecha, la homología reducida sólo podrá ser distinta de la homología singular en dimensión 0. Es decir,
+		 $\tilde H_n(X;R)=H_n(X;R)$ para toda $n\geq 1$.
+	\end{obs}
 	
-	Como $\tilde H_0=\ker\partial_0/\text{img }\partial_1$, entonces $\tilde H_0(X;R)=0$.
-	
-	\textbf{Y en general} $H_0(X;R)=\tilde H_0(X;R)\oplus R$
+	\begin{ejer}[La homología reducida del espacio que es sólo un punto]
+		Si $X=\{x\}$, entonces $\tilde H_0(X;R)=0$. 
+	\end{ejer}
+	\begin{proof}
+		Recordemos cómo calculamos la 0-ésima hología singular de $X$. Como el último homomofismo en el complejo de cadenas singulares es $X\xrightarrow{\partial_0}0$, entonces el kernel es todo el grupo, así que $H_0(X)=C_0(X)/\img(\partial_1)$. Demostramos usando el mapeo de aumentación que este cociente es isomorfo a $R$. Luego,
+		\[\begin{tikzcd}[column sep=small] 
+			0\arrow[r]&\img\partial_1\arrow[r]&C_0(X)\arrow[r,"\varepsilon"]&R\arrow[r]&0
+		\end{tikzcd}\]
+		es una sucesión exacta corta. (Ver \hyperref[sucex]{prop} de sucesiones exactas).
+				
+		 Así que la sucesión del complejo de cadenas de la homología reducida es exacto en el nivel 0, es decir, $\ker(\varepsilon)=\img(\partial_1)=0$, de forma que $\tilde{H}_0(X;R)=0$
+	\end{proof}
+	\begin{ejer}
+		En general, $H_0(X;R)=\tilde H_0(X;R)\oplus R$.
+	\end{ejer}
+	\begin{proof}
+	 Por la definición de $\varepsilon$, sabemos que $\varepsilon|_{\img\partial_1}=0$. 
+		
+		Recordemos que en general, un mapeo que sale de un grupo pasa al cociente respecto a un subgrupo normal si su kernel está contenido en ese subgrupo. Esto quiere decir que tenemos un mapeo inducido $\bar{\varepsilon}:H_0(X;R)=C_0(X)/\img\partial_1\to R$. Este mapeo resulta ser suprayectivo, y además su kernel es $\ker\varepsilon/\img\partial_1=\tilde{H}_0$. En el lenguaje que hemos desarrollado, esto es tanto como decir que tenemos la sucesión exacta corta
+		\[\begin{tikzcd}[column sep=small]
+			0\arrow[r]&\tilde{H}_0(X;R)\arrow[r]&H_0(X;R)\arrow[r,"\bar\varepsilon"]&R\arrow[r]&0
+		\end{tikzcd}\]
+		Y a la mera hora $H_0(X;R)/\tilde{H}_0(X;R)\cong R$. De hecho, esto implica que $H_0(X;R)\cong\tilde{H}_0(X;R)\oplus R$. Para verlo, simplemente hay que notar que $\bar{\varepsilon}$ manda un elemento $g\in H_0(X;R)$ o bien al elemento 0, en cuyo caso está en $\tilde{H}_0(X;R)$, o bien a un elemento en $R$, que es el resto de su imagen. Estos dos grupos tienen intersección trivial y generan la suma directa $\tilde{H}_0(X;R)\oplus R$.
+	\end{proof}
 
 \section{Funtorialidad}
+	En esta sección vamos a demostrar que, en el lenguaje categórico, la asociación que a cada espacio topológico le asigna su complejo de cadenas es funtorial. Y también, que la asignación que a cada espacio le asigna su $n$-ésimo grupo de homología es funtorial.
+	
+	Dicho de otra forma, lo que veremos es que funciones entre espacios topológicos inducen funciones entre los complejos de cadenas singulares y por lo tanto también funciones entre los grupos de homología singular, y además, composiciones van a composiciones y la identidad va a la identidad.
+	
 \section{Invarianza homotópica}
 Primero \hyperref[def:func-homot]{recordemos} que 
 \begin{defn}
@@ -1300,39 +1328,74 @@ Ahora sí:
 	Si $X\simeq \{x_0\}$, es decir $X$ es \textbf{contraible}, entonces \[H_n(X,R)=\begin{cases} R\qquad\text{si }n=0\\0\qquad\text{si }n\neq0\end{cases}\]
 \end{ejem}
 \section{Homología relativa}
-Sean $A\subseteq X$ espacios topológicos. Diremos que $(X,A)$ es una buena pareja. Notemos que $(C_\bullet(A))$ es un subcomplejo de $C_\bullet (X)$, así que podemos definir el complejo relativo
-\[
-C_\bullet(X,A)=C_\bullet(X)/C_\bullet(A)
-\]
-Y esto simplemente quiere decir que para toda $n$,
-\[
-C_n(X,A)=C_n(X)/C_n(A)
-\]
-de forma que las cadenas en $A$ se vuelven triviales.
+\subsection{Construcción}
 
-Es claro que el n-ésimo operador frontera restringido a $C_n(A)$ se mapea a $C_{n-1}(A)$, (pues la frontera de una cadena en $A$ no podría salirse de $A$). Esto quiere decir que el mapeo frontera está bien definido en el cociente. 
-\[\begin{tikzcd}[column sep=small]
-	\cdots \arrow[r] & C_{n+1}(X,A) \arrow[r, "\partial_{n+1}"] & C_n(X,A) \arrow[r, "\partial_n"] & C_{n-1}(X,A) \arrow[r] & \cdots
-\end{tikzcd}\]
-Esto induce la homología dada por
-\[H_n(X,A)=\ker\partial_n/\text{img }\partial_{n-1}\]
-\begin{ejer}
-	$H_n(X,\{x_0\})=H_n(X)$.
+	La homología relativa es un tipo de homología singular que generaliza la homología reducida. El chiste será definir la homología del espacio ``ignorando lo que pasa dentro del subespacio".
 	
-	Ahora lo primero que pasa es que tenemos una sucesión exacta corta a la que aplicaremos el teorema fundamental del álgebra homológica:
-%	\[
-%	0\to C_\bullet(A)\xhookrightarrow{i}C_\bullet(X)\xtwoheadrightarrow{j}C_\bullet(X,A)\to0
-%	\]
-	Así que obtenemos la \textbf{sucesión exacta larga de la pareja}
+	Tomemos $A\subseteq X$ espacios topológicos. Diremos que $(X,A)$ es una \textbf{pareja}. Notemos que $(C_\bullet(A))$ es un subcomplejo de $C_\bullet (X)$, así que podemos definir el complejo relativo
+	\[
+	C_\bullet(X,A)=C_\bullet(X)/C_\bullet(A)
+	\]
+	Y esto simplemente quiere decir que para toda $n$,
+	\[
+	C_n(X,A)=C_n(X)/C_n(A)
+	\]
+	de forma que las cadenas en $A$ se vuelven triviales.
+	
+	Es claro que el n-ésimo operador frontera restringido a $C_n(A)$ se mapea a $C_{n-1}(A)$, (pues la frontera de una cadena en $A$ no podría salirse de $A$). Esto quiere decir que el mapeo frontera está bien definido en el cociente. 
 	\[\begin{tikzcd}[column sep=small]
-		\cdots \arrow[r] & H_n(A) \arrow[r, "i_{*n}"] & H_n(X) \arrow[r, "j_{*n}"] & H_n(X,A) \arrow[r, "\partial_n"] & H_{n-1}(A) \arrow[r, "i_{*n-1}"] & H_{n-1}(X) \arrow[r, "i_{*p-1}"] & \cdots
+		\cdots \arrow[r] & C_{n+1}(X,A) \arrow[r, "\partial_{n+1}"] & C_n(X,A) \arrow[r, "\partial_n"] & C_{n-1}(X,A) \arrow[r] & \cdots
 	\end{tikzcd}\]
-	Como primera observación notemos que si los grupos de homología de la pareja $C_p(X,A)$ fueran triviales, autimáticamente tedríamos que el mapeo inducido por la inclusión sería un isomorfismo. De hecho, esto es un si y sólo si. Así, los grupos de homología miden qué tan diferentes son los grupos de homología de $A$ y los de $X$.
-	
-	Finalmente agregamos el comentario de que aunque el mapeo $\partial$ que usamos para completar la sucesión exacta larga de la pareja viene del teorema fundamental del álgebra homológica, y al recordar la demostración del teorema nos damos cuenta de que este mapeo actúa exactamente como el operador frontera original de $X$.
-\end{ejer}
-
+	Esto induce la homología dada por
+	\[H_n(X,A)=\ker\partial_n/\text{img }\partial_{n-1}\]
+		Ahora lo primero que pasa es que tenemos una sucesión exacta corta a la que aplicaremos el teorema fundamental del álgebra homológica:
+		\[
+		\begin{tikzcd}[column sep=small]
+			0 \arrow[r] & C_\bullet(A) \arrow[r, hook, "i"] & C_\bullet(X) \arrow[r, two heads, "j"] & C_\bullet(X,A) \arrow[r] & 0
+		\end{tikzcd}
+		\]
+		Así que obtenemos la \textbf{sucesión exacta larga de la pareja}
+		\[\begin{tikzcd}[column sep=small]
+			\cdots \arrow[r] & H_n(A) \arrow[r, "i_{*n}"] & H_n(X) \arrow[r, "j_{*n}"] & H_n(X,A) \arrow[r, "\delta_n"] & H_{n-1}(A) \arrow[r, "i_{*n-1}"] & H_{n-1}(X) \arrow[r, "i_{*p-1}"] & \cdots
+		\end{tikzcd}\]
+		\begin{obs}
+			Si los grupos de homología de la pareja $C_p(X,A)$ fueran triviales, autimáticamente tedríamos que el mapeo inducido por la inclusión sería un isomorfismo. De hecho, esto es un si y sólo si. Así, los grupos de homología miden qué tan diferentes son los grupos de homología de $A$ y los de $X$.
+		\end{obs}
+		\begin{obs}
+		Agregamos el comentario de que aunque el mapeo $\delta$ que usamos para completar la sucesión exacta larga de la pareja viene del teorema fundamental del álgebra homológica, y al recordar la demostración del teorema nos damos cuenta de que este mapeo actúa exactamente como el operador frontera original de $X$.
+		\end{obs}
+		\begin{obs}
+			También es posible definir la \textbf{homología reducida de la pareja}. (Ver Hatcher). De hecho resulta que es igual a la homología de la pareja que acabamos de definir, es decir, $\tilde{H}_n(X,A)=H_n(X,A)$
+		\end{obs}
+		\begin{ejer}
+			$H_n(X,\{x_0\})=H_n(X)$. 
+		\begin{proof}[Solución]
+			Usando la primera y la tercera de las observaciones anteriores, sabemos que existe la sucesión exacta larga de la pareja en homología reducida. Como $\tilde{H}_n(\{x_0\})\cong0$ para toda $n$, tenemos el isomorfismo deseado.
+			
+			\textcolor{red}{Esta prueba está en el Hatcher (p.118). En el \href{https://www.youtube.com/watch?v=CwVxrSoU_ZU}{video} este ejercicio aparece antes de definir la sucesión exacta larga de la pareja y sin el comentario sobre la homología reducia. ¿Será posible demostrarlo sin esas dos cosas?}
+		\end{proof}
+		\end{ejer}
+\subsection{Funciones inducidas}
+	\begin{obs}
+		Una \hyperref[def:func-homot]{función entre parejas} $f:(X,A)\to(Y,B)$ induce una función $f_\#:C_\bullet(X,A)\to C_\bullet(Y,B)$ y por lo tanto también otra función $f_*H_n(X,A)\to H_n(Y,B)$.
+	\end{obs}
+	\begin{prop}
+		Si dos funciones entre parejas $f,g:(X,A)\to(Y,B)$ son homotópicas por funciones entre parejas, entonces los mapeos inducidos $f_*$ y $g_*$ son iguales.
+	\end{prop}
+\subsection{La sucesión exacta de la tercia}
+	Si $Z\subseteq Y\subseteq X$ son espacios topológicos, es inmediato por definición que
+	\[C_\bullet(Z)\leq C_\bullet(Y\leq C_\bullet(X))\]
+	Y al tomar el cociente por $Z$, obtenemos 
+	\[\begin{tikzcd}[column sep=small]
+		C_\bullet(Y,Z)\arrow[r,hook]&C_\bullet(X,Z)\arrow[r]&\frac{C_\bullet(X,Z)}{C_\bullet(Y,Z)}=C_\bullet(X,Y)
+	\end{tikzcd}\]
+	Usando un teorema de isomorfismo en la última igualdad para ver que $\frac{C_\bullet(X)/C_\bullet(Z)}{C_\bullet(Y)/C\bullet(Z)}=C\bullet(X,Y)$. Aplicamos el teorema fundamental del álgebra homológica y obtenemos la \textbf{sucesión exacta de la tercia}
+	\[\begin{tikzcd}[column sep=small]
+		\cdots\arrow[r]&H_n(Y,Z)\arrow[r,"i_*"]&H_n(X,Z)\arrow[r,"j_*"]&H_n(X,Y)\arrow[r,"\delta"]&H_{n-1}(Y,Z)\arrow[r,"i_*"]&\cdots
+	\end{tikzcd}\]
 \section{Escisión}
+Este resultado hace mucho más precisa la noción de que la homología de la pareja es la homología del espacio ``ignorando lo que pasa en el subespacio".
+
 Sean $Z\subseteq A\subseteq X$ tales que la cerradura de $Z$ está contenida en el interior de $A$. Entonces
 \[(X-Z,A-Z)\hookrightarrow (X,A)\]
 induce un isomorfismo
@@ -1341,135 +1404,157 @@ Equivalentemente, para subespacios $A,B\subseteq X$ cuyos interiores cubren a $X
 \[(B,A\cap B)\hookrightarrow (X,A)\]
 induce un isomorfismo
 \[H_n(B,A\cap B)\to H_n(X,A)\qquad\forall n\]
-\begin{defn} Decimos que $(X,A)$ es un \textbf{buen par} si $A$ es cerrado y es retracto fuerte por deformación de una vecindad en $X$.
-\end{defn}
 
-El arete hawaiiano no es un buen par porque cualquier vecindad del punto de pegado contiene un círculo entero, así que no se puede retraer por deformación.
-
-\begin{teo}Sea $(X,A)$ un buen par, entonces
-\[q:(X,A)\to(X/A,A/A)\]
-induce isomorfismos para toda $n$ de la forma
-\[q_{*}:H_n(X,A)\to H_n(X/A,A/A)\cong \tilde{H}_n(X/A)\]
-donde la tilde denota la homología reducida.
-\end{teo}
-
-En la demostración se usa lema de los 5, invarianza homotópica, etc.
-
-\begin{coro}
-	 Sea $(X,A)$ un buen par. Entonces tenemos la siguiente sucesión exacta larga:
-	\[\begin{tikzcd}[column sep=small]
-		\cdots \arrow[r] & \tilde{H}_n(A) \arrow[r] & \tilde{H}_n(X) \arrow[r] & \tilde{H}_n(X/A) \arrow[r] & \tilde{H}_{n-1}(A) \arrow[r] & \tilde{H}_{n-1}(X) \arrow[r] & \tilde{H}_{n-1}(X/A) \arrow[r] & \cdots
-	\end{tikzcd}\]
-\end{coro}
-\begin{teo}[Homología de la esfera]
-\[\tilde H_i(S^n;R)=\begin{cases}R\qquad\text{si   } n=i\\
-	0\qquad\text{si   } n\neq i
-\end{cases}\]
-\end{teo}
-\begin{teo}[del punto fijo de Bruwer]
-	Sean $n\geq2$ y  $f:D^n\to D^n$, entonces $f$ tiene un punto fijo.
-\end{teo}
+\section{La homología de un cociente}
+	Dados un espacio topológico $X$ y un subespacio $A\subseteq X$, podemos considerar el espacio $X/A$, que consiste en identificar todos los puntos de $A$. Este espacio es como $X$ pero `ìgnordando todo lo que pasa en $A$. Esto nos recuerda a la homología de la pareja, y surge naturalmente la pregunta: ¿hay alguna relación entre $H_n(X,A)$ y $H_n(X/A)$? Necesitamos ciertas condiciones:
+	
+	\begin{defn} Decimos que $(X,A)$ es una \textbf{buena pareja} si $A$ es cerrado y es retracto fuerte por deformación de alguna vecindad en $X$.
+	\end{defn}
+	
+	El arete hawaiiano con el punto de pegado no es un buen par porque cualquier vecindad de dicho punto contiene un círculo entero, así que no se puede retraer por deformación.
+	
+	\begin{teo}Sea $(X,A)$ un buen par, entonces
+		\[q:(X,A)\to(X/A,A/A)\]
+		induce isomorfismos para toda $n$ de la forma
+		\[q_{*}:H_n(X,A)\to H_n(X/A,A/A)\cong \tilde{H}_n(X/A)\]
+		donde la tilde denota la homología reducida.
+	\end{teo}
+	
+	En la demostración se usa lema de los 5, invarianza homotópica, etc.
+	
+	\begin{coro}
+		Sea $(X,A)$ un buen par. Entonces tenemos la siguiente sucesión exacta larga:
+		\[\begin{tikzcd}[column sep=small]
+			\cdots \arrow[r] & \tilde{H}_n(A) \arrow[r] & \tilde{H}_n(X) \arrow[r] & \tilde{H}_n(X/A) \arrow[r] & \tilde{H}_{n-1}(A) \arrow[r] & \tilde{H}_{n-1}(X) \arrow[r] & \tilde{H}_{n-1}(X/A) \arrow[r] & \cdots
+		\end{tikzcd}\]
+	\end{coro}
+	
+\section{Homología de la esfera y aplicaciones}
+	\begin{teo}[Homología de la esfera]
+		\[\tilde H_i(S^n;R)=\begin{cases}R\qquad\text{si   } n=i\\
+			0\qquad\text{si   } n\neq i
+		\end{cases}\]
+	\end{teo}
+	\begin{teo}[del punto fijo de Bruwer]
+		Sean $n\geq2$ y  $f:D^n\to D^n$, entonces $f$ tiene un punto fijo.
+	\end{teo}
+	\begin{teo}[Homología de la cuña]
+		Consideremos una cuña de espacios $\bigvee_{\alpha\in I}X_\alpha$ tal que $(X_\alpha,x_\alpha)$ es una buena pareja para toda $\alpha$, donde $x_\alpha$ es el punto de pegado. Entonces, las inclusiones $i_\alpha:X_\alpha\hookrightarrow\bigvee_{\alpha\in I}$ inducen un isomorfismo
+		\[\bigoplus i_{\alpha*}:\bigoplus_{\alpha\in I}\tilde{H}_n(X_\alpha)\to\tilde{H}_n(\bigvee_{\alpha\in I})\]
+	\end{teo}
+	\begin{teo}[Invarianza de la dimensión]
+		Sean $U\subseteq\R^n$ y $V\subseteq\R^m$ abiertos. Si $U$ y $V$ son homeomorfos, entonces $n=m$.
+	\end{teo}
 
 \section{La sucesión de Mayer-Vietoris}
-	Sea $X$ un espacio topológico y $A,B\subseteq X$ tales que $X=\text{int } A\cup \text{int } B$. Entonces tenemos la siguiente sucesión larga en homología reducida:
-	\[\begin{tikzcd}[column sep= tiny]
-		\cdots \arrow[r] & \tilde{H}_{n+1}(X) \arrow[r] & \tilde{H}_n(A\cap B) \arrow[r] & \tilde{H}_n(A) \oplus \tilde{H}_n(B) \arrow[r] & \tilde{H}_n(X) \arrow[r] & \tilde{H}_{n-1}(A\cap B) \arrow[r] & \tilde{H}_{n-1}(A) \oplus \tilde{H}_{n-1}(B) \arrow[r] & \cdots
+	Sea $X$ un espacio topológico y $A,B\subseteq X$ tales que $X=\Int A\cup \Int B$. Entonces tenemos la siguiente sucesión larga en homología reducida:
+	\[\begin{tikzcd}[column sep= small]
+		\cdots \arrow[r] & \tilde{H}_n(A\cap B) \arrow[r,"\Phi"] & \tilde{H}_n(A) \oplus \tilde{H}_n(B) \arrow[r,"\Psi"] & \tilde{H}_n(X) \arrow[r] & \tilde{H}_{n-1}(A\cap B) \arrow[r] &\cdots
 	\end{tikzcd}\]
-
-\begin{ejem}
-	Veamos el toro $S^1\times S^1$ visto como en el examen, con $A=D^2$ y $B=S^1\vee S^1$, casi todos los grupos de homología se hacen cero (aquí hay que usar que la homología de la cuña es la suma de las homologías de los "cuñandos"), y que la homología de $S^1$ es cero cuando el subíndice es mayor o igual que 2. En fin, para $m>2$, $\tilde H_m(X)=0$.
+	donde 
+	\begin{align*}
+		i:A\cap B\hookrightarrow A\\
+		j:A\cap B\hookrightarrow B\\
+		k:A\hookrightarrow X\\
+		\ell:B\hookrightarrow X
+	\end{align*}
+	y las funciones están definidas por
+	\[\Phi(x)=(i_*x,-j_*x)\qquad\Psi(y,z)=k_*y+\ell_*z \]
+	Y el homomorfismo de conexión que baja la dimensión está dado, usando algunos resultados que no veremos aquí, por
+	\[[w]=[a+b]\mapsto[a]\qquad\text{para algunos }a\in A,b\in B\]
+\begin{obs}
+	Se puede dar una versión de esta sucesión para $X=A\cup B$ tales que $A$ y $B$ son retractos por deformación de ciertas vecindades $U$ y $V$ donde $U\cap V$ es retracto de $A\cap B$.
 	
-	Ahora para la parte que sí nos toca, *Falta*
+	En particualar, si $X$ es un complejo CW y $A,B\subseteq X$ son subcomplejos CW, entonces es posible demostrar que existen tales vecindades, y obtenemos la misma sucesión de Mayer-Vietoris,
+	\[\begin{tikzcd}[column sep= small]
+		\cdots \arrow[r] & \tilde{H}_n(A\cap B) \arrow[r] & \tilde{H}_n(A) \oplus \tilde{H}_n(B) \arrow[r] & \tilde{H}_n(X) \arrow[r] & \tilde{H}_{n-1}(A\cap B) \arrow[r] &\cdots
+	\end{tikzcd}\]
+	Sólo que ahora $A$ y $B$ no tienen que ser abiertos y no tiene que ser cierto que $\Int A\cup\Int B=X$.
+\end{obs}
+\begin{ejem}
+	Veamos el toro $S^1\times S^1$ visto como en el examen, con $A=D^2$ y $B=S^1\vee S^1$, casi todos los grupos de homología se hacen cero (aquí hay que usar que la homología de la cuña es la suma de las homologías de los "cuñandos"), y que la homología de $S^1$ es cero cuando el subíndice es mayor o igual que 2, y que $A\cap B=\emptyset$.
+	
+	En fin, para $m>2$, $\tilde H_m(X)=0$. Y es fácil ver que $H_1(S^1\times S^1)\cong R\oplus R$. Pero para $H_2(S^1\times S^1)$ algo falta…
+
 \end{ejem}
+
 \section{Representantes de la homología de la esfera}
-En esta sección usaremos $R=\mathbb Z$.
+	En esta sección usaremos $R=\mathbb Z$. 
+	
+	Nuestro método será encontrar generadores para la homología relativa $H_n(D^n,\partial D^n)$ ya que ésta debe ser isomorfa a $H_n(S^n)$. Y lo primero que vamos a hacer va a ser reemplazar esa pareja por la siguiente, a la que también es isomorfa: $(\Delta^n,\partial\Delta^n)$.
 \begin{prop}
-	 $Id:\Delta^n\to\Delta^n$ representa un generador de $H_n(\Delta^n,\partial\Delta^n)$
+	 La función identidad $Id:\Delta^n\to\Delta^n$ es un ciclo que genera $H_n(\Delta^n,\partial\Delta^n)\cong\Z$.
 	 \begin{proof}
-	 	Por inducción en $n$. Si $n=0$, entonces $\Delta^0=\{e_0\}$ es un punto y su frontera es el vacío. Luego $H_0(\Delta^0,\partial\Delta^0)=H_0(\Delta^0)=\mathbb Z=\langle[e_0]\rangle$.
+	 	Primero notemos que la identidad sí es un ciclo en el grupo de homología relativa, ya que el kernel mapeo frontera $C_n(\Delta^n)\xrightarrow{\partial_n}C_{n-1}(\Delta^n)$ justamente está metido en el subgrupo $C_n(\partial\Delta^n)\leq C_n(\Delta^n)$. (Un homomorfismo de grupos pasa al cociente si el kernel está metido en el subgrupo normal).
 	 	
-	 	Ahora supongamos para $n$ y demostremos para $n+1$. Definamos $\Lambda$ como la unión de todas las $n-1$ caras en la frontera salvo alguna. Luego
-	 	$$
-	 	H_n(\Delta^n,\partial\Delta^n)\to^\delta H_n(\partial\Delta^n,\Lambda)\leftarrow^{\iota}H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})
-	 	$$
-	 	Luego como puedo retraer el simplejo en el $\Lambda$,
-	 	$$
-	 	H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})=0
-	 	$$
-	 	Así que (creo que) incluyendo el de en medio la primera ecuación en este anterior, obtenemos que $\delta$ es un isomorfismo.
+	 	Ahora sí, hacemos inducción en $n$. (...)
 	 	
-	 	Para checar $\iota$, 
-	 	$$
-	 	H_{n-1}(\Delta^{n},\Lambda)\cong H_{n-1}(\partial\Delta^n/\Lambda)\\
-	 	H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})\cong H_{n-1}(\partial\Delta^{n-1}/\partial\Delta^{n-1})
-	 	$$
-	 	Y los dos de la derecha deben ser isomorfos. Hay un cuadrado conmutativo abajo de la inclusión $\iota$. Luego $\iota_{n-1}$ genera por hipótesis inductiva…
+%	 	Si $n=0$, entonces $\Delta^0=\{e_0\}$ es un punto y su frontera es el vacío. Luego $H_0(\Delta^0,\partial\Delta^0)=H_0(\Delta^0)=\mathbb Z=\langle[e_0]\rangle$.
+%	 	
+%	 	Ahora supongamos para $n$ y demostremos para $n+1$. Definamos $\Lambda$ como la unión de todas las $n-1$ caras en la frontera salvo alguna. Luego
+%	 	$$
+%	 	H_n(\Delta^n,\partial\Delta^n)\to^\delta H_n(\partial\Delta^n,\Lambda)\leftarrow^{\iota}H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})
+%	 	$$
+%	 	Luego como puedo retraer el simplejo en el $\Lambda$,
+%	 	$$
+%	 	H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})=0
+%	 	$$
+%	 	Así que (creo que) incluyendo el de en medio la primera ecuación en este anterior, obtenemos que $\delta$ es un isomorfismo.
+%	 	
+%	 	Para checar $\iota$, 
+%	 	$$
+%	 	H_{n-1}(\Delta^{n},\Lambda)\cong H_{n-1}(\partial\Delta^n/\Lambda)\\
+%	 	H_{n-1}(\Delta^{n-1},\partial\Delta^{n-1})\cong H_{n-1}(\partial\Delta^{n-1}/\partial\Delta^{n-1})
+%	 	$$
+%	 	Y los dos de la derecha deben ser isomorfos. Hay un cuadrado conmutativo abajo de la inclusión $\iota$. Luego $\iota_{n-1}$ genera por hipótesis inductiva…
 	 \end{proof}
 \end{prop}
-\section{Generadores para la homología de la esfera}
-\begin{obs}\leavevmode
-	
-	\begin{itemize}
-		\item $H_i(D^n,\partial D^n)\cong H_i(S^n)$
-		\item Usaremos los homeomorfismos $(D^n,\partial D^n)\cong (\Delta ^n,\partial\Delta ^n)$
-	\end{itemize}
-\end{obs}
+	Ahoara pensemos que $S^n$ es la unión de dos simplejos estándar pegados por su frontera, que denotaremos por $\Delta_1^n\cup_{\partial\Delta^n}\Delta_2^n$.
 \begin{prop}
-	Pensando que que $S^n$ es $\Delta^n\bigcup_{\partial\Delta^n}\Delta^n$, y denotado cada copia de $\Delta^n$ con un subíndice, tenemos que $\Delta^n_1-\Delta^n_2$ es un generador de $H_n(S^n)$ para $n>0$.
+	$\Delta^n_1-\Delta^n_2$ es un generador de $H_n(S^n)$ para $n>0$.
 \end{prop}
 \section{Grado de una función entre esferas}
-Hagamos dos observaciones básicas:
-\begin{itemize}
-	\item $H_i(D^n,\partial D^n)\cong H_i(S^n)$
-	\item Usaremos los homeomorfismos $(D^n,\partial D^n)\cong (\Delta ^n,\partial\Delta ^n)$.
-\end{itemize}
-\begin{prop}
-	content...Pensando que que $S^n$ es $\Delta^n\bigcup_{\partial\Delta^n}\Delta^n$, y denotado cada copia de $\Delta^n$ con un subíndice, tenemos que $\Delta^n_1-\Delta^n_2$ es un generador de $H_n(S^n)$ para $n>0$.
-\end{prop}
-\begin{defn}
-	En la notación de arriba, el \textbf{grado} de $f$ es $d$.
-\end{defn}
-\begin{prop}
-	\begin{enumerate}
-		\item $\text{deg }Id=1$
-		\begin{proof}
-			Por funtorialidad.
-		\end{proof}
-		\item Si $f$ no es suprayectiva, entonces $\text{deg }(f)=0$.
-		\begin{proof}
-			Como $f$ no es suprayectiva puedo escoger un punto $x\notin\text{img }f$. Entonces puedo pensar en el diagrama y su inducido.
-			\begin{figure}
-				\centering
-				\begin{subfigure}[b]{0.4\textwidth}
+	Consideremos $f:S^n\to S^n$, que induce una función $f_*:\tilde H_n(S^n)\cong \mathbb Z\to \tilde H_n(S^n)\cong\mathbb Z$ de manera que $f_*$ no tiene de otra que ser de la forma $f_*(n\alpha)=dn\alpha$.
+	\begin{defn}
+		En la notación de arriba, el \textbf{grado} de $f$ es $d$.
+	\end{defn}
+	\begin{prop}\leavevmode
+		
+		\begin{enumerate}
+			\item $\text{deg }Id=1$. Por funtorialidad.
+			\item Si $f$ no es suprayectiva, entonces $\text{deg }(f)=0$. Como $f$ no es suprayectiva podemos escoger un punto $x\notin\text{img }f$. Tenemos los siguientes diagramas:
+				\begin{figure}[H]
 					\centering
-					\begin{tikzcd}[column sep=small]
-						& S^2 - x \arrow[rd,hook] \\
-						& S^2 \arrow[u, "f"] \arrow[r, "f"] & S^2
-					\end{tikzcd}
-				\end{subfigure}
-				\qquad\qquad
-				\begin{subfigure}[b]{0.4\textwidth}
-					\centering
-					\begin{tikzcd}[column sep=small]
-						& \tilde{H}_n(S^2 - x) \cong 0 \arrow[rd,hook] \\
-						& \tilde{H}_n(S^2) \arrow[u, "f_*"] \arrow[r, "f_*"] & \tilde{H}_n(S^2)
-					\end{tikzcd}
-				\end{subfigure}
-			\end{figure}
-			Y como el primero es conmutativo, el segundo también, y entonces $f_*$ es constante.
-		\end{proof}
-		\item $f\simeq g$ entonces $\deg f=\deg g$
-		\begin{proof}
-			Por invarianza homotópica las funciones inducidas son iguales.
-		\end{proof}
-		\item $\deg(fg)=\deg(f)\deg(g)$
-		\item Si $f$ es una reflexión que intercambia los hemisferios, entonces $\deg(f)=-1$.
-		\item La función antipodal $-Id:S^n\to S^n$ tiene grado $(-1)^{n+1}$. Es decir,
-		\[\deg (-Id)=\begin{cases}1\qquad\text{ si }n\text{ es impar}\\
-			-1\qquad\text{ si }n\text{ es par}\end{cases}\]
-		\item Si $f$ no tiene puntos fijos, entonces $\deg (f)=(-1)^{n+1}$
-	\end{enumerate}
-\end{prop}
+					\begin{subfigure}[b]{0.4\textwidth}
+						\centering
+						\begin{tikzcd}[column sep=small]
+							& S^2 - x \arrow[rd,hook] \\
+							& S^2 \arrow[u, "f"] \arrow[r, "f"] & S^2
+						\end{tikzcd}
+					\end{subfigure}
+					\qquad\qquad
+					\begin{subfigure}[b]{0.4\textwidth}
+						\centering
+						\begin{tikzcd}[column sep=small]
+							& \tilde{H}_n(S^2 - x) \cong 0 \arrow[rd,hook] \\
+							& \tilde{H}_n(S^2) \arrow[u, "f_*"] \arrow[r, "f_*"] & \tilde{H}_n(S^2)
+						\end{tikzcd}
+					\end{subfigure}
+				\end{figure}
+				Y como el primero es conmutativo, el segundo también, y entonces $f_*$ es constante.
+			\item $f\simeq g$ entonces $\deg f=\deg g$. Por invarianza homotópica las funciones inducidas son iguales.
+			\item $\deg(fg)=\deg(f)\deg(g)$
+			\item Si $f$ es una reflexión que intercambia los hemisferios, entonces $\deg(f)=-1$.
+			
+			Esto se debe a que, como vimos en la sección anterior, la $n$-esfera vista como la unión de dos simplejos estándar, $S^n=\Delta_1^n\cup_{\partial\Delta^n}\Delta_2^n$, tiene como generador del $n$-ésimo grupo de homología a la cadena $\Delta_1^n-\Delta_2^n$. La reflexión que intercambia estos simplejos justamente envía el generador a su negativo.
+			\item La función antipodal $-Id:S^n\to S^n$ tiene grado $(-1)^{n+1}$. Es decir,
+			\[\deg (-Id)=\begin{cases}1\qquad\text{ si }n\text{ es impar}\\
+				-1\qquad\text{ si }n\text{ es par}\end{cases}\]
+			\item Si $f$ no tiene puntos fijos, entonces $\deg (f)=(-1)^{n+1}$. Más aún, si $f$ no tiene puntos fijos, es homotópica al mapeo identidad.
+			
+			Si $x\neq f(x)$, el segmento de línea en $\R^{n+1}$ que pasa por $f(x)$ y $-x$, dado por $(1-tf(x))-tx$, no pasa por el origen. Esto nos permite definir una homotopía $(1-tf(x))-tx/|(1-tf(x))-tx|$ entre $f$ y el mapeo antipodal. 
+		\end{enumerate}
+	\end{prop}
 \subsection{Grado local}
 	Siguiendo a Hatcher,
 	\begin{defn}
@@ -1485,9 +1570,22 @@ Hagamos dos observaciones básicas:
 	\begin{teo}
 		$\deg f=\sum_i\deg f|_{x_i}$
 	\end{teo}
+	Agregamos otra proposición:
+	\begin{prop}
+		El grado de la \hyperref[fsusp]{suspensión} $Sf:S^{n+1}\to S^{n+1}$ de una función $f:S^n\to S^n$ es igual al grado de $f$.
+	\end{prop}
+\subsection{Teorema de la bola peluda}
+	\begin{teo}[de la bola peluda]
+		$S^n$ tiene un campo vectorial que no se anula en ningún punto si y sólo si $n$ es impar.
+	\end{teo}
+
+\subsection{Acciones libres en la esfera}
+	\begin{teo}[Acciones libres en la esfera]
+		$\Z/2\Z$ es el único grupo no trivial que \hyperref[sec:acciones]{actúa} libremente en $S^n$ si $n$ es par.
+	\end{teo}
 
 \chapter{Complejos CW}
-\section{Construcción}
+\section{Construcción y propiedades básicas}
 	Establezcamos algo de notación
 	\begin{itemize}
 		\item $D^n=\{x\in\mathbb R^n:|x|\leq1\}$ es el $n$-disco cerrado.
@@ -1506,27 +1604,34 @@ Hagamos dos observaciones básicas:
 			\item Comenzamos con un espacio discreto $X^0$ que se llama el 0-esqueleto.
 			\item El $n$-esqueleto $X^n$ lo obtengo a partir del $n-1$-esqueleto $X^{n-1}$ pegando $n$-células $e^n_\alpha$ vía funciones $\varphi_\alpha:S^{n-1}\to X^{n-1}$. Formalmente tenemos el espacio
 			\[X^n=X^{n-1}\bigsqcup_\alpha D_\alpha^n\Big/\sim\qquad\qquad x\sim\varphi_\alpha(x)\quad\text{ si }\quad x\in\partial D^n_\alpha\]
-			\textit{Realmente es tomar puntos y unirlos con líneas, y luego tomar líneas y rellenar con discos, etc...}
-			\item Realmente es tomar puntos y unir líneas entre ellos, y luego pegar puntos o líneas con discos, etc...
+			\textit{Se trata de tomar puntos y unirlos con líneas, y luego tomar líneas y rellenar con discos, etc...}
+			\item Podríamos terminar en una cantidad finita de pasos, digamos $m$, y obtenemos que $X=X^m$, pero también puedo continuar pegando células de dimensión arbitrariamente grande y obtenemos $X=\bigcup_n X^n$. En este caso $X$ tiene la topología débil: $A\subseteq X^n$ es abierto (cerrado) $\iff A\cap X^n$ es abierto (cerrado) $\forall n$.
 		\end{enumerate}
 	\end{defn}
 	\begin{defn}
 		Si $X=X^n$ para algún $n\in\mathbb N$, decimos que $X$ es de dimensión finita y definimos la dimensión de $X$ como la dimensión de la célula más grande que adjunté. Formalmente, $\dim X=\min \{n:X^n=X\}$.
 	\end{defn}
-	\begin{ejem}
+	\begin{ejem}\leavevmode
 		\begin{itemize}
 			\item Los 0-complejos CW son gráficas.
 			\item $S^n$ es un complejo CW.
-			\item Los espacios proyectivos:
+			\item El espacio proyectivo real. Inicialmente definido como $\R P^n=\R^{n+1}-\{0\}/x\sim\lambda x$ para $\lambda\neq0$, podemos tomar representantes de las líneas en la esfera para obtener que $\R P^n=S^n/x\sim -x$. 
+			
+			Esto es equivalente a tomar cualquiera de los hemisferios de la esfera, $D^{n}$, e identificar los puntos de su frontera con el mapeo antipodal. A su vez, esto es equivalente a tomar la esfera de dimensión $n-1$, que es la frontera del disco, identificar antipodalmente, y agregar el interior del $n$-disco. ¡Y la $n-1$ esfera con esa identificación es justamente $\R P^{n-1}$!
+			
+			En resumen, y haciendo inducción:
 				\begin{align*}
-					\mathbb RP^n&=\mathbb R^{n+1}-\{0\}/x\sim\lambda x,\qquad\lambda\in\mathbb R\\
+					\R P^n&=\R^{n+1}-\{0\}/x\sim\lambda x,\qquad\lambda\neq0\\
 					&=S^n/x\sim-x\\
 					&=D^n/x\sim-x,\qquad x\in\partial D^n=S^{n-1}\\
-					&=\mathbb RP^{n-1}\cup e^n\\
-					&=\mathbb RP^{n-2}\cup e^{n-1}\cup e^n\\
-					&=e^0\cup e^1\cup...\cup e^n
+					%&=\left(S^{n-1}/x\sim-x\right)\cup e^n\\
+					&=\R P^{n-1}\cup e^n\\
+					&=\R P^{n-2}\cup e^{n-1}\cup e^n\\
+					&=e^0\cup e^1\cup\ldots\cup e^n
 				\end{align*}
-				donde las funciones de pegado son justamente las antipodales, que ya conocíamos por ser el cubriente universal.
+				donde las funciones de pegado son justamente las antipodales.
+			\item El espacio proyectivo complejo. Como en el caso real, el espacio proyectivo complejo, inicialmente definido como $\C^{n+1}-\{0\}/x\sim\lambda x$ para $\lambda\neq0$, se puede definir únicamente en la esfera $S^{2n+1}$. Igualito que en el caso real, es posible tomar un disco $D^{2n}$ e identificar los puntos antípodas en su frontera. Por ahora no especificaremos cómo, pero resulta que:
+			\[\C P^n=e^0\cup e^2\cup\ldots e^{2n}\]
 		\end{itemize}
 	\end{ejem}
 	\begin{ejer}
@@ -1535,28 +1640,93 @@ Hagamos dos observaciones básicas:
 	\begin{defn}
 		La función característica es $\Phi_\alpha$:
 		\[\begin{tikzcd}
-			&e^n_\alpha \ar[rd] \ar[d, "\text{inclusión}"'] & X^{n-1} \sqcup D_\alpha^n \ar[d, "\text{proyección al cociente}"] \\
-			&D^n_\alpha \ar[ur] \ar[r, "\Phi_\alpha"'] & X^n
+			&e^n_\alpha \ar[rd] \ar[d, hook] & X^{n-1} \sqcup D_\alpha^n \ar[d, "\text{proyección al cociente}"] \\
+			&D^n_\alpha \ar[ur,hook] \ar[r, "\Phi_\alpha"'] & X^n
 		\end{tikzcd}\]
 	\end{defn}
 	\begin{defn}
-		Sea $X$ un complejo $CW$. Un subcomplejo $Z$ es un subespacio cerrado que además es unión de células de $X$.	
+		Sea $X$ un complejo $CW$. Un \textbf{subcomplejo CW} $Z$ es un subespacio cerrado que además es unión de células de $X$.	
 	\end{defn}
 	\begin{obs}
 		Para un subcomplejo $Z$,
 		\begin{itemize}
 			\item $Z\subseteq X$ es una buena pareja ($Z$ es retracto por deformación de una vecindad de $X$)
-			\item $X/Z$ es un complejo $CW$.
+			\item $X/Z$ (el espacio que obtiene al colapsar $Z$ a un punto) es un complejo $CW$.
 		\end{itemize}
 	\end{obs}
 	\begin{obs}[Muy importante] $X$ complejo $CW$. El cociente por el $n-1$ esqueleto es una cuña de esferas, tantas como células en el $n-1$ esqueleto. En símbolos, $X^n/X^{n-1}=\bigvee_{\alpha\in I_n}S^n$, donde $I_n$ es el conjunto que indexa las $n-1$-celdas.
 	\end{obs}
-
-\section{Homología de complejos CW}
-\begin{lema}\leavevmode
+	\begin{teo}
+		Si $X$ y $Y$ son complejos $CW$ con a lo más una cantidad numerable de células, entonces $X\times Y$ es un complejo CW.
+	\end{teo}
+	Aquí, la dimensión del producto de dos células, digamos $e^1_\alpha\times e^2_\beta$ es la suma de las dimensiones de cada una (en este ejemplo, tenemos una 3-célula).
+	\begin{defn}
+		Sea $X$ un espacio. La \textbf{suspensión} de $X$ es el espacio
+				\[SX=X\times I/\sim\]
+		Donde la relación de equivalencia $\sim$ es identificar las tapas, es decir,
+		\[(x,1)\sim(y,1)\quad\qquad\text{y}\qquad(x,0)\sim(y,0)\quad\forall x,y\in X\]
+		
+		El \textbf{cono} de $X$ se obtiene identificando sólo una tapa: 
+			\[CX=X\times I/\sim\qquad(x,1)\sim(y,1)\quad\forall x,y\in X\]
+	\begin{figure}[H]
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw (0,0) ellipse (1 and 0.3);
+			\draw (-1,0) -- (-1,-2);
+			\draw (1,0) -- (1,-2);
+			\draw (0,-2) ellipse (1 and 0.3);
+		\end{tikzpicture}
+		\caption*{Cilindro}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw (0,-1) ellipse (1 and 0.3);
+			\draw (0,0.4) -- (-1,-1);
+			\draw (0,0.4) -- (1,-1);
+			\draw (0,-2.4) -- (-1,-1);
+			\draw (0,-2.4) -- (1,-1);
+		\end{tikzpicture}
+		\caption*{Suspensión}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\draw (0,0) -- (-1,-2);
+			\draw (0,0) -- (1,-2);
+			\draw (0,-2) ellipse (1 and 0.3);
+		\end{tikzpicture}
+		\caption*{Cono}
+	\end{subfigure}
+	\end{figure}
+	\label{fsusp}Y también es posible definir la \textbf{suspensión de una función} $f:X\to Y$, que es de la forma $Sf:SX\to SY$ simplemente tomando el cociente de $f\times Id:X\times I\to Y\times I$.
+	\end{defn}
+	\begin{teo}
+		El cono y la suspensión de un espacio complejo CW son complejos CW.
+	\end{teo}
+\subsection{Complejos CW para Lee (extra)}
+Veamos cómo define Lee los complejos CW en su libro Introduction to Topological Manifolds:
+\begin{defn}
+	Si $X$ un espacio topológico no vacío, una \textbf{descomposición celular} de $X$ es una partición $\mathcal{E}$ de $X$ en subespacios que son células abiertas de manera que para cada $e\in\mathcal{E}$ de dimensión $n\geq1$ existe una \textbf{función característica} $\phi$ de una $n$-célula cerrada $D$ a $X$ que se restringe a un homeomorfismo de $\text{Int}D$ en $e$ y manda $\partial D$ en la unión de células en $\mathcal{E}$ de dimensión menor estricta que $n$.
 	
+	Un \textbf{complejo celular} es un espacio Housdorff $X$ junto con una descomposición celular.
+\end{defn}
+\begin{obs}
+	Las células, aunque son homeomorfas a discos abiertos, no tienen por qué ser abiertos de $X$.
+\end{obs}
+\begin{defn}
+	Un \textbf{complejo CW} es un complejo celular $(X,\mathcal{E})$ tal que:
+	\begin{enumerate}
+		\item[\textbf{C}] \textbf{(Closure finiteness)} La cerradura de cada célula intersecta a una cantidad finita de células de $X$.
+		\item[\textbf{W}] \textbf{(Weak topology)} La topología de $X$ es coherente con la familia de subespacios cerrados $\{\bar{e}:e\in\mathcal{E}\}$, es decir, $U\subseteq X$ es cerrado en $X$ si y sólo si $U\cap \bar{e}$ es cerrado para cada $e\in\mathcal{E}$.
+	\end{enumerate}
+	Una equivalencia entre esta definición y la de Hatcher cuando $X$ es Housdorff está en el apéndice de Hatcher.
+\end{defn}
+\section{La homología singular de un complejo CW}
+	\begin{lema}\leavevmode
 	\begin{itemize}
-		\item \[H_k(X^n,X^{n-1})=\begin{cases}0\qquad\quad\qquad\text{si }k\neq0\\
+		\item Si las $n$-celulas están indexadas por el conjunto $I_n$, \[H_k(X^n,X^{n-1})=\begin{cases}0\qquad\quad\qquad\text{si }k\neq0\\
 			\bigoplus_{\alpha\in I_n}R\qquad \text{si } k=n
 		\end{cases}\]
 		\begin{proof}
@@ -1565,7 +1735,7 @@ Hagamos dos observaciones básicas:
 		\item $H_k(X^n)=0$ para toda $k>n$. 
 		
 		Nuevamente, la homología, lo que aclance a ver la homología, lo ve solamente hasta la dimensión del espacio
-		\item La inclusión $X^n\hookrightarrow X$ induce un isomorfismo $H_k(X^n)\hookrightarrow H_k(X)\qquad k>n$.
+		\item La inclusión $X^n\hookrightarrow X$ induce un isomorfismo $H_k(X^n)\to H_k(X)\qquad k>n$.
 		
 		Aquí la idea es que adjuntar células de dimensión mayor que la homología que estamos calculando no cambia la homología. Es decir, para $n>k$ se tiene que $H_k(X\cup D^n)=H_k(X)$.
 	\end{itemize}
@@ -1583,7 +1753,9 @@ Hagamos dos observaciones básicas:
 		\[H_k(X^n)\cong H_k(X^{n+1})\cong...\cong H_k(X^{n+m})\]
 		y si pedimos que $X$ sea de dimensión finita entonces terminaremos en algún punto y listo. El caso de dimensión infinita queda para el futuro.
 	\end{proof}
-	\begin{defn}[Homología celular] Consideremos
+\section{Homología celular}
+	A continuación construimos un nuevo tipo de homología para complejos CW:
+	\begin{defn} Consideremos
 		\[\begin{tikzcd}[column sep=tiny]
 			& H_{n-1}(X^{n-1}) \arrow[rd, "j_{n-1}"] \\
 			H_n(X^n, X^{n-1}) \arrow[ru, "\partial_n"] \arrow[rr, "d_n"] && H_{n-1}(X^{n-1}, X^{n-2}) \arrow[rd, "\partial_{n-1}"] \arrow[rr, "d_{n-1}"] && H_{n-2}(X^{n-2}, X^{n-3}) \\
@@ -1598,6 +1770,14 @@ Hagamos dos observaciones básicas:
 	\begin{obs}\label{obs1}
 		Estos grupos $H_n(X^n,X^{n-1})$ son las sumas directas de $R$, uno por cada $n$-célula de $X$.
 	\end{obs}
+	\begin{prop}[Consecuencias de la definición] Tomemos $X$ un complejo CW y $R=\Z$.
+		\begin{enumerate}
+			\item $H_n(X)=0$ si $X$ no tiene $n$-células.
+			\item Supongamos que $X$ tiene exactamente $k$ $n$-céulas. Entonces $H_n(X)$ está generado por a lo más $k$ elementos, pues, como $H_n(X^n,X^{n-1})$ es abeliano libre en $n$ elementos, también lo son el subgrupo $\ker d_n$ y $\ker d_n/\img d_{n-1}=H_n(X)$.
+			\item Si $X$ no tiene células de dimensiones adyacentes, entonces $H_n(X)$ es libre para todo $n$ de rango el número de $n$-células.
+		\end{enumerate}
+	\end{prop}
+\section{Una fórmula para el homomorfismo frontera}
 	Bueno, ahora tratemos de entender cómo es la $d$. Consideremos sl siguiente diagrama:
 	\[\begin{tikzcd}
 		& S^{n-1}_\alpha \arrow[r, "\varphi_\alpha"] \arrow[d, dashed, "\varphi_{\alpha\beta}"] & X^{n-1} \arrow[d] \\
@@ -1605,7 +1785,7 @@ Hagamos dos observaciones básicas:
 	\end{tikzcd}\]
 	Esta función que descubrimos $\varphi_{\alpha\beta}$ es una función entre esferas que tiene un grado $d_{\alpha\beta}$.
 	\begin{teo}
-		Para $n\geq 2$, la diferencial $d_n$ manda $e^{n}_\alpha\mapsto\sum d_{\alpha\beta}e^{n-1}_\beta$.
+		Para $n\geq 2$, el homomorfismo $d_n$ manda $e^{n}_\alpha\mapsto\sum d_{\alpha\beta}e^{n-1}_\beta$.
 	\end{teo}
 	\section{Ejemplos}
 	\begin{ejem}
@@ -1734,20 +1914,127 @@ Hagamos dos observaciones básicas:
 
 \chapter{Homología y homotopía}	
 \section{El homomorfismo de Hurewicz}
+Comenzamos con algunas ideas algebraicas:
+
+Sea $G$ un grupo y sean $g,h\in G$. El conmutador de estos elementos es $[g,h]=ghg^{-1}h^{-1}$. Dos elementos conmutan si y sólo si el conmutador es trivial. El subgrupo \textbf{derivado} o \textbf{subgrupo conmutador} es:
+\[G'=\langle[g,h]|g,h\in G\rangle\leq G\]
+Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$. Es decir, la restricción es un automorfismo de $G'$. Decimos que $G'$ es un \textbf{subgrupo característico}. Luego, esto implica que es un subgrupo normal así que hago el cociente, y resultará ser un grupo abeliano porque todo lo que no conmuta se identificó. Este grupo es $G^{\text{ab}}:=G/G'$ y se llama la \textbf{abelianización }de $G$.
+\begin{obs}
+	Al hacer esto con un grupo simple, cuyos subgrupos normales son él y el trivial, el cociente $G/G'$ es el grupo trivial. Pero bueno, en general la idea es producir un grupo abeliano con cualquier grupo.
+\end{obs}
+\begin{prop}
+	Sean $G$ un grupo y $A$ un grupo abeliano. Si $\varphi:G\to A$ es un homomorfismo, entonces $\exists! \bar\varphi:G^\text{ab}\to A$ tal que 
+	\[
+	\begin{tikzcd}
+		G \arrow[r, "\varphi"] \arrow[dr] & A \\
+		& G^{\text{ab}} \arrow[u, swap, "\varphi"]
+	\end{tikzcd}
+	\]
+	conmuta.
+\end{prop}
+\begin{defn}
+	El \textbf{homomorfismo de Hurewicz} es
+	\begin{align*}
+		h:\pi_1(X,x_0)&\to H_1(X)\\
+		[f]&\mapsto [f]
+	\end{align*}
+	que está bien definido porque en efecto los lazos son ciclos (y no depende del representante).
+\end{defn}
+\begin{teo}
+	Si $X$ es arco-conexo, $h$ es suprayectivo y además $\ker h=\big(\pi_1(X,x_0)\big)'$. Es decir, el abelianizado del grupo fundamental es isomorfo al primer grupo de homología de $X$.
+\end{teo}
+\begin{coro}\leavevmode
+	\begin{itemize}
+		\item $\Z\cong\pi_1(S^1,x_0)\cong H_1(S^1)$
+		\item $\Z\cong\pi_1(S^1,x_0)\cong H_1(S^1)$
+		\item También se puede deducir para el toro que $H_1(T)\cong \Z^2$.
+	\end{itemize}
+\end{coro}
 
 \section{Grupos de homotopía superiores}
 	
 \newpage
 \chapter{Ejercicios}
-	\begin{ejer}Demuestre que $S^1 \times S^1$ y $S^1 \vee S^1 \vee S^2$ tienen grupos de homología (con coeficientes enteros) isomorfos pero no son homotópicamente equivalentes.
+	\begin{ejer}
+	Calcule la homología de la pareja $(X,A)$ cuando $A$ es un subconjunto finito del toro $X=S^1\times S^1$.
+\end{ejer}
+\begin{proof}[Solución]
+	Como $C_n(A)\cong0$ para $n\geq1$, tenemos que $H_n(X,A)\cong H_n(X)$ para $n>1$.
+	
+	Para el caso $n=0$ primero notemos que $(X,A)$ es una buena pareja tomando la unión de vecindades disjuntos alrededor de cada punto en $A$ para hacer la retracción. Luego, la homología reducida \hyperref[sec:6.4]{cumple que}
+	\[H_0(X/A)\cong\tilde{H}_0(X/A)\oplus R\]
+	Y como $X/A$ es arco-conexo, entonces $H_0(X/A)\cong R$, así que $\tilde{H}_0(X/A)\cong0$, es decir $H_0(X,A)\cong0$.
+	
+	\textcolor{red}{¿Cómo demostramos que $H_1(X/A)\cong R^{k+1}$, donde $|A|=k$?} \href{https://math.stackexchange.com/questions/129686/finding-the-homology-group-of-h-n-x-a-when-a-is-a-finite-set-of-points}{Aquí}
+\end{proof}
+\begin{ejer}Demuestre que $S^1 \times S^1$ y $S^1 \vee S^1 \vee S^2$ tienen grupos de homología (con coeficientes enteros) isomorfos pero no son homotópicamente equivalentes.
+\begin{proof}[Solución]
+	Por sus descomposiciones como complejos CW, \hyperref[obs1]{sabemos} que la homología de ambos espacios está dada por el complejo de cadenas
+	\[\begin{tikzcd}[column sep=small]
+		0\arrow[r]&\Z\arrow[r]&\Z^2\arrow[r]&\Z\arrow[r]&0
+	\end{tikzcd}\]
+	\textcolor{blue-violet}{Falta ver qué las $d$ realmente den la misma homología}.
+	
+	Si estos espacios fueran homotópicamente equivalementes, entonces, \hyperref[1.2.1]{sus grupos fundamentales serían isomorfos}. Sabemos que el grupo fundamental del toro es $\Z\times\Z$, y el de $S^1 \vee S^1 \vee S^2$, por Van Kampen, es isomorfo a $\Z\ast\Z$.
+	
+	Para confirmar está última observación basta notar que el espacio se puede ver naturalmente como la unión de dos copias de $S^1$ y otra de $S^2$. La intersección de las tres es un sólo punto, que es arcoconexo, así que podemos aplicar Van Kampen. De hecho, como la intersección es contraible, el kernel del isomorfismo de Van Kampen es trivial, así que el grupo fundamental es simplemente el producto libre de los grupos fundamentales de cada compoenente. Obtenemos $\Z\ast\Z\ast0\cong\Z\ast\Z$.
+\end{proof}
+\end{ejer}
+\begin{ejer}
+	Construya una función suprayectiva $f:S^n\to S^n$ de grado 0, $n\geq1$.
+\end{ejer}
 	\begin{proof}[Solución]
-		Por sus descomposiciones como complejos CW, \hyperref[obs1]{sabemos} que la homología de ambos espacios está dada por
-		\[\begin{tikzcd}[column sep=small]
-			0\arrow[r]&\Z\arrow[r]&\Z^2\arrow[r]&\Z\arrow[r]&0
-		\end{tikzcd}\]
-		Si estos espacios fueran homotópicamente equivalementes, entonces, \hyperref[1.2.1]{sus grupos fundamentales serían isomorfos}. Sabemos que el grupo fundamental del toro es $\Z\times\Z$, y el de $S^1 \vee S^1 \vee S^2$, por Van Kampen, es isomorfo a $\Z\ast\Z$.
+	Como el grado de la suspensión de una función es el mismo que el de la función, y $S^{n+1}=SS^n$, basta demostrar el enunciado para $S^1$.
+	
+	Proponemos \href{https://folk.ntnu.no/gereonq/MA3403H2018/MA3403_Exercise04_Soln.pdf}{esta idea} para demostrar mostrar el caso $n=1$:
+	
+	Definir una función $g$ que sea recorrer el hemisferio sur de ida y de regreso. No es suprayectiva así que es de grado 0.
+	
+	Componer $g$ con $f$, donde $f(z)=z^2$. La composición es suprayectiva y su grado es el producto de los grados, 0.
+\end{proof}
+\begin{ejer}
+	Calcule los grupos de homología del espacio obtenido de $S^2$ al identificar el polo norte y el polo sur en un sólo punto.
+\end{ejer}
+	\begin{proof}[Solución]
+	La descomoposición más sencilla (que pude encontrar) de este espacio como complejo CW está dada así:
+		\begin{itemize}
+		\item Una 0-celda, que es el punto que resaltamos en el dibujo.
+		\item Dos 1-celdas, que son los círculos que se tocan en el punto.
+		\item Dos 2-celdas. Cada una está pegada a lo largo de las dos 1-celdas. Es como cuando pegamos dos discos a lo largo de una circunferencia para construir una esfera, pero aquí pegamos dos discos a lo largo de la cuña de dos circunferencias.
+	\end{itemize}
+	\[\begin{tikzpicture}
+		% Outer circle
+		\draw (0,0) circle (2);
 		
-		Para confirmar está última observación basta notar que el espacio se puede ver naturalmente como la unión de dos copias de $S^1$ y otra de $S^2$. La intersección de las tres es un sólo punto, que es arcoconexo, así que podemos aplicar Van Kampen. De hecho, como la intersección es contraible, el kernel del isomorfismo de Van Kampen es trivial, así que el grupo fundamental es simplemente el producto libre de los grupos fundamentales de cada compoenente. Obtenemos $\Z\ast\Z\ast0\cong\Z\ast\Z$.
-	\end{proof}
-	\end{ejer}
+		% Inner circle
+		\draw (1,0) circle (1);
+		
+		%3D
+		\draw[dashed,gray] (-2,0) arc (180:360:1 and 0.3);
+		\draw[gray] (-2,0) arc (180:0:1 and 0.3);
+		
+		% Common point
+		\filldraw (2,0) circle (0.05);
+	\end{tikzpicture}\]
+	Esto genera el siguiente complejo de cadenas:
+	\[\begin{tikzcd}[column sep=small]
+		0\arrow[r]&\Z^2\arrow[r,"d_2"]&\Z^2\arrow[r,"d_1"]&\Z\arrow[r,"d_1"]&0
+	\end{tikzcd}\]
+	Como sólo hay una 0-celda, sabemos que $d_1=0$. Sólo nos falta encontrar $d_2$. Para esto, tenemos el siguiente diagrama:
+	\[\begin{tikzcd}[column sep=small]
+		S^1_\alpha\arrow[r,"\varphi_\alpha"]\arrow[d,dashed,"\varphi_{\alpha\beta}"]&X^1=S^1\vee S^1\arrow[d]\\
+		S^1_\beta&X^1/X^0=S^1\vee S^1\arrow[l]
+	\end{tikzcd}\]
+	¿Qué está pasando aquí? Estamos pensando que $S^1_\alpha$ es la frontera de una de las dos 2-celdas que pegamos mediante $\varphi_\alpha$. Como sólo hay una 0-celda, el cociente $X^1/X^0$ no hizo nada, y la última flecha consiste en simplemente escoger cualquier de los dos círculos son 1-celdas.
+	
+	El mapeo $\varphi_\alpha$ tiene la gracia de enviar la circunferencia inicial en dos circunferencias. Cuando nos quedamos con una sólo de ellas, vemos que el efecto de la composición $\varphi_{\alpha\beta}$ fue enviar $S^1_\alpha$ en $S^1_\beta$, así que es una función de grado 1. Lo mismo sucede cuando escogemos la otra circunferencia, $S^1_\gamma$. De acuerdo a nuestro teorema, tenemos que $d_2(e^2_\alpha)=1\cdot e^1_\beta+1\cdot e^1_\gamma$.
+	
+	Y lo mismo para la otra 2-celda. Luego,
+	\begin{align*}
+		d_2:\Z^2&\to\Z^2\\
+		(1,0)&\mapsto (1,1)\\
+		(0,1)&\mapsto (1,1)
+	\end{align*}
+	Así que $\img d_2\cong\Z$ y $\ker d_2\cong\langle (1,0)-(0,1)\rangle\cong\Z$, y entonces $H_2(X,\Z)\cong H_1(X,\Z)\cong H_0(X,\Z)\cong\Z$ y $H_n(X,\Z)\cong0$ para $n\geq3$.
+\end{proof}
 \end{document}

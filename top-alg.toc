@@ -54,21 +54,30 @@
 \contentsline {subsection}{\numberline {6.3.2}El 0-ésimo grupo de homología}{36}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}La homología de un punto}{37}{subsection.6.3.3}%
 \contentsline {section}{\numberline {6.4}Homología reducida}{37}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Funtorialidad}{37}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Invarianza homotópica}{37}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Homología relativa}{38}{section.6.7}%
-\contentsline {section}{\numberline {6.8}Escisión}{39}{section.6.8}%
-\contentsline {section}{\numberline {6.9}La sucesión de Mayer-Vietoris}{40}{section.6.9}%
-\contentsline {section}{\numberline {6.10}Representantes de la homología de la esfera}{40}{section.6.10}%
-\contentsline {section}{\numberline {6.11}Generadores para la homología de la esfera}{41}{section.6.11}%
-\contentsline {section}{\numberline {6.12}Grado de una función entre esferas}{41}{section.6.12}%
-\contentsline {subsection}{\numberline {6.12.1}Grado local}{42}{subsection.6.12.1}%
-\contentsline {chapter}{\numberline {7}Complejos CW}{43}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Construcción}{43}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Homología de complejos CW}{44}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Ejemplos}{46}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Característica de Euler}{47}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Homología y homotopía}{50}{chapter.8}%
-\contentsline {section}{\numberline {8.1}El homomorfismo de Hurewicz}{50}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Grupos de homotopía superiores}{50}{section.8.2}%
-\contentsline {chapter}{\numberline {9}Ejercicios}{51}{chapter.9}%
+\contentsline {section}{\numberline {6.5}Funtorialidad}{38}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Invarianza homotópica}{38}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Homología relativa}{39}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Construcción}{39}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Funciones inducidas}{40}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}La sucesión exacta de la tercia}{40}{subsection.6.7.3}%
+\contentsline {section}{\numberline {6.8}Escisión}{41}{section.6.8}%
+\contentsline {section}{\numberline {6.9}La homología de un cociente}{41}{section.6.9}%
+\contentsline {section}{\numberline {6.10}Homología de la esfera y aplicaciones}{42}{section.6.10}%
+\contentsline {section}{\numberline {6.11}La sucesión de Mayer-Vietoris}{42}{section.6.11}%
+\contentsline {section}{\numberline {6.12}Representantes de la homología de la esfera}{43}{section.6.12}%
+\contentsline {section}{\numberline {6.13}Grado de una función entre esferas}{43}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Grado local}{44}{subsection.6.13.1}%
+\contentsline {subsection}{\numberline {6.13.2}Teorema de la bola peluda}{45}{subsection.6.13.2}%
+\contentsline {subsection}{\numberline {6.13.3}Acciones libres en la esfera}{45}{subsection.6.13.3}%
+\contentsline {chapter}{\numberline {7}Complejos CW}{46}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Construcción y propiedades básicas}{46}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Complejos CW para Lee (extra)}{48}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}La homología singular de un complejo CW}{49}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Homología celular}{50}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Una fórmula para el homomorfismo frontera}{51}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Ejemplos}{51}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Característica de Euler}{52}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Homología y homotopía}{55}{chapter.8}%
+\contentsline {section}{\numberline {8.1}El homomorfismo de Hurewicz}{55}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Grupos de homotopía superiores}{56}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Ejercicios}{57}{chapter.9}%
