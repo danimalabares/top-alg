@@ -97,6 +97,7 @@
 
 \definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
 \definecolor{azure}{rgb}{0.0, 0.5, 1.0}
+\definecolor{green(ncs)}{rgb}{0.0, 0.62, 0.42}
 
 \title{Notas de Topología Algebraica}
 \author{Prof. Luis Jorge Sánchez Saldaña\\ \\ Notas por Dani\\ \\ \href{https://github.com/danimalabares/top-alg}{github.com/danimalabares/top-alg}}
@@ -965,7 +966,7 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 		\[\begin{tikzcd}[column sep=small]
 			&\cdots\arrow{r}&A_\bullet\arrow{r}{\phi}&B_\bullet\arrow{r}{\psi}&C_\bullet\arrow{r}&\cdots
 		\end{tikzcd}\]
-		es una sucesión exacta de complejos de cadena, entonces existen homomorfismos \[\partial_{*p}:H_p(C.)\to H_{p-1}(A.)\]
+		es una sucesión exacta de complejos de cadena, entonces existen homomorfismos \[\delta_{*p}:H_p(C_\bullet)\to H_{p-1}(A_\bullet)\]
 		tales que la sucesión
 		\[\begin{tikzcd}[column sep=small]
 			&\cdots\arrow{r}&H_p(A_\bullet)\arrow{r}{\bar\phi_p}&H_p(B_\bullet)\arrow{r}{\bar\psi_p}&H_p(C_\bullet)\arrow{r}{\delta_{*p}}&H_{p-1}(A_\bullet)\arrow{r}{\bar\phi_{p-1}}&H_{p-1}(B_\bullet)\arrow{r}&\cdots
@@ -976,13 +977,13 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 	\[
 	\begin{tikzcd}
 		& & 0 \arrow{d} & 0 \arrow{d} & 0 \arrow{d} & \\
-		& \cdots \arrow{r} & A_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d}{i_{p+1}} & A_p \arrow{r}{\partial_p} \arrow{d}{i_p} & A_{p-1} \arrow{r} \arrow{d}{i_{p-1}} & \cdots \\
-		& \cdots \arrow{r} & B_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d}{j_{p+1}} & B_p \arrow{r}{\partial_p} \arrow{d}{j_p} & B_{p-1} \arrow{r} \arrow{d}{j_{p-1}} & \cdots \\
+		& \cdots \arrow{r} & A_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d}{i_{p+1}} & A_p \arrow{r}{\partial_p} \arrow{d}{i_p} & A_{p-1} \arrow{r} \arrow[d,magenta,"i_{p-1}"] & \cdots \\
+		& \cdots \arrow{r} & B_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d}{j_{p+1}} & B_p \arrow[r,magenta,"\partial_p"] \arrow[d,magenta,"j_p"] & B_{p-1} \arrow{r} \arrow{d}{j_{p-1}} & \cdots \\
 		& \cdots \arrow{r} & C_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d} & C_p \arrow{r}{\partial_p} \arrow{d} & C_{p-1} \arrow{r} \arrow{d} & \cdots \\
 		& & 0 & 0 & 0 & \\
 	\end{tikzcd}
 	\]
-
+	Explicamos un poco cómo definir el homomorfismo de conexión haciendo cacería de diagrama. Comenzamos con un ciclo $c\in C_p(A)$. Como $j_p$ es suprayectiva, existe un $a\in B_p$ tal que $j_p(a)=c$. Luego, $\partial_p(a)\in\ker j_{p-1}$, ya que, como el diagrama conmuta, $\partial_pj_p=j_{p-1}\partial_p$ y $c$ es un ciclo. Como la sucesión es exacta, $\ker j_{p-1}=\img i_{p-1}$, así que existe $a\in A_{p-1}$ tal que $i_{p-1}(a)=\partial_p(b)$. Este $a$ es un ciclo, ya que el diagrama conmuta, $i_{p-2}(a)=\partial(\partial(b))=0$, y la $i_{p-2}$ es inyectiva por exactitud, es decir, el único elemento al que va a dar el cero es el cero. Así que definimos $\delta_{*p}[c]=[a]$.
 \section{Natrualidad del homomorfismo de conexión}
 	\begin{teo}[Naturalidad del homomorfismo de conexión]
 		\[\begin{tikzcd}[column sep=small]
@@ -1393,7 +1394,7 @@ Ahora sí:
 	\[\begin{tikzcd}[column sep=small]
 		\cdots\arrow[r]&H_n(Y,Z)\arrow[r,"i_*"]&H_n(X,Z)\arrow[r,"j_*"]&H_n(X,Y)\arrow[r,"\delta"]&H_{n-1}(Y,Z)\arrow[r,"i_*"]&\cdots
 	\end{tikzcd}\]
-\section{Escisión}
+\section{Escisión}\label{sec:escisión}
 Este resultado hace mucho más precisa la noción de que la homología de la pareja es la homología del espacio ``ignorando lo que pasa en el subespacio".
 
 Sean $Z\subseteq A\subseteq X$ tales que la cerradura de $Z$ está contenida en el interior de $A$. Entonces
@@ -1447,21 +1448,33 @@ induce un isomorfismo
 	\end{teo}
 
 \section{La sucesión de Mayer-Vietoris}
-	Sea $X$ un espacio topológico y $A,B\subseteq X$ tales que $X=\Int A\cup \Int B$. Entonces tenemos la siguiente sucesión larga en homología reducida:
+	Sea $X$ un espacio topológico y $A,B\subseteq X$ tales que $X=\Int A\cup \Int B$. Entonces tenemos la siguiente sucesión exacta larga en homología reducida:
 	\[\begin{tikzcd}[column sep= small]
-		\cdots \arrow[r] & \tilde{H}_n(A\cap B) \arrow[r,"\Phi"] & \tilde{H}_n(A) \oplus \tilde{H}_n(B) \arrow[r,"\Psi"] & \tilde{H}_n(X) \arrow[r] & \tilde{H}_{n-1}(A\cap B) \arrow[r] &\cdots
+		\cdots \arrow[r] & H_n(A\cap B) \arrow[r,"\Phi"] & H_n(A) \oplus H_n(B) \arrow[r,"\Psi"] & H_n(X) \arrow[r,"\delta"] & H_{n-1}(A\cap B) \arrow[r] &\cdots
 	\end{tikzcd}\]
-	donde 
-	\begin{align*}
-		i:A\cap B\hookrightarrow A\\
-		j:A\cap B\hookrightarrow B\\
-		k:A\hookrightarrow X\\
-		\ell:B\hookrightarrow X
-	\end{align*}
-	y las funciones están definidas por
-	\[\Phi(x)=(i_*x,-j_*x)\qquad\Psi(y,z)=k_*y+\ell_*z \]
-	Y el homomorfismo de conexión que baja la dimensión está dado, usando algunos resultados que no veremos aquí, por
-	\[[w]=[a+b]\mapsto[a]\qquad\text{para algunos }a\in A,b\in B\]
+	Para entender de dónde salió esta sucesión, debemos fijarnos en los subgrupos de cadenas $C_n(A+B)$ formado por sumas de cadenas en $A$ y cadenas $B$. Es posible construir un complejo de cadenas, ya que el homomorfismo frontera de todo el espacio, $\partial:C_n(X)\to C_{n-1}(X)$ se restringe correctamente a $C_n(A+B)\to C_{n-1}(A+B)$. Usando la maquinaria del \hyperref[sec:escisión]{teorema de escisión}, se demuestra que la inclusión $C_n(A+B)\hookrightarrow C_n(X)$ induce isomorfismos en la homología. Luego, tenemos para toda $n$ la sucesión exacta corta:
+	\[\begin{tikzcd}[column sep=small]
+		0\arrow[r]&C_n(A\cap B)\arrow[r,"\varphi"]&C_n(A)\oplus C_n(B)\arrow[r,"\psi"]&C_n(A+B)\arrow[r]&0
+	\end{tikzcd}\]
+	donde $\varphi(x)=(x,-x)$ y $\psi(x,y)=x+y$. Esta forma de definir las funciones nos asegura que la sucesión sea exacta, como sigue. Es fácil ver que $\psi\varphi=0$, por lo que $\img\varphi\subseteq\ker\psi$. También $\ker\psi\subseteq\img\varphi$, ya que si $(x,y)\overset{\psi}{\mapsto}(0,0)$, entonces $x=-y$, así que tanto $x$ como $y$ están en $A$ y en $B$, es decir, $(x,y)\in\C_n(A\cap B)$; y  claramente está en la imagen de $\varphi$. También es fácil ver que $\ker\varphi=0$, y que $\img\psi=C_n(A+B)$.
+	
+	Aplicando el teorema fundamental del álgebra en la sucesión exacta corta de complejos de cadenas inducidos por estas sucesiones exactas cortas en cada $n$, se obtiene la sucesión de Mayer-Vietoris.
+	
+	Es posible decir cómo actúa el mapeo de aumentación. Por lo que dijimos sobre el teorema de escisión, un elemento en $[w]\in H_n(X)\cong H_n(A+B)$ es de la forma $[a+b]$ para cadenas $a\in C_n(A)$ y $b\in C_n(B)$ cuya suma $a+b$ es un ciclo, es decir, $\partial(a+b)=0$. Luego, $\partial(a)=-\partial(b)$ es un ciclo en $H_{n-1}(A\cap B)$, así que es el representante perfecto para la clase de equivalencia a la que vamos a mandar a $[w]$.
+	
+	Todo lo dicho hasta ahora se resume a continuación
+	\begin{equation*}
+	\begin{aligned}
+	\begin{array}{c@{\hspace{2cm}}c}
+			i:A\cap B\hookrightarrow A\\
+			j:A\cap B\hookrightarrow B &\Phi(x)=(i_*x,-j_*x)\\
+			k:A\hookrightarrow X&\Psi(y,z)=k_*y+\ell_*z\\
+			\ell:B\hookrightarrow X
+	\end{array}\\ \\
+	[w]=[a+b]\overset{\delta}{\mapsto}[\partial(a)]=[-\partial(b)]\qquad\text{para ciertos }a\in A,b\in B
+	\end{aligned}
+	\end{equation*}
+
 	\begin{ejem}
 		\href{https://math.stackexchange.com/questions/58311/the-homology-groups-of-t2-by-mayer-vietoris}{Es posible} calcular la homología del toro usando la sucesión de Mayer-Vietoris, aunque no basta con escribir la sucesión exacta: hay que entender cómo actúan los homomorfismos.
 	\end{ejem}
@@ -1477,7 +1490,7 @@ induce un isomorfismo
 \begin{ejem}\label{ejem:toroCWMV}
 	\textcolor{red}{En mis notas de clase hay un modo de calcular $H_1$ y $H_0$ del toro visto como complejo CW con subcomplejos:}
 	
-	Cuando vemos el toro $S^1\times S^1$ como el cociente de un cuadrado con los lados identificados, tenemos una estructura de complejo CW con una 0-celda, dos 1-celdas y una 2-celdas. Aquí, podemos tomar $A=D^2$ y $B=S^1\vee S^1$.
+	Cuando vemos el toro $S^1\times S^1$ como el cociente de un cuadrado con los lados identificados, tenemos una estructura de complejo CW con una 0-celda, dos 1-celdas y una 2-celda. Aquí, podemos tomar $A=D^2$ y $B=S^1\vee S^1$.
 	
 	Casi todos los grupos de homología se hacen cero \textcolor{red}{(no veo por qué)} (aquí hay que usar que la homología de la cuña es la suma de las homologías de los "cuñandos"), y que la homología de $S^1$ es cero cuando el subíndice es mayor o igual que 2.
 	
@@ -1787,7 +1800,7 @@ Veamos cómo define Lee los complejos CW en su libro Introduction to Topological
 \section{Una fórmula para el homomorfismo frontera}
 	Bueno, ahora tratemos de entender cómo es la $d$. Consideremos sl siguiente diagrama:
 	\[\begin{tikzcd}
-		& S^{n-1}_\alpha \arrow[r, "\varphi_\alpha"] \arrow[d, dashed, "\varphi_{\alpha\beta}"] & X^{n-1} \arrow[d] \\
+ed, "\varphi_{\alpha\beta}"] & X^{n-1} \arrow[d] \\
 		& S^{n-1}_\beta & \bigvee_{\gamma\in I_n}S^{n-1}_\gamma = X^{n-1}/X^{n-2} \arrow[l]
 	\end{tikzcd}\]
 	Esta función que descubrimos $\varphi_{\alpha\beta}$ es una función entre esferas que tiene un grado $d_{\alpha\beta}$.
@@ -1817,9 +1830,7 @@ Veamos cómo define Lee los complejos CW en su libro Introduction to Topological
 		\draw[blue-violet,very thick,postaction={decorate}] (0,2) -- (2,2);
 		\draw[magenta,very thick,postaction={decorate}] (2,0) -- (2,2);
 		\draw[blue-violet,very thick,postaction={decorate}] (0,0) -- (2,0);
-		
 
-		
 		% Vertices
 		\filldraw (2,0) circle (0.05);
 		\filldraw (2,2) circle (0.05);
@@ -1829,11 +1840,13 @@ Veamos cómo define Lee los complejos CW en su libro Introduction to Topological
 		\draw[->] (2.7,1) -- (3.7,1) node[midway, above] {$\varphi_\alpha$};
 		
 		\draw[magenta,very thick,postaction={decorate}] (5.3,1) circle (1);
-		\draw[blue-violet,very thick,postaction={decorate}] (7.3,1) circle (1);
+		\draw[blue-violet,very thick,postaction={decorate}] (7.3,1) circle (-1);
+		\filldraw (6.3,1) circle (0.05);
 		
 		\draw[->] (8.9,1) -- (9.7,1);
 		
 		\draw[magenta,very thick,postaction={decorate}] (11.35,1) circle (1);
+		\filldraw (12.35,1) circle (0.05);
 	
 	\end{tikzpicture}\]
 	La frontera de la 2-celda, $S^1$ va a dar mediante la función de pegado a la cuña de dos círculos, y \textbf{recorre cada uno dos veces y en direcciones contrarias}. El cociente $X^1/X^0$ no hace nada, pues de por sí $X^0$ ya era sólo un punto, y en el último, paso, al escoger uno de los dos círculos en la cuña, nos damos cuenta de nuestra función lo recorre \textbf{de ida y luego de regreso}. Esta función es homotópica a una constante, así que es de grado cero. Al hacer esto para los dos círculos, concluimos que, $d_2=0$. Luego, $H_1(T^2)=\Z\oplus\Z$ y $H_2(T^2)=\Z$.
@@ -1854,12 +1867,13 @@ Veamos cómo define Lee los complejos CW en su libro Introduction to Topological
 		\draw[very thick, blue-violet, postaction={decorate}] (-2,0) arc[start angle=180, end angle=360, radius=1];
 		
 		\filldraw (0,0) circle (0.05);
-		
+		\filldraw (-2,0) circle (0.05);
 		\draw[->] (0.5,0) -- (1.5,0);
 		
 		\draw[magenta,very thick,postaction={decorate}] (3.1,0) circle (1);
 		
 		\filldraw (4.1,0) circle (0.05);
+
 	\end{tikzpicture}\]
 	Aquí, 
 	\[\begin{tikzcd}
@@ -1902,6 +1916,47 @@ Veamos cómo define Lee los complejos CW en su libro Introduction to Topological
 	\begin{ejem}
 		¿Y si tomamos $R=\Z/2$? Multiplicar por 2 es la función 0, así que $H_m(\R P^n,\Z/2)=\Z/2$ para $0\leq m\leq n$.
 	\end{ejem}
+	\begin{ejem}[La banda de Möbius]
+		Tomemos la siguiente descomposición de la banda de Möbius:
+		\[\begin{tikzpicture}[decoration={
+			markings,
+			mark=at position 0.5 with {\arrow{to}}
+		}]
+		% Sides as arrows with arrowheads in the middle
+		\draw[cyan,very thick,postaction={decorate}] (0,0) -- (0,2) node[midway,left] {$e^1_1$};
+		\draw[green(ncs),very thick,postaction={decorate}] (0,2) -- (2,2) node[midway, below] {$e^1_2$};
+		\draw[cyan,very thick,postaction={decorate}] (2,0) -- (2,2) node[midway, right] {$e^1_1$};
+		\draw[blue,very thick,postaction={decorate}] (0,0) -- (2,0) node[midway,above] {$e^1_3$};
+		
+		% Vertices
+		\filldraw[red] (2,0) circle (0.05) node[below] {$e^0_2$};;
+		\filldraw (2,2) circle (0.05) node[above] {$e^0_1$};
+		\filldraw[red] (0,2) circle (0.05) node[above] {$e^0_2$};
+		\filldraw (0,0) circle (0.05) node[below] {$e^0_1$};
+	\end{tikzpicture}\]
+	Que corresponde al complejo de cadenas
+	\[\begin{tikzcd}
+		0\arrow[r]&\Z\arrow[r,"d_2"]&\Z^3\arrow[r,"d_1"]&\Z^2\arrow[r]&0
+	\end{tikzcd}\]
+	En este caso $d_1$ no es automáticamente cero porque tenemos dos 0-celdas. Sin embargo, sabemos que la banda es conexa, así que $H_0\approx\Z$.
+	
+	Podemos hacer el cálculo de $d_1$ explícito (lo necesitamos para calcular $H_1(M)$) porque sabemos que se comporta exactamente como la frontera de la homología simplicial. De acuerdo a los nombres en el diagrama, podemos simplemente ver que
+	\begin{equation*}
+	\begin{array}{c@{\hspace{2cm}}c@{\hspace{2cm}}c}
+		d_1(e^1_1)=e^0_2-e^0_1&d_1(e^1_2)=e^0_1-e^0_2&d_1(e^1_3)=e^0_2-e^0_1
+	\end{array}
+	\end{equation*}
+	Equivalentemente,
+	\begin{equation*}
+	\begin{array}{c@{\hspace{2cm}}c@{\hspace{2cm}}c}
+		(1,0,0)\overset{d_1}{\mapsto}(-1,1)&(0,1,0)\overset{d_1}{\mapsto}(1,-1)&
+		(0,0,1)\overset{d_1}{\mapsto}(-1,1)
+	\end{array}
+	\end{equation*}
+	Así que $\img d_1\approx \Z$, como esperábamos, y $\ker d_1\approx \langle (1,1,0),(0,1,1)\rangle\approx \Z\oplus\Z$.
+	
+	Para calcular $d_2$, notemos que la 2-celda está pegada sólo a lo largo de las aristas $e^1_2$ y $e^1_3$. Al colapsar el 0-esqueleto obtenemos la cuña de tres círculos, uno por cada arista. Las funciones inducidas en nuestro diagrama conmutativo son de grado 0 para $e^1_1$ y 1 para $e^1_2$ y $e^1_3$, así que $d_2(e^2)=0\cdot e^1_1+e^1_2+e^1_3$, o bien, $1\overset{d_2}{\mapsto}(0,1,1)$, de manera que $\img d_2\approx \Z$ y $\ker d_2\approx 0$. Luego, $H_1(M)\approx (\Z\oplus\Z)/\Z\approx \Z$ y $H_2(M)\approx 0$.
+\end{ejem}
 \section{Característica de Euler}
 	Sea $Y$ un complejo $CW$ finito (con un número finito de células). De hecho esta propiedad es equivalente a que el espacio $Y$ sea compacto. Definimos la característica de Euler como
 	\begin{align*}
@@ -1994,8 +2049,51 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 \end{coro}
 
 \section{Grupos de homotopía superiores}
+	Recordemos que el grupo fundamental quedó definido como
+	\begin{align*}
+		\pi_1(X,x_0)=&\{f:I\to X:f(0)=f(1)=x_0\}\Big/\simeq\text{rel }0,1\\
+		=&\{f:(S^1,s_0)\to(X,x_0)\}\Big/\simeq\text{rel }s_0
+	\end{align*}
+	En esta segunda expresión del grupo fundamental, podemos pensar que la operación del grupo está dada por una función definida en la cuña de dos círculos ya que debemos: (1) recorrer $S^1$ al doble de velocidad y luego (2) identificar el punto base con su antípoda.
 	
-\newpage
+	Así, podemos definir para $n\geq2$
+	
+	\[\pi_n(X,x_0)=\{f:(S^n,s_0)\to (X,x_0)\}\Big/\simeq\text{rel }s_0\]
+	
+	donde la operación del grupo está definida en la cuña de dos esferas $n$-dimensionales.
+	
+	\begin{prop}
+		Para todo $n\geq 2$ y $(X,x_0)$ espacio topológico punteado, $\pi_n(X,x_0)$ es abeliano.
+	\end{prop}
+	\begin{obs}
+		Cada elemento de $\pi_0(X,x_0)$ representa una componente arco-conexa de $X$. ¡Pero $\pi_0(X,x_0)$ no tiene estructura de grupo!
+	\end{obs}
+	\begin{prop}
+		 $\pi_n:\Top^*\to\Grp$ es un funtor para $n\geq1$. Es decir, está bien definido en objetos y flechas, y manda la identidad en la identidad y es asociativo.
+	\end{prop}
+	\begin{prop}
+		Aquí también hay invarianza homotópica: si $\varphi,\psi:(X,x_0)\to(Y,y_0)$ son homotópicas, las inducidas en grupos de homotopía son la misma. En particular, si dos espacios son homotópicos vía una homotopía que preserva el punto base, entonces sus grupos de homotopía son el mismo.
+	\end{prop}
+	El recíproco no es cierto, hay espacios con el mismo grupo de homotopía pero que no son equivalentemente homotópicos: $\R^2$ y $S^2$ tienen el mismo grupo fundamental pero su segundo grupo de homología es diferente.
+	
+	El recíproco no es cierto, hay espacios con el mismo grupo de homotopía pero que no son equivalentemente homotópicos: $\R^2$ y $S^2$ tienen el mismo grupo fundamental pero su segundo grupo de homología es diferente. \hyperref[ejer:homol-homot]{Aquí} hay otro ejemplo.
+	
+	Ahora, si pedimos que tengan el mismo grupo de homotopía y el mismo grupo de homología, ¿serán homotópicamente equivalentes?
+	
+	\begin{teo}[Whitehead]
+		Sean $X$, $Y$ complejos $CW$. Supongamos que $f:X\to Y$ es tal que $f_*:\pi_n(X,x_0)\to\pi_n(Y,y_0)$ es un isomorfismo para toda $n\geq0$. Entonces $f$ es una equivalencia homotópica.
+	\end{teo}
+	De hecho sí hay espacios cuyos grupos de homotopía son isomorfos pero los espacios no son homotópicamente equivalentes, pero en estos casos el isomorfismo no está inducido por una función entre los espacios.
+	\begin{teo}
+		Sea $p:(\tilde{X},\tilde{ x}_0)\to(X,x_0)$ un cubriente entre espacios conexos. Entonces, $p_*:\pi_n(\tilde{X},\tilde {x}_0)\to\pi_n(X,x_0)$ es un isomorfismo para $n\geq2$.
+	\end{teo}
+	\begin{proof}
+		Tomamos un lazo $f:S^n\to X$ y sabemos que hay un levantamiento. Eso prueba suprayectividad. Y para ver inyectividad, al tomar un lazo en el cubriente cuya proyección es homotópica a cero, podemos de hecho levantar la homotopía y obtenemos que el lazo arriba también es homotópico al constante.
+	\end{proof}
+	\begin{ejem}
+		Los grupos de homotopía del toro para $n\geq2$ son triviales por su cubriente universal, $\R^2$, que es contraible. En general, cualquier espacio que tenga un cubriente contraible tiene grupos de homotopía de orden superior triviales.
+	\end{ejem}
+		
 \chapter{Ejercicios}
 	\begin{ejer}
 	Calcule la homología de la pareja $(X,A)$ cuando $A$ es un subconjunto finito del toro $X=S^1\times S^1$.
@@ -2009,7 +2107,7 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 	
 	\textcolor{red}{¿Cómo demostramos que $H_1(X/A)\cong R^{k+1}$, donde $|A|=k$?} \href{https://math.stackexchange.com/questions/129686/finding-the-homology-group-of-h-n-x-a-when-a-is-a-finite-set-of-points}{Aquí}
 \end{proof}
-\begin{ejer}Demuestre que $S^1 \times S^1$ y $S^1 \vee S^1 \vee S^2$ tienen grupos de homología (con coeficientes enteros) isomorfos pero no son homotópicamente equivalentes.
+\begin{ejer}\label{ejer:homol-homot}Demuestre que $S^1 \times S^1$ y $S^1 \vee S^1 \vee S^2$ tienen grupos de homología (con coeficientes enteros) isomorfos pero no son homotópicamente equivalentes.
 \begin{proof}[Solución]
 	Por sus descomposiciones como complejos CW, sabemos que la homología de ambos espacios está dada por el complejo de cadenas
 	\[\begin{tikzcd}[column sep=small]
@@ -2130,4 +2228,85 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 	\end{tikzcd}\]
 	Y por un razonamiento análogo al cálculo de la \hyperref[ejem:toroCW]{homología del toro}, $d_2=0$ y concluimos que $H_2(X)=\Z^2$, $H_1(X)=H_0(X)=\Z$.
 	\end{proof}
+	\begin{ejer}
+	Use la sucesión de Mayer-Vietoris para calcular los grupos de homología del espacio obtenido de pegar una banda de Möbius $M$ al toro $S^1\times S^1$ vía un homeomorfismo del círculo frontera de $M$ al ecuador $S^1\times\{0\}$ del toro.
+	\end{ejer}
+	\begin{proof}[Solución]
+		Primero recordemos las estructuras celulares que le dimos a estos espacios:
+		\[
+		%Toro
+		\begin{tikzpicture}[decoration={
+				markings,
+				mark=at position 0.5 with {\arrow{to}}
+			}]
+			% Sides as arrows with arrowheads in the middle
+			\draw[magenta,very thick,postaction={decorate}] (0,0) -- (0,2);
+			\draw[blue-violet,very thick,postaction={decorate}] (0,2) -- (2,2);
+			\draw[magenta,very thick,postaction={decorate}] (2,0) -- (2,2);
+			\draw[blue-violet,very thick,postaction={decorate}] (0,0) -- (2,0);
+			
+			% Vertices
+			\filldraw (2,0) circle (0.05);
+			\filldraw (2,2) circle (0.05);
+			\filldraw (0,2) circle (0.05);
+			\filldraw (0,0) circle (0.05);
+			
+			\node at (1,-.6) {Toro};
+		\end{tikzpicture}\qquad\qquad\qquad
+		%Banda de Möbius
+		\begin{tikzpicture}[decoration={
+				markings,
+				mark=at position 0.5 with {\arrow{to}}
+			}]
+			% Sides as arrows with arrowheads in the middle
+			\draw[cyan,very thick,postaction={decorate}] (0,0) -- (0,2);
+			\draw[green(ncs),very thick,postaction={decorate}] (0,2) -- (2,2);
+			\draw[cyan,very thick,postaction={decorate}] (2,0) -- (2,2);
+			\draw[blue,very thick,postaction={decorate}] (0,0) -- (2,0);			
+			% Vertices
+			\filldraw[red] (2,0) circle (0.05);
+			\filldraw[brown] (2,2) circle (0.05);
+			\filldraw[red] (0,2) circle (0.05);
+			\filldraw[brown] (0,0) circle (0.05);
+			
+			\node at (1,-.6) {Banda de Möbius};
+		\end{tikzpicture}\]
+			
+%		%Espacios pegados
+%		\[\begin{tikzpicture}[decoration={
+%			markings,
+%			mark=at position 0.5 with {\arrow{to}}
+%		}]
+%		% Sides as arrows with arrowheads in the middle
+%		\draw[magenta,very thick,postaction={decorate}] (0,0) -- (0,2);
+%		\draw[blue-violet,very thick,postaction={decorate}] (0,2) -- (2,2);
+%		\draw[magenta,very thick,postaction={decorate}] (2,0) -- (2,2);
+%		\draw[blue-violet,very thick,postaction={decorate}] (0,0) -- (2,0);
+%		
+%		\draw[magenta,very thick,postaction={decorate}] (4,0) -- (4,2);
+%		\draw[azure,very thick,postaction={decorate}] (2,2) -- (4,2);
+%		\draw[azure,very thick,postaction={decorate}] (2,0) -- (4,0);
+%		
+%		% Vertices
+%		\filldraw (2,0) circle (0.05);
+%		\filldraw (2,2) circle (0.05);
+%		\filldraw (0,2) circle (0.05);
+%		\filldraw (0,0) circle (0.05);
+%		\filldraw (4,0) circle (0.05);
+%		\filldraw (4,2) circle (0.05);
+%		
+%		\filldraw[white] (0,-1) circle (0.05);
+%	\end{tikzpicture}\]
+	
+	No es obvio cómo pegarlos porque el círculo frontera de la banda de Möbius está formado por dos aristas (la verde y la azul fuerte), que deberían ir pegadas a una sola de las aristas del toro. Entonces, técnicamente no nos conviene usar la sucesión de Mayer-Vietoris en su versión para complejos CW. Pero esto no es problema, porque, aunque ni el toro ni la banda son abiertos de nuestro espacio, sí son retractos por deformación de ciertas vecindades.
+	
+	Una vez dicho esto, tenemos la sucesión exacta
+	\[\begin{tikzcd}
+		0 \arrow[r] & H_2(T^2\cap M) \arrow[r,"(i_{*2}\text{,}-j_{*2})"] & H_2(T^2)\oplus H_2(M) \arrow[r,"k_{*2}+\ell_{*2}"] & H_2(X) \arrow[r,"\delta"] & H_1(T^2\cap M)\\
+		\arrow[r]&H_1(T^2\cap M) \arrow[r,"(i_{*1}\text{,}-j_{*1})"] &H_1(T^2)\oplus H_1(M) \arrow[r,"k_{*1}+\ell_{*1}"] & H_1(X) \arrow[r,"\delta"] & H_0(T^2\cap M)&&
+	\end{tikzcd}\]
+	*Falta*
+	\end{proof}
+	
+
 \end{document}

@@ -67,17 +67,17 @@
 \contentsline {section}{\numberline {6.12}Representantes de la homología de la esfera}{43}{section.6.12}%
 \contentsline {section}{\numberline {6.13}Grado de una función entre esferas}{44}{section.6.13}%
 \contentsline {subsection}{\numberline {6.13.1}Grado local}{45}{subsection.6.13.1}%
-\contentsline {subsection}{\numberline {6.13.2}Teorema de la bola peluda}{45}{subsection.6.13.2}%
-\contentsline {subsection}{\numberline {6.13.3}Acciones libres en la esfera}{45}{subsection.6.13.3}%
-\contentsline {chapter}{\numberline {7}Complejos CW}{46}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Construcción y propiedades básicas}{46}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Complejos CW para Lee (extra)}{48}{subsection.7.1.1}%
-\contentsline {section}{\numberline {7.2}La homología singular de un complejo CW}{49}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Homología celular}{50}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Una fórmula para el homomorfismo frontera}{51}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Ejemplos}{51}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Característica de Euler}{53}{section.7.6}%
-\contentsline {chapter}{\numberline {8}Homología y homotopía}{55}{chapter.8}%
-\contentsline {section}{\numberline {8.1}El homomorfismo de Hurewicz}{55}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Grupos de homotopía superiores}{56}{section.8.2}%
-\contentsline {chapter}{\numberline {9}Ejercicios}{57}{chapter.9}%
+\contentsline {subsection}{\numberline {6.13.2}Teorema de la bola peluda}{46}{subsection.6.13.2}%
+\contentsline {subsection}{\numberline {6.13.3}Acciones libres en la esfera}{46}{subsection.6.13.3}%
+\contentsline {chapter}{\numberline {7}Complejos CW}{47}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Construcción y propiedades básicas}{47}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Complejos CW para Lee (extra)}{49}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}La homología singular de un complejo CW}{50}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Homología celular}{51}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Una fórmula para el homomorfismo frontera}{52}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Ejemplos}{52}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Característica de Euler}{55}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Homología y homotopía}{57}{chapter.8}%
+\contentsline {section}{\numberline {8.1}El homomorfismo de Hurewicz}{57}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Grupos de homotopía superiores}{58}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Ejercicios}{60}{chapter.9}%
