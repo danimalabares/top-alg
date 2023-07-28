@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {1.1}Caminos y homotopías}{6}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Definición del grupo fundamental}{6}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Cambio de punto base}{7}{section.1.3}%
-\contentsline {section}{\numberline {1.4}El grupo fundamental del círculo}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.4}El grupo fundamental del círculo}{8}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Consecuencias del grupo fundamental del círculo}{8}{section.1.5}%
 \contentsline {subsection}{\numberline {1.5.1}El teorema fundamental del álgebra}{8}{subsection.1.5.1}%
 \contentsline {subsection}{\numberline {1.5.2}Teorema del punto fijo de Brouwer en dimensión 2}{8}{subsection.1.5.2}%
@@ -24,60 +24,62 @@
 \contentsline {subsection}{\numberline {2.6.1}Presentaciones de grupos}{13}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}Todo grupo es isomorfo al grupo fundamental de algún espacio}{14}{subsection.2.6.2}%
 \contentsline {section}{\numberline {2.7}El grupo fundamental no detecta células de dimensión mayor que 2}{15}{section.2.7}%
-\contentsline {part}{II\hspace {1em}Espacios cubrientes}{16}{part.2}%
-\contentsline {chapter}{\numberline {3}Espacios cubrientes}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Definición de espacio cubriente}{17}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Levantamiento de homotopía para cubrientes}{18}{section.3.2}%
-\contentsline {section}{\numberline {3.3}El homomorfismo inducido de la proyección cubriente}{18}{section.3.3}%
-\contentsline {section}{\numberline {3.4}El número de hojas de un cubriente y el grupo fundamental}{19}{section.3.4}%
-\contentsline {section}{\numberline {3.5}El criterio de levantamiento de funciones}{19}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Unicidad del levantamiento de funciones}{20}{section.3.6}%
-\contentsline {section}{\numberline {3.7}El cubriente universal}{20}{section.3.7}%
-\contentsline {section}{\numberline {3.8}El teorema de clasificación de cubrientes}{21}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Transfromaciones de cubierta}{22}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Acciones de grupos y cubrientes}{23}{section.3.10}%
-\contentsline {chapter}{\numberline {4}Ejercicios}{25}{chapter.4}%
-\contentsline {part}{III\hspace {1em}Homología}{27}{part.3}%
-\contentsline {chapter}{\numberline {5}Álgebra Homológica}{28}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conceptos básicos}{28}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Sucesiones exactas}{29}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Homotopía}{30}{section.5.3}%
-\contentsline {section}{\numberline {5.4}El lema de la serpiente}{31}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Teorema fundamental del álgebra homológica}{32}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Natrualidad del homomorfismo de conexión}{33}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Lema de los cinco}{33}{section.5.7}%
-\contentsline {chapter}{\numberline {6}Homología singular}{34}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Simplejos}{34}{section.6.1}%
-\contentsline {section}{\numberline {6.2}El complejo de cadenas singulares}{35}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Primeras propiedades de la homología}{36}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}La homología y las componentes arco-conexas}{36}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}El 0-ésimo grupo de homología}{36}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}La homología de un punto}{37}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}Homología reducida}{37}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Funtorialidad}{38}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Invarianza homotópica}{38}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Homología relativa}{39}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Construcción}{39}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}Funciones inducidas}{40}{subsection.6.7.2}%
-\contentsline {subsection}{\numberline {6.7.3}La sucesión exacta de la tercia}{40}{subsection.6.7.3}%
-\contentsline {section}{\numberline {6.8}Escisión}{41}{section.6.8}%
-\contentsline {section}{\numberline {6.9}La homología de un cociente}{41}{section.6.9}%
-\contentsline {section}{\numberline {6.10}Homología de la esfera y aplicaciones}{42}{section.6.10}%
-\contentsline {section}{\numberline {6.11}La sucesión de Mayer-Vietoris}{42}{section.6.11}%
-\contentsline {section}{\numberline {6.12}Representantes de la homología de la esfera}{43}{section.6.12}%
-\contentsline {section}{\numberline {6.13}Grado de una función entre esferas}{44}{section.6.13}%
-\contentsline {subsection}{\numberline {6.13.1}Grado local}{45}{subsection.6.13.1}%
-\contentsline {subsection}{\numberline {6.13.2}Teorema de la bola peluda}{46}{subsection.6.13.2}%
-\contentsline {subsection}{\numberline {6.13.3}Acciones libres en la esfera}{46}{subsection.6.13.3}%
-\contentsline {chapter}{\numberline {7}Complejos CW}{47}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Construcción y propiedades básicas}{47}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Complejos CW para Lee (extra)}{49}{subsection.7.1.1}%
-\contentsline {section}{\numberline {7.2}La homología singular de un complejo CW}{50}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Homología celular}{51}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Una fórmula para el homomorfismo frontera}{52}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Ejemplos}{52}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Característica de Euler}{55}{section.7.6}%
-\contentsline {chapter}{\numberline {8}Homología y homotopía}{57}{chapter.8}%
-\contentsline {section}{\numberline {8.1}El homomorfismo de Hurewicz}{57}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Grupos de homotopía superiores}{58}{section.8.2}%
-\contentsline {chapter}{\numberline {9}Ejercicios}{60}{chapter.9}%
+\contentsline {chapter}{\numberline {3}Ejercicios}{16}{chapter.3}%
+\contentsline {part}{II\hspace {1em}Espacios cubrientes}{18}{part.2}%
+\contentsline {chapter}{\numberline {4}Espacios cubrientes}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Definición de espacio cubriente}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Levantamiento de homotopía para cubrientes}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}El homomorfismo inducido de la proyección cubriente}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}El número de hojas de un cubriente y el grupo fundamental}{21}{section.4.4}%
+\contentsline {section}{\numberline {4.5}El criterio de levantamiento de funciones}{21}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Unicidad del levantamiento de funciones}{21}{section.4.6}%
+\contentsline {section}{\numberline {4.7}El cubriente universal}{22}{section.4.7}%
+\contentsline {section}{\numberline {4.8}El teorema de clasificación de cubrientes}{23}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Transfromaciones de cubierta}{24}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Acciones de grupos y cubrientes}{25}{section.4.10}%
+\contentsline {chapter}{\numberline {5}Ejercicios}{27}{chapter.5}%
+\contentsline {part}{III\hspace {1em}Homología}{30}{part.3}%
+\contentsline {chapter}{\numberline {6}Álgebra Homológica}{31}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conceptos básicos}{31}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Sucesiones exactas}{32}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Homotopía}{33}{section.6.3}%
+\contentsline {section}{\numberline {6.4}El lema de la serpiente}{34}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Teorema fundamental del álgebra homológica}{35}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Natrualidad del homomorfismo de conexión}{36}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Lema de los cinco}{36}{section.6.7}%
+\contentsline {chapter}{\numberline {7}Homología singular}{37}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Simplejos}{37}{section.7.1}%
+\contentsline {section}{\numberline {7.2}El complejo de cadenas singulares}{38}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Primeras propiedades de la homología}{39}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}La homología y las componentes arco-conexas}{39}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}El 0-ésimo grupo de homología}{39}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}La homología de un punto}{40}{subsection.7.3.3}%
+\contentsline {section}{\numberline {7.4}Homología reducida}{40}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Funtorialidad}{41}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Invarianza homotópica}{41}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Homología relativa}{42}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Construcción}{42}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.7.2}Funciones inducidas}{43}{subsection.7.7.2}%
+\contentsline {subsection}{\numberline {7.7.3}Splitting lemma}{43}{subsection.7.7.3}%
+\contentsline {subsection}{\numberline {7.7.4}La sucesión exacta de la tercia}{44}{subsection.7.7.4}%
+\contentsline {section}{\numberline {7.8}Escisión}{44}{section.7.8}%
+\contentsline {section}{\numberline {7.9}La homología de un cociente}{45}{section.7.9}%
+\contentsline {section}{\numberline {7.10}Homología de la esfera y aplicaciones}{45}{section.7.10}%
+\contentsline {section}{\numberline {7.11}La sucesión de Mayer-Vietoris}{46}{section.7.11}%
+\contentsline {section}{\numberline {7.12}Representantes de la homología de la esfera}{47}{section.7.12}%
+\contentsline {section}{\numberline {7.13}Grado de una función entre esferas}{48}{section.7.13}%
+\contentsline {subsection}{\numberline {7.13.1}Grado local}{48}{subsection.7.13.1}%
+\contentsline {subsection}{\numberline {7.13.2}Teorema de la bola peluda}{49}{subsection.7.13.2}%
+\contentsline {subsection}{\numberline {7.13.3}Acciones libres en la esfera}{49}{subsection.7.13.3}%
+\contentsline {chapter}{\numberline {8}Complejos CW}{50}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Construcción y propiedades básicas}{50}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Complejos CW para Lee (extra)}{53}{subsection.8.1.1}%
+\contentsline {section}{\numberline {8.2}La homología singular de un complejo CW}{53}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Homología celular}{54}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Una fórmula para el homomorfismo frontera}{55}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Ejemplos}{55}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Característica de Euler}{58}{section.8.6}%
+\contentsline {chapter}{\numberline {9}Homología y homotopía}{60}{chapter.9}%
+\contentsline {section}{\numberline {9.1}El homomorfismo de Hurewicz}{60}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Grupos de homotopía superiores}{61}{section.9.2}%
+\contentsline {chapter}{\numberline {10}Ejercicios}{63}{chapter.10}%

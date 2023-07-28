@@ -163,7 +163,7 @@
 		\[\pi_1(X,x_0)=\Omega(X,x_0)/\rel0,1\]
 	\end{defn}
 	\begin{teo}
-		El grupo fundamental es un grupo con la operación concatenación.
+		El grupo fundamental es un grupo con la operación concatenación $[f][g]=[f\cdot g]$.
 	\end{teo}
 	\begin{proof}
 		Hay que ver que:
@@ -175,8 +175,8 @@
 		\end{itemize}
 	\end{proof}
 \section{Cambio de punto base}
-	¿Qué pasa cuando cambiamos del punto base? ¿Cambia el grupo fundamental? Es fácil notar que si los puntos están diferentes componentes arco-conexas, es muy fácil que cambien los grupos fundamentales. Pero, ¿qué pasa si están en la misma componente conexa?
-	\begin{teo}
+	¿Qué pasa cuando cambiamos del punto base? ¿Cambia el grupo fundamental? Es fácil notar que si los puntos están diferentes componentes arco-conexas, es muy posible que cambien los grupos fundamentales. Pero, ¿qué pasa si están en la misma componente conexa?
+	\begin{teo}\label{teo:cambioptobase}
 		Si $x_0,x_1\in X$ se pueden conectar por un camino, entonces $\pi_1(X,x_0)\cong\pi_1(X,x_1)$.
 	\end{teo}
 
@@ -220,8 +220,8 @@
 	\begin{prop}
 		$\pi_1(S^n)=0$ si $n\geq2$.
 	\end{prop}
-	Para lo cual se usa el siguiente lema:
-	\begin{lema}
+	Que se prueba usando el siguiente lema:
+	\begin{lema}\label{lema:homotopia}
 		Sea $X=\bigcup_{\alpha\in\ I} A_\alpha$ tal que
 		\begin{itemize}
 			\item $A_\alpha$ son abiertos (es una cubierta abierta)
@@ -282,6 +282,13 @@
 	\begin{ejer}[Hatcher 0.11]\label{hatcher:0.11}
 		\textit{Se pueden usar diferentes funciones para ir y regresar.} $f:X\to Y$ es una equivalencia homotópica si existen $g,h:Y\to X$ tales que $fg\simeq Id_Y$ y $gf\simeq Id_X$. Y más generalmente, $f$ es una equivalencia homotópica si $fg$ y $hf$ son equivalencias homotópicas.
 	\end{ejer}
+	Agregamos una última propiedad, para la cual definimos dos conceptos que se usan en todo el texto:
+	\begin{defn}\label{def:retracto}
+		Una \textbf{retracción} de un espacio $X$ en un subespacio $A$ es una función $f:X\to A$ tal que $f|_A=id_A$. Un \textbf{retracto por deformación} de $X$ en $A$ es una homotopía $f_t:X\to X$ tal que $f_0=id_A$ y $f_1(X)=A$, y además $f_t|_A=id_A$ para toda $t$.
+	\end{defn}
+	\begin{prop}
+		Si un espacio $X$ se retrae en un espacio $A$, entonces el homomorfismo $i_*:\pi_1(A,x_0)\to\pi_1(X,x_0)$ inducido por la inclusión $A\hookrightarrow X$ es injectivo. Y si $A$ es retracto por deformación de $X$, entonces $i_*$ es un isomorfismo.
+	\end{prop}
 \chapter{El teorema de Van Kampen}
 \section{Grupos libres}
 \section{Productos libres}
@@ -311,6 +318,9 @@
 			&\ast_{\alpha\in I}G_\alpha \arrow[ur,"\varphi"]
 		\end{tikzcd}\]
 	\end{teo}
+	\begin{ejem}
+		Si $F_n$ y $F_m$ son grupos libres generados por $n$ y $m$ elementos, $F_n*F_m\approx F_{n+m}$.
+	\end{ejem}
 \section{Subgrupos normalmente generados}
 \section{El teorema de Van Kampen}
 	Imagínense que queremos calcular el grupo fundamental de un espacio pero no sabemos cómo. (Esto pasa muy seguido). Pero resulta que podemos ver este espacio como la unión de muchos subespacios de los que conocemos sus grupos fundamentales. Éste es el escenario del teorema de Van Kampen.
@@ -415,6 +425,11 @@
 	\begin{teo}
 		Para cualquier grupo $G$ existe un espacio topológico $X$ tal que $\pi_1(X,x_0)\cong G$.
 	\end{teo}
+	\begin{proof}
+		Primero tomamos una presentación  $G=\langle S,R\rangle=F_S/\langle\langle R\rangle\rangle$, y luego la cuña de tantos círculos como elementos en $S$, digamos $X=\bigvee_{\alpha\in S}$. Sabemos que $\pi_1(X,x_0)\approx *_{\alpha\in S}\Z\approx F_S$.
+		
+		Ahora debemos matar tantos lazos como relaciones. Una relación es una palabra en los generadores, digamos $r=s_1^{\varepsilon_1}s_2^{\varepsilon_2}\ldots s_m^{\varepsilon_m}$ con $s_i\in S$ y $\varepsilon_i=\pm1$. Esta palabra esencialmente determina un camino en la cuña de los círculos, así que podemos pegar un disco por cada relación, y por el lema anterior, terminamos.
+	\end{proof}
 	
 \section{El grupo fundamental no detecta células de dimensión mayor que 2}
 	Para formalizar el nombre de esta sección, necesitaremos: 
@@ -430,6 +445,52 @@
 		La inclusión $i:X\hookleftarrow Y$ induce un isomorfismo $i_*:\pi_1(X,x_0)\to\pi_1(Y,y_0)$.
 	\end{teo}
 	Es decir, cuando le pegamos a un espacio una célula de dimensión mayor que 2, el grupo fundamental quedó igual.
+
+\chapter{Ejercicios}
+
+\begin{ejer}
+	Para un espacio arco-conexo $X$, muestre que $\pi_1(X)$ es abeliano si y sólo si los homomorfismos de cambio de punto base $\beta_h$ dependen sólo del punto final de $h$.
+\end{ejer}
+\begin{proof}
+	Para la ida, tomemos $[\gamma],[\delta]\in\pi_1(X,x_0)$. Sabemos que para cualesquiera caminos $h,g$ que terminen en $x_0$, los homomorfismos $\beta_h$ y $\beta_g$ son iguales, así que $[h\cdot \gamma\cdot\delta\cdot\bar{h}]=[g\cdot\gamma\cdot\delta\cdot\bar{g}]$. Tomemos $h=\delta$ y $g=c_{x_0}$. Luego, $\delta\cdot\gamma\cdot\delta\cdot\bar{\delta}\simeq\gamma\cdot\delta$.
+	
+	Para el regreso, tomemos $h$ y $g$ dos caminos que terminen en $x_0$, y $[\gamma]\in\pi_1(X,x_0)$. Ahora notemos que $[h\cdot\gamma\cdot\bar{h}]=[h\cdot\gamma\cdot \bar{g}\cdot g\cdot\bar{h}]=[h\cdot\gamma\cdot \bar{g}][g\cdot\bar{h}]=[\bar{g}\cdot\bar{h}][h\cdot\gamma\cdot \bar{g}]=[g\cdot\gamma\cdot \bar{g}]$
+\end{proof}
+
+\begin{ejer}
+	Suponga que $f_t:X\to X$ es una homotopía tal que $f_0$ y $f_1$ son la identidad. Muestre que para cualquier $x_0\in X$, el lazo $f_t(x_0)$ representa un elemento en el centro de $\pi_1(X,x_0)$.
+\end{ejer}
+\begin{proof}[Solución]
+	Sean $[f]$ la clase de equivalencia del lazo $f_t(x_0)$ y $[\gamma]$ cualquier elemento de $\pi_1(X,x_0)$. Queremos demostrar que $f\cdot\gamma\simeq\gamma\cdot f$.
+	
+	Se puede pensar en lazos como $f_t(x_0)$ pero comenzando en cualquier punto del espacio $X$. En particular tenemos la familia de lazos $f_t(\gamma(s))$. El siguiente diagrama representa el dominio de esta función:
+	\[\begin{tikzpicture}[decoration={
+		markings,
+		mark=at position 0.5 with {\arrow{to}}
+	}]
+		% Sides as arrows with arrowheads in the middle
+		\draw[magenta,very thick,postaction={decorate}] (0,0) -- (0,2) node[midway, left] {$f_t(x_0)$};
+		\draw[blue-violet,very thick,postaction={decorate}] (0,2) -- (2,2) node[midway, above] {$\gamma(s)$};
+		\draw[magenta,very thick,postaction={decorate}] (2,0) -- (2,2) node[midway, right] {$f_t(x_0)$};
+		\draw[blue-violet,very thick,postaction={decorate}] (0,0) -- (2,0) node[midway, below] {$\gamma(s)$};
+		
+		% Vertices
+		\filldraw (2,0) circle (0.05);
+		\filldraw (2,2) circle (0.05);
+		\filldraw (0,2) circle (0.05);
+		\filldraw (0,0) circle (0.05);
+	\end{tikzpicture}\]
+	Claro, pues $f_0(\gamma(s))=\gamma(s)=f_1(\gamma(s))$, y $f_t(\gamma(0))=f_t(x_0)=f_t(\gamma(1))$. Así es que los bordes de izquierda y arriba representan $f\cdot\gamma$ y los bordes de abajo y derecha $\gamma\cdot f$. Cualquier trayectoria dentro del cuadrado que una la esquina inferior izquierda con la esquina superior derecha representa un camino homotópico a cualquiera de los mencionados.
+	\end{proof}
+
+\begin{ejer}
+	Use el \hyperref[lema:homotopia]{Lema 1.15} para mostrar que si $X$ se obtiene de un espacio arco-conexo adjuntando una célula $e^n$ con $n\geq2$, entonces la inclusión $A\hookrightarrow X$ induce una función suprayectiva en $\pi_1$.
+\end{ejer}
+\begin{proof}[Solución]
+	El \hyperref[lema:homotopia]{Lema 1.15} nos asegura que si encontramos dos conjuntos abiertos $A_1$ y $A_2$ que contienen al punto base tales que su unión es igual a todo el espacio y su intersección es arco-conexa, entonces cualquier lazo en el espacio se puede ver como el producto de dos lazos, cada uno contenido en un $A_i$.
+	
+	Tomemos $A_1=e^n$ y $A_2=X-c$, donde $c$ es un punto en el interior de $e^n$. Si escogemos un punto base $x_0$ también en el interior de $e^n$, tenemos las condiciones para el lema. Luego, cualquier lazo en $X$ se puede ver como un lazo solamente en $A_2$, ya que $e^n$ es contraible. Luego, debemos usar el \hyperref[teo:cambioptobase]{teorema de cambio de punto base} para conectar el punto $x_0$ con un $\tilde{x}_0$ que esté en $X\backslash e^n$. Y por último, como $A$ es \hyperref[def:retracto]{retracto por deformación} de $A_2$, sus grupos fundamentales son isomorfos, por lo que podemos pensar que nuestro lazo está en $A$.
+\end{proof}
 \part{Espacios cubrientes}
 \chapter{Espacios cubrientes}
 \section{Definición de espacio cubriente}
@@ -524,7 +585,7 @@ Para demostrar esto, se usará la \hyperref[teo-lhc]{Propiedad del levantamiento
 \end{obs}
 Ahora sí,
 \begin{prop}
-	Dada una proyección cubriente $p:\tilde{X}\to X$, el mapeo inducido $p_*:\pi_1(\tilde{X},\tilde{x}_0)\to (X,x_0)$ es inyectivo. Más aún, $p_*\left(\pi_1(\tilde{X},\tilde{x}_0)\right)\leq(X,x_0)$ consiste de los lazos basados en $x_0$ que se levantan a lazos en $\tilde{X}$ basados en $\tilde{x}_0$.
+	Dada una proyección cubriente $p:\tilde{X}\to X$, el mapeo inducido $p_*:\pi_1(\tilde{X},\tilde{x}_0)\to (X,x_0)$ es inyectivo. Más aún, $p_*\left(\pi_1(\tilde{X},\tilde{x}_0)\right)\leq\pi_1(X,x_0)$ consiste de los lazos basados en $x_0$ que se levantan a lazos en $\tilde{X}$ basados en $\tilde{x}_0$.
 \end{prop}
 \section{El número de hojas de un cubriente y el grupo fundamental}
 \begin{prop}
@@ -541,7 +602,7 @@ Estas funciones no siempre van a existir. Para saber cuándo sí, primero veamos
 	Decimos que un espacio topológico $Y$ es \textbf{localmente arco-conexo} si para todo punto $y\in Y$ y cada vecindad $U$ de $y$, existe $y\in V\subseteq U$ que es arcoconexa.
 \end{defn}
 \begin{prop}
-	Sean $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ un cubriente y una función $f:(Y,y_0)\to (X,x_0)$ con $Y$ espacio arco-conexo y localmente arco-conexo. Entonces existe un levantamiento $\tilde{f}:(Y,y_0)\to(\tilde{X},x_0)$ si y sólo si $f_*\left(\pi_1(Y,y_0)\right)\subseteq p_*\left(\pi_1(\tilde{X},\tilde{x}_0)\right)$.
+	Sean $p:(\tilde{X},\tilde{x}_0)\to (X,x_0)$ un cubriente y una función $f:(Y,y_0)\to (X,x_0)$ con $Y$ espacio arco-conexo y localmente arco-conexo. Entonces existe un levantamiento $\tilde{f}:(Y,y_0)\to(\tilde{X},x_0)$ si y sólo si $f_*\pi_1(Y,y_0)\subseteq p_*\pi_1(\tilde{X},\tilde{x}_0)$.
 \end{prop}
 \section{Unicidad del levantamiento de funciones}
 	¿Bajo qué condiciones un levantamiento es único? Cuando dos levantamientos coincidan en un punto, tienen que ser iguales. (Siempre que el dominio sea arco-conexo.)
@@ -606,7 +667,7 @@ Ahora sí:
 En esta sección veremos, grosso modo, que hay una correspondencia entre cubrientes universales (salvo isomorfismo) con los subgrupos del grupo fundamental.
 
 \begin{prop}
-	Sea $X$ un espacio topológico arco-conexo, localmente arco-conexo y semilocalmente simplemente conexo. Entonce spara todo $H\leq\pi_1(X,x_0)$ existe un cubriente $p:X_H\to X$ tal que $p_{*}\left(\pi_1(X_H,\tilde{x}_0)\right)=H$.
+	Sea $X$ un espacio topológico arco-conexo, localmente arco-conexo y semilocalmente simplemente conexo. Entonces para todo $H\leq\pi_1(X,x_0)$ existe un cubriente $p:X_H\to X$ tal que $p_{*}\left(\pi_1(X_H,\tilde{x}_0)\right)=H$.
 \end{prop}
 \begin{proof}
 	Usando la construcción del cubriente universal, tomamos una relación de equivalencia determinada por $H$ y proponemos el espacio cociente $\tilde{X}/\sim{}$.
@@ -739,11 +800,34 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 	Si además $Y$ es simplemente conexo, por b) y por c), $G=G(\tilde{Y})\cong\pi_1(Y/G,y_0)$.
 \end{coro}
 \chapter{Ejercicios}
-\begin{ejer}[2, General 2022-2]
+\begin{ejer}
 	\textbf{Sean $S$ la 2-esfera y $T$ el 2-toro. Calcule el grupo fundamental $G$ de $X := S \vee T$, construya el cubriente universal $\widetilde{X} \to X$ y describa la acción por transformaciones de cubierta de $G$ en $\widetilde{X}$.}
-	\begin{proof}[Solución] Por el teorema de Van Kampen, $\pi_1(S\vee T,x_0)=\Z\times\Z$ para cualquier elección de $x_0$.
+	\begin{proof}[Solución] Por el teorema de Van Kampen, $\pi_1(S\vee T,x_0)=\Z\times\Z$. El cubriente universal es $\R^2$ con copias de $S^2$ pegadas en cada punto con coordenadas enteras, y la acción por transformaciones de cubierta es justamente la colección de traslaciones por vectores con coordenadas enteras.
 	\end{proof}
 \end{ejer}
+\begin{ejer}
+	\textbf{Sea $f:X\to Y$ un cubriente. Muestre que si $Y$ es un espacio CW, entonces $X$ también.}
+\end{ejer}
+\begin{proof}[Solución]
+	Primero definamos $X^0:=f^{-1}(Y^0)$. La idea es usar el teorema de levantamiento de funciones para las funciones de pegado. Sin embargo, esto no se puede hacer para construir el 1-esqueleto de $X$, porque $S^0$ no es conexo. Lo que sí podemos hacer es tomar la función característica:
+		\[\begin{tikzcd}
+		&X\arrow[d,"f"]\\
+		D_\alpha^1\arrow[ru,dashed,"\tilde{\Phi}_\alpha"]\arrow[r,swap,"\Phi_\alpha"]&Y^1
+	\end{tikzcd}\]
+	que se levanta porque $D^1_\alpha$ es contraible. Con esto podemos definir la función de pegado $\tilde{\varphi}_\alpha:S^0\to X^0$ directamente como $\tilde{\varphi}_\alpha(-1)=\tilde{\Phi}_\alpha(0)$ y $\tilde{\varphi}_\alpha(1)=\tilde{\Phi}_\alpha(1)$ que funciona bien porque la función característica extiende a la función de pegado.
+	
+	El mismo método funciona para construir el 2-esqueleto, y las demás funciones de pegado se pueden levantar directamente porque $S^n$ es simplemente conexo para $n>1$.
+	
+	Si $Y$ es de dimensión finita, sabemos que $Y=Y^n$. *Falta un poquito*
+\end{proof}
+\begin{ejer}
+	\textbf{Demuestre que para todo $g\geq2$ existe un cubriente $S_g\to S_2$, es decir, que toda superficie de género 2 es cubierta por cualquier superficie de género $g\geq 2$. Demuestre además que el toro no es cubierto por ninguna superficie cerrada de género $g\geq2$.}
+\end{ejer}
+\begin{proof}
+	Aquí debemos visualizar $S_g$ como una dona-flor con un agujero en el centro y $g-1$ pétalos. En este caso, el grupo cíclico de $g-1$ es una acción cubriente en $S_{g}$ rotando alrededor del hoyo del centro. El espacio cociente resultante es justamente $S_2$, ya que se identifican todos los pétalos.
+	
+	Supongamos que existe un cubriente $p:S_g\to T$ con $g\geq2$. Sabemos que el homomorfismo inducido $p_*$ es inyectivo, por lo que $p_*\pi_1(S_g)\approx\pi_1(S_g)$, que, por el teorema de Van Kampen sabemos que es de la forma $\langle a_1,b_1,\ldots,a_g,b_g|a_1b_1a_1^{-1}b_1^{-1}\ldots a_{g}b_ga_g^{-1}b_g^{-1}\rangle$ que no es conmutativo. Pero cualquier subgrupo de $\pi_1(T)\approx\Z\times\Z$ es conmutativo.
+\end{proof}
 \begin{ejer}[Hatcher, 1.3.8]
 	\textbf{Sean $\tilde{X}$ y $\tilde{Y}$ espacios cubrientes simplemente conexos de espacios arco-conexos y simplemente conexos $X$ y $Y$. Muestre que si $X\simeq Y$, entonces $\tilde{X}\simeq\tilde{Y}$. (Quizás convenga usar el ejercicio \hyperref[hatcher:0.11]{0.11, Hatcher})}
 \end{ejer}
@@ -762,7 +846,7 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 		\item Como $gf\simeq Id_X$, entonces $gfp\simeq p$. Esta homotopía se levanta de manera única a una homotopía $H:\tilde{X}\times I\to\tilde{X}$ ya que, como acabamos de ver, $H(\underline{\hspace{5pt}},0)=\tilde{g}\tilde{f}$. Luego, $pH(\underline{\hspace{5pt}},1)=p$.
 		\item Así que $H(\underline{\hspace{5pt}},1):=h$ es un levantamiento de $p$, igual que la identidad. Si lográramos ver que coinciden en un sólo punto, es decir que $h$ fija a cualquier punto, por unicidad del levantamiento de funciones, tendríamos que $h=Id_{\tilde{X}}$.
 		
-		Pero no tenemos certeza de que eso ocurra. Lo que sí sabemos que como $\tilde{X}$ es simplemente conexo, entonces $p$ es un cubriente normal. O sea que el grupo de transformaciones de cubierta actúa transitivamente en las fibras de los puntos.
+		Pero no tenemos certeza de que eso ocurre. Lo que sí sabemos que como $\tilde{X}$ es simplemente conexo, entonces $p$ es un cubriente normal. O sea que el grupo de transformaciones de cubierta actúa transitivamente en las fibras de los puntos.
 		
 		Entonces tomemos un punto $\xi\in\tilde{X}$. Si $h$ no lo fija, ni modo, pero sabemos que existe una transformación de cubierta $u$ tal que $u(h(\xi))=\xi$.
 		
@@ -772,8 +856,21 @@ Notemos que la relación $x\sim{}y\iff y\in\Orb(x)$ es de equivalencia, así que
 		
 		Para encontrar $\psi$, simplemente hacemos el mismo razonamiento sólo que ahora necesitamos una transformación de cubierta $w$ tal que $\tilde{f}\tilde{g}w\simeq Id_{\tilde{Y}}$.
 		
-		Es decir, aquí hay que aplicar la $w$ antes de la función que obtenemos mediante la homotopía, digamos $\bar{h}$. Esto es legal: en vez de mover a $\bar{h}(\xi)$ de regreso a $\xi$, de antemano movemos a $\xi$ mediante $w$ a un punto en la preimagen de $\xi$ bajo $\bar{h}$. Aunque quizás $\bar{h}$ es suprayectiva, basta con escoger $\xi\in\img\bar{h}$.
+		Es decir, aquí hay que aplicar la $w$ antes de la función que obtenemos mediante la homotopía, digamos $\bar{h}$. Esto es legal: en vez de mover a $\bar{h}(\xi)$ de regreso a $\xi$, de antemano movemos a $\xi$ mediante $w$ a un punto en la preimagen de $\xi$ bajo $\bar{h}$. Aunque quizás $\bar{h}$ no es suprayectiva, basta con escoger $\xi\in\img\bar{h}$.
 	\end{enumerate}
+\end{proof}
+\begin{ejer}
+	Demuestre que si $X$ es arco-conexo y localmente arco-conexo y $\pi_1(X)$ es finito, entonces toda función $f:X\to S^1$ es homotópica a una constante.
+\end{ejer}
+\begin{proof}
+	Como $\pi_1(X)$ es finito y $f_*\pi_1(X)$ es un subgrupo de $\pi_1(S^1)\approx\Z$, y el único subgrupo finito de $\Z$ es el trivial, tenemos que $f_*\pi_1(X)\approx0$. Luego, existe un levantamiento $\tilde{f}:X\to\R$ al cubriente universal del círculo:
+	\[\begin{tikzcd}
+		&\R\arrow[d,"p"]\\
+		X\arrow[ur,dashed,"\tilde{f}"]\arrow[r,swap,"f"]&S^1
+	\end{tikzcd}\]
+	Como $X$ es arco-conexo, su imagen debe ser un intervalo, que es contraible, es decir, $\img\tilde{f}\simeq\{\tilde{x}_o\}$ vía una equivalencia homotópica $\phi:\img\tilde{f}\to\{\tilde{x}_0\}$ y $\psi:\{\tilde{x}_0\}\to\img\tilde{f}$. Desde luego, estas dos funciones no son más que la constante $\tilde{x}_0$, así que en realidad tenemos una homotopía $id_{\img\tilde{f}}\simeq\tilde{x}_0$, digamos $h:\img\tilde{f}\times I\to \img\tilde{f}$ tal que $h(x,0)=x$ y $h(x,1)=\tilde{x}_0$.
+	
+	La función $g=p\circ h\circ\tilde{f}$ es una homotopía entre $f=p\circ\tilde{f}$ y la constante $x_0=p(\tilde{x}_0)$.
 \end{proof}
 \part{Homología}
 \chapter{Álgebra Homológica}
@@ -1383,6 +1480,37 @@ Ahora sí:
 	\begin{prop}
 		Si dos funciones entre parejas $f,g:(X,A)\to(Y,B)$ son homotópicas por funciones entre parejas, entonces los mapeos inducidos $f_*$ y $g_*$ son iguales.
 	\end{prop}
+\subsection{Splitting lemma}\label{subsec:splitting}
+Tomemos el caso en que hay una retracción $r:X\to A$, es decir, $ri=id_A$ donde $i$ es la inclusión. Esto implica que $(ri)_*=r_*i_*=id_{H_n(A)}$, así que $r_*i_*$ es inyectiva, y de hecho podemos partir la sucesión exacta de la pareja en sucesiones exactas cortas de la forma
+\[\begin{tikzcd}[column sep=small]
+	0\arrow[r]&H_n(A)\arrow[r,"i_*"]&H_n(X)\arrow[r,"j_*"]&H_n(X,A)\arrow[r]&0
+\end{tikzcd}\]
+Pero hay más:
+\begin{lema}[Splitting lemma]
+	Para cualquier sucesión exacta corta de grupos abelianos
+	\begin{tikzcd}[column sep=small]
+		0\arrow[r]&A\arrow[r,"i"]&B\arrow[r,"j"]&C\arrow[r]&0
+	\end{tikzcd}
+	lo siguientes enunciados son equivalentes:
+	\begin{enumerate}
+		\item [(a)] Hay un homomorfismo $p:B\to A$ tal que $pi=id_A$.
+		\item[(b)] Hay un homomorfismo $q:C\to B$ tal que $qj=id_C$.
+		\item[(c)] Hay un isomorfismo $B\approx A\oplus B$ que hace conmutar el siguiente diagrama:
+		\[\begin{tikzcd}[column sep=small,row sep=small]
+			&&B\arrow[rd,"j"]\arrow[dd,"\approx"]\\
+			0\arrow[r]&A\arrow[ru,"i"]\arrow[rd]&&C\arrow[r]&C\\
+			&&A\oplus C\arrow[ru]
+		\end{tikzcd}\]
+		con los mapeos obvios en el último renglón, $a\mapsto(a,0)$ y $(a,c)\mapsto c$.
+	\end{enumerate}
+	En este caso decimos que la sucesión se \textbf{separa} (splits).
+\end{lema}
+\begin{obs}\leavevmode
+	\begin{itemize}
+	\item $C$ es libre (incluso si no es abeliano) si y sólo si la sucesión se separa.
+	\item Una retracción $r:X\to A$ hace que $H_n(X)\approx H_n(A)\oplus H_n(X,A)$.
+	\end{itemize}
+\end{obs}
 \subsection{La sucesión exacta de la tercia}
 	Si $Z\subseteq Y\subseteq X$ son espacios topológicos, es inmediato por definición que
 	\[C_\bullet(Z)\leq C_\bullet(Y\leq C_\bullet(X))\]
@@ -1441,7 +1569,7 @@ induce un isomorfismo
 	\end{teo}
 	\begin{teo}[Homología de la cuña]
 		Consideremos una cuña de espacios $\bigvee_{\alpha\in I}X_\alpha$ tal que $(X_\alpha,x_\alpha)$ es una buena pareja para toda $\alpha$, donde $x_\alpha$ es el punto de pegado. Entonces, las inclusiones $i_\alpha:X_\alpha\hookrightarrow\bigvee_{\alpha\in I}$ inducen un isomorfismo
-		\[\bigoplus i_{\alpha*}:\bigoplus_{\alpha\in I}\tilde{H}_n(X_\alpha)\to\tilde{H}_n(\bigvee_{\alpha\in I})\]
+		\[\bigoplus i_{\alpha*}:\bigoplus_{\alpha\in I}\tilde{H}_n(X_\alpha)\to\tilde{H}_n\left(\bigvee_{\alpha\in I}\right)\]
 	\end{teo}
 	\begin{teo}[Invarianza de la dimensión]
 		Sean $U\subseteq\R^n$ y $V\subseteq\R^m$ abiertos. Si $U$ y $V$ son homeomorfos, entonces $n=m$.
@@ -1471,7 +1599,7 @@ induce un isomorfismo
 			k:A\hookrightarrow X&\Psi(y,z)=k_*y+\ell_*z\\
 			\ell:B\hookrightarrow X
 	\end{array}\\ \\
-	[w]=[a+b]\overset{\delta}{\mapsto}[\partial(a)]=[-\partial(b)]\qquad\text{para ciertos }a\in A,b\in B
+	[w]=[a+b]\overset{\delta}{\mapsto}[\partial(a)]=[-\partial(b)]\qquad\text{para ciertas }a\in C_n(A),b\in C_n(B)
 	\end{aligned}
 	\end{equation*}
 
@@ -1658,11 +1786,29 @@ induce un isomorfismo
 		Todo complejo $CW$ es semilocalmente simplemente conexo. Es decir, todo complejo $CW$ tiene cubriente universal.
 	\end{ejer}
 	\begin{defn}
-		La función característica es $\Phi_\alpha$:
-		\[\begin{tikzcd}
-			&e^n_\alpha \ar[rd] \ar[d, hook] & X^{n-1} \sqcup D_\alpha^n \ar[d, "\text{proyección al cociente}"] \\
-			&D^n_\alpha \ar[ur,hook] \ar[r, "\Phi_\alpha"'] & X^n
-		\end{tikzcd}\]
+		Para cada $n$-celda de un complejo CW $e^n_\alpha$, tenemos la \textbf{función característica}, que es de la forma $\Phi_\alpha:D^n_\alpha\to X^n$ y está definida como una composición de acuerdo al siguiente diagrama:
+%		\[\begin{tikzcd}
+%			&e^n_\alpha \ar[rd] \ar[d, hook] & X^{n-1} \sqcup D_\alpha^n \ar[d, "\text{proyección al cociente}"] \\
+%			&D^n_\alpha \ar[ur,hook] \ar[r, "\Phi_\alpha"'] & X^n
+%		\end{tikzcd}\]
+	\[
+	\begin{tikzpicture}
+		% Nodes
+%		\node (EA) at (-2,0) {$e^n_\alpha$};
+		\node (A) at (0,0) {$D^n_\alpha\quad$};
+		\node (B) at (2.5,0) {$X^{n-1}\sqcup D^n_\alpha$};
+		\node (C) at (6,0) {$X^n$};
+		
+		% Arrows
+%		\draw[->] ([xshift=2ex,yshift=1ex] EA) arc (90:270:0.5ex)--(A);
+		\draw[->] ([xshift=2ex,yshift=1ex] A) arc (90:270:0.5ex)--(B);
+		\draw[->] (B) -- node[above] {\small{proyección}} (C);
+		
+		% Curved arrow below
+		\draw[->, bend right=17] ([xshift=7pt]A.south) to node[below] {$\Phi_\alpha$} ([xshift=-10pt]C.south);
+	\end{tikzpicture}
+	\]
+	que extiende a la función de pegado $\varphi_\alpha$ y es un homeomorfismo del interior de $D_\alpha^n$ en $e^n_\alpha$.
 	\end{defn}
 	\begin{defn}
 		Sea $X$ un complejo $CW$. Un \textbf{subcomplejo CW} $Z$ es un subespacio cerrado que además es unión de células de $X$.	
@@ -1983,19 +2129,19 @@ ed, "\varphi_{\alpha\beta}"] & X^{n-1} \arrow[d] \\
 		 donde $r=\ran(A)$ es el rango del grupo. Éste es el número que aparece en la proposición.
 	\end{prop}
 	\begin{ejer}
-		Sea $0\to A\to B\to C\to 0$ una sucesión exacta de grupos abelianos finitamente generados. Entonces $\text{ran }B=\text{ran }A+\text{ran }C$.
+		Sea $0\to A\to B\to C\to 0$ una sucesión exacta de grupos abelianos finitamente generados. Entonces $\text{ran }B=\text{ran }A+\text{ran }C$. (Ver \hyperref[subsec:splitting]{splitting lemma}).
 	\end{ejer}
 	Ahora demostremos la proposición:
 	\begin{proof}
-		Tomemos el complejo de cadenas
-		\[\begin{tikzcd}
+		Tomemos el complejo de cadenas celular
+		\[\begin{tikzcd}[column sep=small]
 			0 \arrow[r] & C_k \arrow[r, "d_k"] & C_{k-1} \arrow[r, "d_{k-1}"] & \cdots \arrow[r, "d_2"] & C_1 \arrow[r, "d_1"] & C_0 \arrow[r] & 0
 		\end{tikzcd}\]
-		y recordemos que $Z_n=\ker d_n$ y $B_n=\text{img }d_{n+1}$ y $H_n=Z_n/B_n$. Sólo por eso tenemos las sucesiones exactas
-		\begin{align*}
-			0\to Z_n\to C_n\to B_{n-1}\to 0\\
-			0\to B_n\to Z_n\to H_n\to 0
-		\end{align*}
+		y recordemos que $Z_n=\ker d_n$ y $B_n=\text{img }d_{n+1}$ y $H_n=Z_n/B_n$. Así que tenemos las sucesiones exactas cortas
+		\[\begin{tikzcd}[column sep=small,row sep=tiny]
+			0\arrow[r]&Z_n\arrow[hook,r]&C_n\arrow[r,"d_n"]&B_{n-1}\arrow[r]&0\\
+			0\arrow[r]&B_n\arrow[r,hook]&Z_n\arrow[r]&H_n\arrow[r]&0
+		\end{tikzcd}\]
 		Usando el ejercicio, tenemos que
 		\begin{align*}
 			\text{ran }C_n=\text{ran }Z_n+\text{ran }B_{n-1}\\
@@ -2006,8 +2152,9 @@ ed, "\varphi_{\alpha\beta}"] & X^{n-1} \arrow[d] \\
 			=&\sum_{i=0}^\infty(-1)^i\Big(\text{ran }B_i+\text{ran }H_i+\text{ran }B_{i-1}\Big)\\
 			=&\sum_{i=0}^\infty(-1)^i\text{ran }H_i\qquad\qquad\square
 		\end{align*}
+		Nomás checando bien qué onda con $i=0$ para $\ran B_{i-1}$.
 	\end{proof}
-	Y con eso se demuestra fácilmente el teorema.
+	Y con esta proposición se demuestra fácilmente el teorema de arriba.
 
 \chapter{Homología y homotopía}	
 \section{El homomorfismo de Hurewicz}
@@ -2099,13 +2246,18 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 	Calcule la homología de la pareja $(X,A)$ cuando $A$ es un subconjunto finito del toro $X=S^1\times S^1$.
 \end{ejer}
 \begin{proof}[Solución]
-	Como $C_n(A)\cong0$ para $n\geq1$, tenemos que $H_n(X,A)\cong H_n(X)$ para $n>1$.
+	Como $C_n(A)\approx0$ para $n\geq1$, tenemos que $H_n(X,A)\approx H_n(X)$ para $n>1$.
 	
-	Para el caso $n=0$ primero notemos que $(X,A)$ es una buena pareja tomando la unión de vecindades disjuntos alrededor de cada punto en $A$ para hacer la retracción. Luego, la homología reducida \hyperref[sec:6.4]{cumple} que
-	\[H_0(X/A)\cong\tilde{H}_0(X/A)\oplus R\]
-	Y como $X/A$ es arco-conexo, entonces $H_0(X/A)\cong R$, así que $\tilde{H}_0(X/A)\cong0$, es decir $H_0(X,A)\cong0$.
+	Para el caso $n=0$ primero notemos que $(X,A)$ es una buena pareja tomando la unión de vecindades disjuntos alrededor de cada punto en $A$ para hacer la retracción. Esto implica que $H_n(X,A)\approx \tilde{H}_n(X/A)$.  Luego, la homología reducida \hyperref[sec:6.4]{cumple} que $H_0(X/A)\approx\tilde{H}_0(X/A)\oplus R$, y como $X/A$ es arco-conexo, entonces $H_0(X,A)\approx0$.
 	
-	\textcolor{red}{¿Cómo demostramos que $H_1(X/A)\cong R^{k+1}$, donde $|A|=k$?} \href{https://math.stackexchange.com/questions/129686/finding-the-homology-group-of-h-n-x-a-when-a-is-a-finite-set-of-points}{Aquí}
+	Para encontrar el primer grupo de homología usamos la sucesión exacta de la pareja:
+	\[\begin{tikzcd}[column sep=small,row sep=tiny]
+		\cdots\arrow[r]&\tilde{H}_1(A)\arrow[r]&\tilde{H}_1(X)\arrow[r]&\tilde{H}_1(X/A)\arrow[r]&\tilde{H}_0(A)\arrow[r]&\tilde{H}_0(X)\arrow[r]&\cdots\\
+		\cdots\arrow[r]&0\arrow[r]&R\oplus R\arrow[r]&\tilde{H}_1(X/A)\arrow[r]&\bigoplus_{k-1}R\arrow[r]&0\arrow[r]&\cdots
+	\end{tikzcd}\]
+	donde $|A|=k$.
+	
+	Ahora invocamos el \hyperref[subsec:splitting]{splitting lemma}. Tenemos una sucesión exacta corta de grupos abelianos, y como el de hasta la derecha es libre, la sucesión se separa y $\tilde{H}_1(X/A)\approx (R\oplus R)\oplus\left(\bigoplus_{k-1}R\right)\approx \bigoplus_{k+1}R$.
 \end{proof}
 \begin{ejer}\label{ejer:homol-homot}Demuestre que $S^1 \times S^1$ y $S^1 \vee S^1 \vee S^2$ tienen grupos de homología (con coeficientes enteros) isomorfos pero no son homotópicamente equivalentes.
 \begin{proof}[Solución]
@@ -2156,7 +2308,7 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 	\end{tikzpicture}\]
 	Esto genera el siguiente complejo de cadenas:
 	\[\begin{tikzcd}[column sep=small]
-		0\arrow[r]&\Z^2\arrow[r,"d_2"]&\Z^2\arrow[r,"d_1"]&\Z\arrow[r,"d_1"]&0
+		0\arrow[r]&\Z^2\arrow[r,"d_2"]&\Z^2\arrow[r,"d_1"]&\Z\arrow[r]&0
 	\end{tikzcd}\]
 	Como sólo hay una 0-celda, sabemos que $d_1=0$. Sólo nos falta encontrar $d_2$. Para esto, tenemos el siguiente diagrama:
 	\[\begin{tikzcd}[column sep=small]
@@ -2302,10 +2454,35 @@ Ahora notemos que un homomorfismo de $G$ se restringe a un homomorfismo de $G'$.
 	
 	Una vez dicho esto, tenemos la sucesión exacta
 	\[\begin{tikzcd}
-		0 \arrow[r] & H_2(T^2\cap M) \arrow[r,"(i_{*2}\text{,}-j_{*2})"] & H_2(T^2)\oplus H_2(M) \arrow[r,"k_{*2}+\ell_{*2}"] & H_2(X) \arrow[r,"\delta"] & H_1(T^2\cap M)\\
-		\arrow[r]&H_1(T^2\cap M) \arrow[r,"(i_{*1}\text{,}-j_{*1})"] &H_1(T^2)\oplus H_1(M) \arrow[r,"k_{*1}+\ell_{*1}"] & H_1(X) \arrow[r,"\delta"] & H_0(T^2\cap M)&&
+		0 \arrow[r] & \tilde{H}_2(T\cap M) \arrow[r] & \tilde{H}_2(T)\oplus \tilde{H}_2(M) \arrow[r] & \tilde{H}_2(X) \arrow[r] & \tilde{H}_1(T\cap M)
 	\end{tikzcd}\]
-	*Falta*
+	\[\begin{tikzcd}
+		\arrow[r]&\tilde{H}_1(T\cap M) \arrow[r,"\Phi_1"] &\tilde{H}_1(T)\oplus \tilde{H}_1(M) \arrow[r] & \tilde{H}_1(X) \arrow[r] & \tilde{H}_0(T\cap M)&&
+	\end{tikzcd}\]
+	
+	Que, aplicando todo lo que sabemos de estos espacios, se traduce a
+	
+		\[\begin{tikzcd}
+		0 \arrow[r] & 0 \arrow[r] & \Z \arrow[r,"\Psi_2"] & \tilde{H}_2(X) \arrow[r,"\delta_2"] & \Z
+	\end{tikzcd}\]
+	\[\begin{tikzcd}
+		\arrow[r]&\Z \arrow[r,"\Phi_1"] &\Z\oplus \Z \oplus\Z \arrow[r,"\Psi_1"] & \tilde{H}_1(X) \arrow[r] & 0&&
+	\end{tikzcd}\]
+	
+%	\[\begin{tikzcd}
+%		0 \arrow[r] & H_2(T^2\cap M) \arrow[r,"(i_{*2}\text{,}-j_{*2})"] & H_2(T^2)\oplus H_2(M) \arrow[r,"k_{*2}+\ell_{*2}"] & H_2(X) \arrow[r,"\delta"] & H_1(T^2\cap M)\\
+%		\arrow[r]&H_1(T^2\cap M) \arrow[r,"(i_{*1}\text{,}-j_{*1})"] &H_1(T^2)\oplus H_1(M) \arrow[r,"k_{*1}+\ell_{*1}"] & H_1(X) \arrow[r,"\delta"] & H_0(T^2\cap M)&&
+%	\end{tikzcd}\]
+	
+	Creemos que basta con conocer la función $\Phi_1$ para encontrar el primer y segundo grupos de homología de $X$. Veamos:
+	\begin{itemize}
+		\item $\tilde{H}_2(X)/\ker\delta_2\approx\img\delta$, es decir, $\tilde{H}_2(X)/\img\Psi_2\approx\ker\Phi$. Sabemos que $\Psi_2$ es inyectiva, así que su imagen es isomorfa a $\Z$. $\tilde{H}_2(X)\Z\approx\ker\Phi_1$.
+		\item $\tilde{H}_1(X)\approx\img\Psi_1\approx\Z\oplus\Z\oplus\Z/\ker\Psi_1\approx\Z\oplus\Z\oplus\Z/\img\Phi_1$.
+	\end{itemize}
+	Ahora recordemos: dadas las inclusiones $i:T\cap M\hookrightarrow T$ y $j:T\cap M\hookrightarrow M$, $\Phi_1=(i_*,j_*)$. La intersección de $T$ y $M$ es un ecuador del toro, y el círculo frontera de la banda de Möbius. Así, la inclusión envía un generador de la intersección en: uno de los generadores del primer grupo de homología del toro; y dos veces el generador del primer grupo de homología de la banda. En símbolos:
+	\[1\overset{\Phi_1}{\mapsto}(1,0)\qquad1\overset{\Phi_1}{\mapsto}2\qquad\text{es decir,}\qquad\Phi_1(1)=(1,0,2)\]
+	Así que $\ker\Phi_1=0$ y $\img\Phi_1=\Z$, así que $\tilde{H}_2(X)\approx\Z$, $\tilde{H}_1(X)\approx\Z\oplus\Z$ y desde luego $\tilde{H}_n(X)\approx0$ para $n=0$ y $n>2$.
+	
 	\end{proof}
 	
 
