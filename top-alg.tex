@@ -435,7 +435,7 @@
 	Para formalizar el nombre de esta sección, necesitaremos: 
 	\begin{itemize}
 		\item Un espacio topológico conexo $X$
-		\item na célula $e^n$ de dimensión $n>2$, es decir, un espacio homeomorfo al $n$-disco cerrado.
+		\item Una célula $e^n$ de dimensión $n>2$, es decir, un espacio homeomorfo al $n$-disco cerrado.
 		\item Una función de pegado $f:S^{n-1}\to X$.
 		\item El espacio de adjunción $Y\cup_f e^n$.
 		\item Un punto $x_0\in\img(f)$.
@@ -451,7 +451,7 @@
 \begin{ejer}
 	Para un espacio arco-conexo $X$, muestre que $\pi_1(X)$ es abeliano si y sólo si los homomorfismos de cambio de punto base $\beta_h$ dependen sólo del punto final de $h$.
 \end{ejer}
-\begin{proof}
+\begin{proof}[Solución]
 	Para la ida, tomemos $[\gamma],[\delta]\in\pi_1(X,x_0)$. Sabemos que para cualesquiera caminos $h,g$ que terminen en $x_0$, los homomorfismos $\beta_h$ y $\beta_g$ son iguales, así que $[h\cdot \gamma\cdot\delta\cdot\bar{h}]=[g\cdot\gamma\cdot\delta\cdot\bar{g}]$. Tomemos $h=\delta$ y $g=c_{x_0}$. Luego, $\delta\cdot\gamma\cdot\delta\cdot\bar{\delta}\simeq\gamma\cdot\delta$.
 	
 	Para el regreso, tomemos $h$ y $g$ dos caminos que terminen en $x_0$, y $[\gamma]\in\pi_1(X,x_0)$. Ahora notemos que $[h\cdot\gamma\cdot\bar{h}]=[h\cdot\gamma\cdot \bar{g}\cdot g\cdot\bar{h}]=[h\cdot\gamma\cdot \bar{g}][g\cdot\bar{h}]=[\bar{g}\cdot\bar{h}][h\cdot\gamma\cdot \bar{g}]=[g\cdot\gamma\cdot \bar{g}]$
